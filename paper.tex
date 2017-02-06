@@ -278,8 +278,18 @@ matched the response seen from the Fp1 recordings, which is evident comparing th
 \caption{Power spectra for data collected from the earpiece channels during 40 Hz ASSR stimulus. Again, the spike is clearly visible though not at 40 Hz, however it 
 does match the activity measured at Fp1.}
 \end{figure}
-\subsection{{\bfseries\sffamily TODO} Classification}
-\label{sec:org717cdb9}
+
+\subsection{Classification}
+
+We analyzed the EEG signals collected during the tasks using a support vector classifier (SVC). Since past work has shown that classification tasks in EEG-based BCI are linear \underline{cite}, we used XGBoost, a popular tool for generating ensemble classifiers for logistic linear classification \underline{cite}.
+
+To produce feature vectors, we took slices of 100 raw values from each electrode (about 500ms of data), and performed an FFT to produce power spectra for each electrode during that slice. We concatenated all electrode power spectra together, and performed PCA on all concatenated vectors such that the resulting vectors described 95\% of the variance in the full power specrum data. For each task, for each participant, 100 seconds of data were collected in total across 10 trials of 10 seconds each, resulting in 200 samples per participant, per task, following preprocessing.
+
+We trained the classifier using a balanced sample of positive and negative examples, where positive examples were from the target subject and target task, and negative examples were randomly selected tasks from any subject besides the target subject.
+From this corpus of positive and negative samples, we withheld one third of data for testing. 
+The remaining training set was fed into a XGBoost's cross-validation method, which we set to iteratively tweak parameters over a maximum of fifty rounds of cross-validation to minimize classification error.
+After cross-validation, the updated classifier (with paramters applied) predicted labels on each sample in the test set, and we calculated FAR and FRR on its results.
+
 \subsection{{\bfseries\sffamily TODO} Simulating an imposter attack}
 \label{sec:orgdd6e8bd}
 \section{Results}
@@ -315,7 +325,7 @@ None of the spoofed passthoughts were accepted, resulting in a 0\% FAR.
 
 \underline{Quantitative and qualitative data, where appropriate}
 
-\section{{\bfseries\sffamily TODO} Discussion}
+\section{Discussion}
 
 Our findings demonstrate the apparent feasibility of single earpiece, achieving good results with only three electrodes and a reference, all on the left ear. FARs and FRRs are low across all subjects and tasks, with FARs overall lower than FRRs. Subjects' best-performing passthoughts typically seeing no errors in our training. Furthermore, no spoofed attacks were successful in our cursory analysis.
 
