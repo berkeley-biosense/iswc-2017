@@ -251,8 +251,6 @@ From this corpus of positive and negative samples, we withheld one third of data
 The remaining training set was fed into a XGBoost's cross-validation method, which we set to iteratively tweak parameters over a maximum of fifty rounds of cross-validation to minimize classification error.
 After cross-validation, the updated classifier (with paramters applied) predicted labels on each sample in the test set, and we calculated FAR and FRR on its results.
 
-\subsection{{\bfseries\sffamily TODO} Simulating an imposter attack}
-\label{sec:orgdd6e8bd}
 \section{Results}
 \label{sec:org6705b1d}
 \subsection{{\bfseries\sffamily TODO} Combinations of electrodes}
@@ -265,11 +263,20 @@ After cross-validation, the updated classifier (with paramters applied) predicte
 
 \underline{Our main result:}
 
-\underline{Table: FAR/FRR Between-subjects results by participant (avg. all tasks? Best task?)}
+\underline{Table: FAR/FRR Between-subjects results by participant (See comments for table)}
+% FAR	FRR	algo	features	subject	task
+% 3	0.0	0.000000	xgboost	features-pca95-all-left-ear	1	listennoise
+% 9	0.0	0.000000	xgboost	features-pca95-all-left-ear	2	breathe
+% 18	0.0	0.000000	xgboost	features-pca95-all-left-ear	3	breathe
+% 27	0.0	0.000000	xgboost	features-pca95-all-left-ear	4	breathe
+% 36	0.0	0.012658	xgboost	features-pca95-all-left-ear	5	breathe
+% 45	0.0	0.000000	xgboost	features-pca95-all-left-ear	6	breathe
+% 54	0.0	0.000000	xgboost	features-pca95-all-left-ear	7	breathe
 
 \underline{Our attempt to substantiate that we have both inherence and knowledge factors:}
 
-\underline{Table: original strategy, within-subjects, within-tasks strategy; where each of those headings is subdivided into mean FAR, mean FRR (across all subjects and tasks)}
+\underline{Table: original strategy, within-subjects, within-tasks strategy; where each of those headings is subdivided into mean FAR, mean FRR (across all subjects and tasks)} 
+
 
 \subsection{Imposter attack}
 
