@@ -5,7 +5,7 @@
 % Complaints to /dev/null.
 % This version uses the latex2e styles, not the very ancient 2.09 stuff.
 \documentclass[letterpaper,twocolumn,10pt]{article}
-\usepackage{lib/usenix,epsfig,endnotes}
+\usepackage{lib/usenix,epsfig,endnotes,tabularx}
 \begin{document}
 
 %don't want date printed
@@ -147,45 +147,6 @@ authentication scheme.
 
 \underline{Explain stuff around tasks}
 
-\begin{table}[h]
-\centering
-\begin{tabular}{ll}
-\textbf{\textbf{Task}} & \textbf{\textbf{Description}}\\
-\hline
-Breathe & Relaxed breathing with eyes closed.\\
-Breathe - Open & Relaxed breathing with eyes open.\\
-Sport & Sport-related motor imagery of participant's choice.\\
-Song & Imagining a song of participant's choice playing.\\
-Song - Open & Imagining a song with eyes open.\\
-Speech & Imagining a phrase of participant's choice being spoken.\\
-Listen & Tone \& Listening to a continuous tone.\\
-Listen - ASSR & Listening to noise modulated at 40 Hz.\\
-Face & Imagining a person's face of participant's choice.\\
-Sequence & On timed cues, imagine a face, a number, and a word.\\
-\hline
-\end{tabular}
-\caption{Set of tasks proposed for authentication with descriptions.}
-\end{table}
-
-\begin{table}[h]
-\centering
-\begin{tabular}{lllll}
-Task & External stimuli? & Knowledge factor ? & Eyes? & Imagery?\\
-\hline
-Breathe & No & No & Closed & None\\
-Breathe - open & No & No & Open & None\\
-Sport & No & Yes & Closed & Motor\\
-Song & No & Yes & Closed & Aural\\
-Song - open & No & Yes & Open & Aural\\
-Speech & No & Yes & Closed & Aural\\
-Listen - Tone & Yes & No & Closed & None\\
-Listen - ASSR & Yes & No & Closed & None\\
-Face & No & Yes & Closed & Visual\\
-Sequence & Yes & Yes & Open & Visual\\
-\hline
-\end{tabular}
-\caption{Properties of authentication tasks. We selected tasks with a variety of different properteries, but preferred tasks that did not require external stimuli, as the need to present such stimuli at authentication time could present challenges for usability, and user security.}
-\end{table}
 \subsection{Protocol}
 \label{sec:org2041857}
 Our initial participants were recruited from a nearby university and scheduled for ear molding
@@ -354,5 +315,30 @@ Future work should also attempt a closed-loop (or online) passthought system, in
 on the human side might impact authentication performance, as the human and machine co-adapt during multiple authentication attempts.
 
 \section{TODO Conclusion}
+
+\section{Endnotes}
+
+\begin{table}[h]
+\centering
+%% \begin{tabular}{llllll}
+\begin{tabularx}{\textwidth}{llllll}
+Task & Description & Stimuli? & Personal? & Eyes? & Imagery?\\
+\hline
+Breathe & Relaxed breathing with eyes closed & No & No & Closed & None\\
+Breathe - Open & Relaxed breathing with eyes open & No & No & Open & None\\
+Sport & Sport-related motor imagery & No & Yes & Closed & Motor\\
+Song & Imagining hearing a song & No & Yes & Closed & Aural\\
+Song - Open & Song task, with eyes open & No & Yes & Open & Aural\\
+Speech & Imagining a spoken phrase & No & Yes & Closed & Aural\\
+Listen \& Tone & Listening to a continuous tone & Yes & No & Closed & None\\
+Listen - ASSR & Listening to noise modulated at 40 Hz & Yes & No & Closed & None\\
+Face & Imagine a person's face & No & Yes & Closed & Visual\\
+Sequence & Imagine face, a number, and word on timed cues & Yes & Yes & Open & Visual\\
+\hline
+\end{tabularx}
+\caption{Properties of authentication tasks. We selected tasks with a variety of different properteries, but preferred tasks that did not require external stimuli, as the need to present such stimuli at authentication time could present challenges for usability, and user security.}
+\label{tab:addlabel}%
+\end{table}
+
 
 \end{document}
