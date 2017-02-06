@@ -1,14 +1,43 @@
- #+TITLE: 1-Step, 3-Factor Authentication with Custom-Fit, In-Ear EEG
+% Created 2017-02-05 Sun 21:39
+% Intended LaTeX compiler: pdflatex
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\author{ffff}
+\date{\today}
+\title{1-Step, 3-Factor Authentication with Custom-Fit, In-Ear EEG}
+\hypersetup{
+ pdfauthor={ffff},
+ pdftitle={1-Step, 3-Factor Authentication with Custom-Fit, In-Ear EEG},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 25.1.1 (Org mode 9.0.4)}, 
+ pdflang={English}}
+\begin{document}
 
-#+BEGIN_ABSTRACT
-In this paper, we present a system that provides 3-factors of authentication (knowledge, posession and inherence) in a single step, using brain-based authentication via a custom-fit, in-ear EEG. Across all subjects, we achieve a best-case _XX% false acceptance, XX% false rejection_ rate with data from only one earpiece. In a preliminary test of an ``imposter'' spoof attack, we find a 0% false acceptance rate. _Conclusions and relevance_.
-#+END_ABSTRACT
+\maketitle
+\begin{abstract}
+In this paper, we present a system that provides 3-factors of authentication (knowledge, posession and inherence) in a single step, using brain-based authentication via a custom-fit, in-ear EEG. Across all subjects, we achieve a best-case false acceptance, XX% false rejection rate with data from only one earpiece. In a preliminary test of an ``imposter'' spoof attack, we find a 0% false acceptance rate. _Conclusions and relevance_.
+\end{abstract}
 
-* Introduction
+\section{Introduction}
+\label{sec:org7196b99}
 
 It is well appreciated by experts and end-users alike that strong authentication is
 critical to cybersecurity and privacy, now and into the future. Unfortunately,
-news reports of celebrity account hackings serve as regular reminders that
+news 
+reports of celebrity account hackings serve as regular reminders that
 the currently dominant method of authentication in consumer applications, 
 single-factor authentication using passwords or other user-chosen secrets, 
 is faced by many challenges. Major industry players such as Google and
@@ -52,18 +81,19 @@ ATM cards and wearable hardware tokens. Furthermore, because the earpieces
 are custom-fitted to each individual, they will likely not be able to produce good
 electrical impedances when worn by a different individual.
 
-* Related work
+\section{Related work}
+\label{sec:org3732d7c}
 
 The use of EEG as a biometric signal for user authentication has a short history.
 In 2005, Thorpe et al. motivate and outline the design of a passthoughts system,
 where, rather than typing a password, users authenticate 
 by thinking of a passthought. Since 2002, a number of independent groups have achieved 99-
-100\% authentication accuracy using multi-channel sensors placed on the scalp. In 2013, one group showed that 99\% authentication accuracy can also be
+100$\backslash$% authentication accuracy using multi-channel sensors placed on the scalp. In 2013, one group showed that 99$\backslash$% authentication accuracy can also be
 achieved using a consumer-grade single-channel sensor. In particular, the
 lack of signal diversity from multiple EEG channels can be overcome by allowing
 the users to choose their own personalized passthoughts (e.g., sing their favorite
 song in their head). There are two significant consequences of this result. First,
-the passthoughts approach is no longer constrained by the high cost (\textasciitilde{}\$10k’s)
+the passthoughts approach is no longer constrained by the high cost (> \$10,000 USD)
 and low usability (gel-based electrodes; aesthetic challenges of an EEG cap) of
 medical-grade multi-channel devices. Second, because users can choose and
 easily change their secret mental task, this approach can support one-step two-
@@ -71,8 +101,11 @@ factor authentication via the simultaneous presentation of the inherence factor
 (brainwave signatures due to the unique folding structures of the cortex) and the
 knowledge factor (the secret mental task).
 
-#+caption: Pair of custom-fit earpieces with 3 embedded electrodes each located at the helix and front-facing and back-facing within the ear canal.
-[[./figures/2EEEG.jpg]]
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=.9\linewidth]{./figures/2EEEG.jpg}
+\caption{Pair of custom-fit earpieces with 3 embedded electrodes each located at the helix and front-facing and back-facing within the ear canal.}
+\end{figure}
 
 Research in in-ear EEG is only several years old. Nonetheless, the concept has
 attracted a lot of attention because of the discreetness factor of in-ear EEG over
@@ -84,7 +117,7 @@ group demonstrated its ability to produce signal-to-noise ratios comparable to
 those from conventional EEG electrode placements, robustness to common
 sources of artifacts, and use in a brain-computer interface (BCI) system based on
 auditory evoked potentials and visual evoked potentials.
-_Citation to our pst work_ 
+\uline{Citation to our pst work} 
 was the first to merge these two streams of work, using in-ear EEG signals for
 user authentication with a consumer-grade device. United Sciences is currently
 developing a consumer hearable called The Aware that will measure EEG from the ear.
@@ -97,12 +130,16 @@ factor (cardiac rhythm that is supposed to be unique to each individual) and the
 possession factor (the wearing of the band on the wrist). However, as far as we
 know, no one has proposed or demonstrated a one-step three-factor
 authentication scheme.
-* Methods
-** TODO Manufacturing, materials
-** Subjects
-** TODO Tasks
+\section{Methods}
+\label{sec:org63d105c}
+\subsection{{\bfseries\sffamily TODO} Manufacturing, materials}
+\label{sec:orgb483219}
+\subsection{Subjects}
+\label{sec:orgaf30da9}
+\subsection{{\bfseries\sffamily TODO} Tasks}
+\label{sec:org86eea32}
 
-_Explain stuff around tasks_
+\uline{Explain stuff around tasks}
 
 \begin{table}[h]
 \centering
@@ -143,7 +180,8 @@ Sequence & Yes & Yes & Open & Visual\\
 \end{tabular}
 \caption{Properties of authentication tasks. We selected tasks with a variety of different properteries, but preferred tasks that did not require external stimuli, as the need to present such stimuli at authentication time could present challenges for usability, and user security.}
 \end{table}
-** Protocol
+\subsection{Protocol}
+\label{sec:org2041857}
 Our initial participants were recruited from a nearby university and scheduled for ear molding
 and impedance checking sessions. Finally, the data collection visit was scheduled and took
 approximately 90 minutes for set up and experiment execution. The OpenBCI system we used
@@ -164,8 +202,10 @@ each was completed again for another five trials. Each trial was 10 seconds in l
 the experiment was advanced using a pointer held in the participant's lap to minimize motion artifacts in the data.  
 The experimenter also recorded the participant's chosen secrets for the sport, song, face, speech, and sequence
  tasks and reminded the participant of these for the second set of trials.
-* Analysis
-** Validating the data
+\section{Analysis}
+\label{sec:org6c1a839}
+\subsection{Validating the data}
+\label{sec:org800f2bd}
 
 In this section, we establish that the data we collected were EEG signals with relatively low noise. 
 Using the pilot data from two participants, we were able to confirm the custom-fit earpieces are able to collect EEG
@@ -233,81 +273,72 @@ matched the response seen from the Fp1 recordings, which is evident comparing th
 \caption{Power spectra for data collected from the earpiece channels during 40 Hz ASSR stimulus. Again, the spike is clearly visible though not at 40 Hz, however it 
 does match the activity measured at Fp1.}
 \end{figure}
-** TODO Classification
-** TODO Simulating an imposter attack
-* Results
-** TODO Combinations of electrodes
+\subsection{{\bfseries\sffamily TODO} Classification}
+\label{sec:org717cdb9}
+\subsection{{\bfseries\sffamily TODO} Simulating an imposter attack}
+\label{sec:orgdd6e8bd}
+\section{Results}
+\label{sec:org6705b1d}
+\subsection{{\bfseries\sffamily TODO} Combinations of electrodes}
+\label{sec:org21b14ae}
 
-_Figure: Plot of FAR/FRR by electrode combination, XGBoost and LinearSVC_.
+\uline{Figure: Plot of FAR/FRR by electrode combination, XGBoost and LinearSVC}.
 
-** TODO Left-ear authentication
+\subsection{{\bfseries\sffamily TODO} Left-ear authentication}
+\label{sec:org82cbcf4}
 
-_Our main result:_
+\uline{Our main result:}
 
-_Table: FAR/FRR Between-subjects results by participant (avg. all tasks? Best task?)_
+\uline{Table: FAR/FRR Between-subjects results by participant (avg. all tasks? Best task?)}
 
-_Our attempt to substantiate that we have both inherence and knowledge factors:_
+\uline{Our attempt to substantiate that we have both inherence and knowledge factors:}
 
-_Table: original strategy, within-subjects, within-tasks strategy; where each of those headings is subdivided into mean FAR, mean FRR (across all subjects and tasks)_
+\uline{Table: original strategy, within-subjects, within-tasks strategy; where each of those headings is subdivided into mean FAR, mean FRR (across all subjects and tasks)}
 
-** TODO Imposter attack
+\subsection{{\bfseries\sffamily TODO} Imposter attack}
+\label{sec:orgac58a1b}
 
-** TODO Usability
+\subsection{{\bfseries\sffamily TODO} Usability}
+\label{sec:org18d5968}
 
-_Quantitative and qualitative data, where appropriate_
+\uline{Quantitative and qualitative data, where appropriate}
 
-* TODO Discussion
+\section{{\bfseries\sffamily TODO} Discussion}
+\label{sec:orgcd35710}
 
-1. Apparent feasibility of single earpiece
+\begin{enumerate}
+\item Apparent feasibility of single earpiece
 
-2. Balancing between FAR & FRR, improvements over previous work
+\item Balancing between FAR \& FRR, improvements over previous work
 
-3. Notable patterns: best task breathe across participants; each feature vector represents very little time (500ms)
+\item Notable patterns: best task breathe across participants; each feature vector represents very little time (500ms)
 
-4. Counter to expectations: referencing same side appears to be an improvement vs. across the head; use of conductive gel resulting in ability to achieve good impedances on others’ earpieces; FP1 not performing as well as expected.
+\item Counter to expectations: referencing same side appears to be an improvement vs. across the head; use of conductive gel resulting in ability to achieve good impedances on others’ earpieces; FP1 not performing as well as expected.
+\end{enumerate}
 
-* TODO Conclusion & Future Work:
+\section{{\bfseries\sffamily TODO} Conclusion \& Future Work:}
+\label{sec:org29a90c8}
 
-- How will this system change with more users? How will this system change with more diverse data?
-  - EEG stability
-  - Also breakdown/malfunction
-  - Address with? Ambulatory settings, Exercise, alcohol, caffeine, etc.
-- How “hackable” is a passthought?
-  - Point from NSPW draft
-  - Address with? Statistical analysis & hacking existing classifiers
-- UX improvements/innovations?
-  - Dry electrodes?
-  - Closed-loop system?
- 
+\begin{itemize}
+\item How will this system change with more users? How will this system change with more diverse data?
+\begin{itemize}
+\item EEG stability
+\item Also breakdown/malfunction
+\item Address with? Ambulatory settings, Exercise, alcohol, caffeine, etc.
+\end{itemize}
+\item How “hackable” is a passthought?
+\begin{itemize}
+\item Point from NSPW draft
+\item Address with? Statistical analysis \& hacking existing classifiers
+\end{itemize}
+\item UX improvements/innovations?
+\begin{itemize}
+\item Dry electrodes?
+\item Closed-loop system?
+\end{itemize}
+\end{itemize}
+
 Closed-loop BCI system could help us understand how learning effects
 on the human side might impact authentication performance, as the human and machine
 co-adapt during multiple authentication attempts.
-
-* TODO
-** DONE Copy outline
-CLOSED: [2017-02-05 Sun 20:59]
-** DONE Copy relevant copy
-CLOSED: [2017-02-05 Sun 20:59]
-** DONE Clean through citations + sanity check
-CLOSED: [2017-02-05 Sun 21:04]
-** Figures to org-style
-** Get with USENIX style
-** Email
-
-I did the mechanical, but eventually necessary work of turning Max's outline into a latex document.
-
-here is the repository:
-
-https://github.com/elsehow/usenix-17
-
-I'm sure there are dumb errors; just fix em where you find em and commit.
-
-- no citations yet
-- bits yet to be done are underlined
-
-tomorrow, I will try to
-
-- get us into USENIX's latex style
-- put in figures for Results sections
-  - and whatever copy is easy/mechanical
-- take a crack at a conclusion & future work draft
+\end{document}
