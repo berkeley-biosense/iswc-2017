@@ -35,7 +35,7 @@ Second Institution
 
 
 \subsection*{Abstract}
-In this paper, we present a system that provides 3-factors of authentication (knowledge, posession and inherence) in a single step, using brain-based authentication via a custom-fit, in-ear EEG. Across all subjects, we achieve a best-case XX\% false acceptance, XX\% false rejection rate with data from only one earpiece. In a preliminary test of an ``imposter'' spoof attack, we find a 0\% false acceptance rate. \underline{Conclusions and relevance}.
+In this paper, we present a system that provides 3-factors of authentication (knowledge, posession and inherence) in a single step, using brain-based authentication via a custom-fit, in-ear EEG. Across all subjects, we achieve a best-case XX\% false acceptance, XX\% false rejection rate with data from only one earpiece. In a preliminary test of an ``imposter'' spoofing attack, we find a 0\% false acceptance rate. \underline{Conclusions and relevance}.
 
 \section{Introduction}
 \label{sec:org7196b99}
@@ -235,7 +235,6 @@ channel the less "real" signal is being subtracted from the active channel. This
 real-world deployment of this authentication method however, as it will likely require pieces worn on or around both ears to properly 
 function, and not just one. The figures below show the alpha attenuation in the left and right ear channels, as well as Fp1.
 
-
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.5\textwidth]{figures/001_AlphaAtt_Fp1.jpg}
@@ -301,8 +300,15 @@ does match the activity measured at Fp1.}
 
 \underline{Table: original strategy, within-subjects, within-tasks strategy; where each of those headings is subdivided into mean FAR, mean FRR (across all subjects and tasks)}
 
-\subsection{{\bfseries\sffamily TODO} Imposter attack}
-\label{sec:orgac58a1b}
+\subsection{Imposter attack}
+
+While our left-ear results establish that passthoughts achieve low FAR and FRR when tested against other subjects' passthoughts, we do not know how robust passthoughts are against a spoofing attack, in which both a subject's custom-fit electrode, and details of that subject's chosen passthought, are leaked. 
+
+To explore this scenario, we chose one subject (subject 6), and referred to their report of chosen passsthoughts. We recorded spoofed passthoughts for two ``imposter'' subjects. One subject appeared in our initial pool performing their own passthoughts (subject 2), while the other subject did not appear in the initial pool, and thus was not included when training subject classifiers. (How well the imposters were able to spoof subject 6's passthought is an open question; see Discussion).
+
+For each task, we ran the spoofed version of the task through the classifier trained on subject 6's task as the passthought.
+None of the spoofed passthoughts were accepted, resulting in a 0\% FAR.
+
 
 \subsection{{\bfseries\sffamily TODO} Usability}
 \label{sec:org18d5968}
@@ -320,6 +326,8 @@ does match the activity measured at Fp1.}
 \item Notable patterns: best task breathe across participants; each feature vector represents very little time (500ms)
 
 \item Counter to expectations: referencing same side appears to be an improvement vs. across the head; use of conductive gel resulting in ability to achieve good impedances on others’ earpieces; FP1 not performing as well as expected.
+
+\item Really saw inherence factor at work in imposter attack. What part of the song? How do you imagine the face? etc
 \end{enumerate}
 
 \section{Future Work}
