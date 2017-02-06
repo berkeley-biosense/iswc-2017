@@ -316,19 +316,15 @@ None of the spoofed passthoughts were accepted, resulting in a 0\% FAR.
 \underline{Quantitative and qualitative data, where appropriate}
 
 \section{{\bfseries\sffamily TODO} Discussion}
-\label{sec:orgcd35710}
 
-\begin{enumerate}
-\item Apparent feasibility of single earpiece
+Our findings demonstrate the apparent feasibility of single earpiece, achieving good results with only three electrodes and a reference, all on the left ear. FARs and FRRs are low across all subjects and tasks, with FARs overall lower than FRRs. Subjects' best-performing passthoughts typically seeing no errors in our training. Furthermore, no spoofed attacks were successful in our cursory analysis.
 
-\item Balancing between FAR \& FRR, improvements over previous work
+The powerful interactions between inherence and knowledge emerged in our spoofing attack. Although our target subject documented their chosen passthought, the spoofers found ambiguity in how these passthoughts could be expressed. For the face task, the spoofers did not know the friend the original subject had chosen. For the song tasks, though the song was known, the spoofers did not know what part of the song the original subject had imagined, or how it was imagined (humming, imagining a full performance, melody, vocals, etc). This experience sheds light on the highly individual nature of passthoughts, and provides a positive indication that there may be some intrinsic difficulty ofr spoofing passthoughts.
 
-\item Notable patterns: best task breathe across participants; each feature vector represents very little time (500ms)
+In our analysis, some notable patterns emerged. First, \textit{breathe} tended to be the best-performing task among participants. Classifiers overall distinguished the breath task even compared to breath tasks from other subjects, implying that the task is expressed differently for each subject, i.e. that this task has an inherence factor sufficient for authentication, even though the task does not have a knowledge factor. Second, we were able to achieve good results by generating feature vectors based on only 500ms (300 voltage readings across the three electrodes). This short timespan is somewhat surprising, given that some tasks (like songs) presumably rely on changes or patterns over a longer period of time. 
 
-\item Counter to expectations: referencing same side appears to be an improvement vs. across the head; use of conductive gel resulting in ability to achieve good impedances on others’ earpieces; FP1 not performing as well as expected.
+Counter to our expectations, we found that referencing on the same side as the electrodes improves classification accuracy, compared to referencing on the other side of the head, as is commonly done in EEG. \underline{Theory as to why?} Furthermore, the use of conductive gel results in decent results (low impedances) on other subjects' custom-fit earpieces. This is somewhat surprising, since ear canals are believed to be more unique than fingerprints \underline{cite}. Finally, performance on FP1 was not as high as performance in the ear, despite FP1's popularity in past work on passthoughts \underline{cite}. This could be explained by the greater number of electrodes in the ear (compared to just one on FP1). Another explanation might be in the neural activity required to perform the tasks we chose. Future work might shed light on this issue.
 
-\item Really saw inherence factor at work in imposter attack. What part of the song? How do you imagine the face? etc
-\end{enumerate}
 
 \section{Future Work}
 
