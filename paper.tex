@@ -322,29 +322,23 @@ does match the activity measured at Fp1.}
 \item Counter to expectations: referencing same side appears to be an improvement vs. across the head; use of conductive gel resulting in ability to achieve good impedances on others’ earpieces; FP1 not performing as well as expected.
 \end{enumerate}
 
-\section{{\bfseries\sffamily TODO} Conclusion \& Future Work:}
-\label{sec:org29a90c8}
+\section{Future Work}
 
-\begin{itemize}
-\item How will this system change with more users? How will this system change with more diverse data?
-\begin{itemize}
-\item EEG stability
-\item Also breakdown/malfunction
-\item Address with? Ambulatory settings, Exercise, alcohol, caffeine, etc.
-\end{itemize}
-\item How “hackable” is a passthought?
-\begin{itemize}
-\item Point from NSPW draft
-\item Address with? Statistical analysis \& hacking existing classifiers
-\end{itemize}
-\item UX improvements/innovations?
-\begin{itemize}
-\item Dry electrodes?
-\item Closed-loop system?
-\end{itemize}
-\end{itemize}
+One primary question surrounds how our passthought system performance will change with a greater number of users, and with more diverse data. Our system specifically trains on negative examples of non-users; we do not yet know how this approach will scale. At the same time, we must investigate the stability of EEG readings for a passthought are over time. We must also collect EEG data from the variety of different user states: ambulatory settings, during physical exertion or exercise, under the influence of caffeine or alcohol, etc.
 
-Closed-loop BCI system could help us understand how learning effects
-on the human side might impact authentication performance, as the human and machine
-co-adapt during multiple authentication attempts.
+% We provide cursory evidence that passthoughts are difficult to spoof, though further work should expand on ours with more subjects.
+Another important question surrounds how passthoughts might be cracked.
+Generally, we do not understand how an individual's passthought is drawn from the general distribution of EEG signals that an individual produces throughout the day.
+Given a large enough corpus of EEG data, are some passthoughts as easy to guess as \textit{password1234} is for passwords?
+Future work should perform statistical analysis on passthoughts, such as clustering (perhaps with t-SNE) to better understand the space of possible passthoughts.
+This work will allow us simulate cracking attempts, and to develop empirically motivated strategies for prevention, e.g. locking users out after a certain number of attempts.
+This work could also reveal interesting tradeoffs between the usability and accuracy of certain passthoughts with their security properties.
+
+Finally, our work leaves room for some clear UX improvements.
+Future work should try using dry electrodes, commonly found in consumer EEG devices, for comfort and usability.
+Future work should also attempt a closed-loop (or online) passthought system, in which users receive immediate feedback on the result of their authentication attempt. A closed-loop BCI system could help us understand how learning effects
+on the human side might impact authentication performance, as the human and machine co-adapt during multiple authentication attempts.
+
+\section{TODO Conclusion}
+
 \end{document}
