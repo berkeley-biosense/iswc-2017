@@ -258,24 +258,87 @@ After cross-validation, the updated classifier (with paramters applied) predicte
 
 \underline{Figure: Plot of FAR/FRR by electrode combination, XGBoost and LinearSVC}.
 
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=.9\linewidth]{./figures/mean-far-by-electrode-config.png}
+\caption{FAR and FRR by electrode configuration. All electrodes combined achieves a perfect score. We achieve the next best scores using data from the left ear only.}
+\end{figure}
+
+
+% Include FRR here? (downisdes: FRR is way bigger, can't see FAR). Include LinearSVC here? (downsides: SVC FAR is way bigger, can't see FAR)
+
 \subsection{{\bfseries\sffamily TODO} Left-ear authentication}
 \label{sec:org82cbcf4}
 
 \underline{Our main result:}
 
-\underline{Table: FAR/FRR Between-subjects results by participant (See comments for table)}
-% FAR	FRR	algo	features	subject	task
-% 3	0.0	0.000000	xgboost	features-pca95-all-left-ear	1	listennoise
-% 9	0.0	0.000000	xgboost	features-pca95-all-left-ear	2	breathe
-% 18	0.0	0.000000	xgboost	features-pca95-all-left-ear	3	breathe
-% 27	0.0	0.000000	xgboost	features-pca95-all-left-ear	4	breathe
-% 36	0.0	0.012658	xgboost	features-pca95-all-left-ear	5	breathe
-% 45	0.0	0.000000	xgboost	features-pca95-all-left-ear	6	breathe
-% 54	0.0	0.000000	xgboost	features-pca95-all-left-ear	7	breathe
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{rrrl}
+FAR & FRR & subject & task\\
+\hline
+0.0 & 0.0 & 1 & listennoise\\
+0.0 & 0.0 & 2 & breathe\\
+0.0 & 0.0 & 3 & breathe\\
+0.0 & 0.0 & 4 & breathe\\
+0.0 & 0.012 & 5 & breathe\\
+0.0 & 0.0 & 6 & breathe\\
+0.0 & 0.0 & 7 & breathe\\
+\end{tabular}
+\end{center}
+\caption{Best-case passthought FAR and FRR results by participant using data from the left ear.}
+\end{table}
 
-\underline{Our attempt to substantiate that we have both inherence and knowledge factors:}
+\underline{Our attempt to substantiate that we have both inherence and knowledge factors...}
 
-\underline{Table: original strategy, within-subjects, within-tasks strategy; where each of those headings is subdivided into mean FAR, mean FRR (across all subjects and tasks)} 
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{lrrr}
+ & Original & Within-tasks & Within-subjects\\
+\hline
+FAR & 0.000074 & 0.000724 & 0.00252\\
+FRR & 0.00442 & 0.001522 & 0.0397\\
+\end{tabular}
+\end{center}
+\caption{Mean FAR and FRR for all subjects and pssthoughts across three different training strategies.}
+\end{table}
+
+\underline{compared to within-tasks training, this original strategy gives us a higher FRR, but an FAR that's an order of magnitude lower. Put takeaways more clearly in the caption.}
+
+
+% 1. Within-tasks performance
+% 
+% number of tasks with # far < 0.0001 AND frr < 0.01?
+%            
+% subject                                
+% 001        5
+% 002        6
+% 003        6
+% 004        9
+% 005        6
+% 006        9
+% 007        4
+% 
+% 2. Within-subjects performance
+ 
+% number of tasks with # far < 0.0001 AND frr < 0.01?
+% 
+% subject                                
+% 001        1
+% 002        1
+% 003        6
+% 004        3
+% 005        1
+% 006        3
+% 007        5
+%
+% 3. Original for comparison
+%
+% here is the original training (right-subject, right-task vs. wrong-subject, any-task) FAR/FRR:
+% 
+% FAR  0.000074	
+% FRR  0.004420
+% 
 
 
 \subsection{Imposter attack}
