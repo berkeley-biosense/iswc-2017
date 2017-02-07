@@ -14,7 +14,7 @@
 %make title bold and 14 pt font (Latex default is non-bold, 16 pt)
 \title{\Large \bf 3-Step, 1-Factor Authentication With Custom-Fit, In-Ear EEG}
 
-%for single author (just remove % characters)
+%forsupose single author (just remove % characters)
 \author{
 {\rm Your N.\ Here}\\
 Your Institution
@@ -253,24 +253,30 @@ After cross-validation, the updated classifier (with paramters applied) predicte
 
 \section{Results}
 \label{sec:org6705b1d}
-\subsection{{\bfseries\sffamily TODO} Combinations of electrodes}
+\subsection{Combinations of electrodes}
 \label{sec:org21b14ae}
 
-\underline{Figure: Plot of FAR/FRR by electrode combination, XGBoost and LinearSVC}.
+For each configuration of electrodes, we calculated the mean FAR and FRR across all subjects using each task as the passthought (Figure \ref{fig:meanByElectrode}).
+Incorporating all electrodes data results in a perfect score for all tasks.
+Using data from all left-ear electrodes achieves the next lowest FAR, followed by all right ear electrodes.
+Interestingly, no single electrode from the left or right ear performs as well as the aggregate left and right ear conditions. 
+Counter to our expectations, FP1 does not perform as well as most ear electrodes.
+
+Our results indicate acceptable accuracy using electrodes on the left ear alone. 
+This corresponds to our original scenario, in which the device could be worn as an earbud.
+As such, we focus on results from the left ear alone in our following analysis.
 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=.9\linewidth]{./figures/mean-far-by-electrode-config.png}
-\caption{FAR and FRR by electrode configuration. All electrodes combined achieves a perfect score. We achieve the next best scores using data from the left ear only.}
+\caption{FAR by electrode configuration. All electrodes combined achieves a perfect score. We achieve the next best scores using data from the left ear only.}
+\label{fig:meanByElectrode}
 \end{figure}
 
 
-% Include FRR here? (downisdes: FRR is way bigger, can't see FAR). Include LinearSVC here? (downsides: SVC FAR is way bigger, can't see FAR)
+\subsection{Authentication results in the left-ear}
 
-\subsection{{\bfseries\sffamily TODO} Left-ear authentication}
-\label{sec:org82cbcf4}
-
-\underline{Our main result:}
+In the previous section, we trained and tested a passthought classifier with each task as the passthought, for all subjects. Focusing on the left ear, we filter our results for the best-performing tasks. We rank tasks by lowest FAR and, given a tie, the lowest FRR (Table \ref{tab:best}).
 
 \begin{table}[h]
 \begin{center}
@@ -287,9 +293,13 @@ FAR & FRR & subject & task\\
 \end{tabular}
 \end{center}
 \caption{Best-case passthought FAR and FRR results by participant using data from the left ear.}
+\label{tab:best}
 \end{table}
 
-\underline{Our attempt to substantiate that we have both inherence and knowledge factors...}
+Breathe appeared as the best task across all participants. Given our training strategy, these results indicate that a given person's breathe task is distinguishable not only among other tasks, but among breathe tasks from other subjects.
+All best-performing tasks in our set achieved perfect FAR and FRRs, with the exception of subject 5, whose best-performing task (breathe) had a nonzero FRR.
+
+These results establish good performance in our original training strategy, in which we count as negative examples recordings from the wrong subject performing any task. For comparison, we try two additional training strategies: one in which negative examples are the correct task recorded from the wrong subject (within-tasks), and one in which negative examples are the incorrect task recorded from the correct subject (within-subjects).
 
 \begin{table}[h]
 \begin{center}
@@ -301,45 +311,11 @@ FRR & 0.00442 & 0.001522 & 0.0397\\
 \end{tabular}
 \end{center}
 \caption{Mean FAR and FRR for all subjects and pssthoughts across three different training strategies.}
+\label{tab:compare}
 \end{table}
 
-\underline{compared to within-tasks training, this original strategy gives us a higher FRR, but an FAR that's an order of magnitude lower. Put takeaways more clearly in the caption.}
-
-
-% 1. Within-tasks performance
-% 
-% number of tasks with # far < 0.0001 AND frr < 0.01?
-%            
-% subject                                
-% 001        5
-% 002        6
-% 003        6
-% 004        9
-% 005        6
-% 006        9
-% 007        4
-% 
-% 2. Within-subjects performance
- 
-% number of tasks with # far < 0.0001 AND frr < 0.01?
-% 
-% subject                                
-% 001        1
-% 002        1
-% 003        6
-% 004        3
-% 005        1
-% 006        3
-% 007        5
-%
-% 3. Original for comparison
-%
-% here is the original training (right-subject, right-task vs. wrong-subject, any-task) FAR/FRR:
-% 
-% FAR  0.000074	
-% FRR  0.004420
-% 
-
+Overall, our original training strategy achieves the lowest FAR (Table \ref{tab:compare}). Within-tasks FAR ten times higher, and within-subjects FAR is one hundred times higher.
+However, FRR is \textit{lower} in the within-tasks training strategy than in our original strategy's FRR. Within-subjects again results in the highest FRR.
 
 \subsection{Imposter attack}
 
