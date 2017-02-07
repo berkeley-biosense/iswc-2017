@@ -1,0 +1,8 @@
+#!/bin/bash
+
+pdflatex paper
+bibtex paper
+pdflatex paper
+pdflatex paper
+
+rm *.log *.dvi *.aux *.out *.bbl *.blg

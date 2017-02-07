@@ -35,7 +35,7 @@ Second Institution
 
 
 \subsection*{Abstract}
-In this paper, we present a system that provides 3-factors of authentication (knowledge, posession and inherence) in a single step, using brain-based authentication via a custom-fit, in-ear EEG. Across all subjects, we achieve a mean 0\% false acceptance and 0.12X\% false rejection rate with data from only one earpiece. In a preliminary test of an ``imposter'' spoofing attack, we find a 0\% false acceptance rate. Our results indicate that in-ear EEG could provide a discrete, convenient, multifactor authentication.
+In this paper, we present a system that provides 3-factors of authentication (knowledge, posession and inherence) in a single step, using brain-based authentication via a custom-fit, in-ear EEG. Across all subjects, we achieve a mean 0\% false acceptance and 0.12\% false rejection rate with data from only one earpiece. In a preliminary test of an ``imposter'' spoofing attack, we find a 0\% false acceptance rate. Our results indicate that in-ear EEG could provide a discrete, convenient, multifactor authentication.
 
 \section{Introduction}
 \label{sec:org7196b99}
@@ -64,9 +64,9 @@ By employing consumer-grade EEG (electroencephalogram) sensing
 technologies, it was demonstrated in a 2013 passthoughts study that a user can
 submit both a knowledge factor (i.e., secret thought) and an inherence factor
 (i.e., brainwave signal unique to the individual) in a single step by performing a
-single mental task. Additionally, the robustness of this method against
+single mental task \cite{Chuang2014}. Additionally, the robustness of this method against
 impersonation attacks was demonstrated, including conditions where the attacker
-may have learned the target’s secret thought and/or secret task.
+may have learned the target’s secret thought and/or secret task \cite{Johnson2014}.
 
 In the present proposal, we will undertake, to the best of our knowledge, the first
 ever study of one-step three-factor authentication. In computer security,
@@ -88,24 +88,26 @@ are custom-fitted to each individual, they will likely not be able to produce go
 electrical impedances when worn by a different individual.
 
 \section{Related work}
-\label{sec:org3732d7c}
 
+\subsection{Passthought authentication}
 The use of EEG as a biometric signal for user authentication has a short history.
 In 2005, Thorpe et al. motivate and outline the design of a passthoughts system,
 where, rather than typing a password, users authenticate 
-by thinking of a passthought. Since 2002, a number of independent groups have achieved 99-
-100\% authentication accuracy using multi-channel sensors placed on the scalp. In 2013, one group showed that 99\% authentication accuracy can also be
-achieved using a consumer-grade single-channel sensor. In particular, the
+by thinking of a passthought \cite{Thorpe2005}.
+Since 2002, a number of independent groups have achieved 99-
+100\% authentication accuracy using multi-channel sensors placed on the scalp \cite{Poulos2002,Marcel2007a,Palaniappan2008,Ashby2011}.
+In 2013, one group showed that 99\% authentication accuracy can also be
+achieved using a consumer-grade single-channel sensor \cite{Chuang2013b}. In particular, the
 lack of signal diversity from multiple EEG channels can be overcome by allowing
 the users to choose their own personalized passthoughts (e.g., sing their favorite
 song in their head). There are two significant consequences of this result. First,
-the passthoughts approach is no longer constrained by the high cost (\> \$10,000 USD)
+the passthoughts approach is no longer constrained by the high cost (\textgreater \$10,000 USD)
 and low usability (gel-based electrodes; aesthetic challenges of an EEG cap) of
 medical-grade multi-channel devices. Second, because users can choose and
 easily change their secret mental task, this approach can support one-step two-
 factor authentication via the simultaneous presentation of the inherence factor
 (brainwave signatures due to the unique folding structures of the cortex) and the
-knowledge factor (the secret mental task).
+knowledge factor (the secret mental task) \cite{Chuang2014}.
 
 \begin{figure}[htbp]
 \centering
@@ -113,30 +115,36 @@ knowledge factor (the secret mental task).
 \caption{Pair of custom-fit earpieces with 3 embedded electrodes each located at the helix and front-facing and back-facing within the ear canal.}
 \end{figure}
 
+\subsection{In-Ear EEG}
 Research in in-ear EEG is only several years old. Nonetheless, the concept has
 attracted a lot of attention because of the discreetness factor of in-ear EEG over
 traditional scalp-based EEG. A research team at the Imperial College London
 and Aarhus University published a landmark paper in 2011 that introduced the
 concept of in-ear EEG, demonstrating for the first time the feasibility of recording
-brainwave signals from within the ear canal. Follow-up work from the same
+brainwave signals from within the ear canal
+\cite{Looney2011}.
+Follow-up work from the same
 group demonstrated its ability to produce signal-to-noise ratios comparable to
 those from conventional EEG electrode placements, robustness to common
 sources of artifacts, and use in a brain-computer interface (BCI) system based on
-auditory evoked potentials and visual evoked potentials.
+auditory evoked potentials and visual evoked potentials
+\cite{Looney2012a,Kidmose2013a,Kidmose2013b}.
+United Sciences is currently developing a consumer ``hearable'' (in-ear wearable) called The Aware, which will measure EEG from the ear, among other biometrics \cite{UnitedSciences}.
 
-\underline{Citation to our past work} 
-was the first to merge these two streams of work, using in-ear EEG signals for
-user authentication with a consumer-grade device. United Sciences is currently
-developing a consumer hearable called The Aware that will measure EEG from the ear.
+
+\cite{curranpassthoughts} was the first to merge in-ear EEG with passthought authentication.
+
+\subsection{Multi-Factor Authentication in a Single Step}
 Behavioral authentication methods such as keystroke dynamics and speaker
 authentication can be categorized as one-step two-factor authentication
 schemes. In both cases, the knowledge factor (password or passphrase) and
-inherence factor (typing rhythm or speaker’s voice) are employed. In contrast, the
-Nymi band supports one-step two-factor authentication via the inherence
+inherence factor (typing rhythm or speaker’s voice) are employed \cite{Monrose1997}.
+In contrast, the Nymi band supports one-step two-factor authentication via the inherence
 factor (cardiac rhythm that is supposed to be unique to each individual) and the
-possession factor (the wearing of the band on the wrist). However, as far as we
-know, no one has proposed or demonstrated a one-step three-factor
-authentication scheme.
+possession factor (the wearing of the band on the wrist) \cite{Nymi}.
+However, as far as we know, no one has proposed or demonstrated a one-step three-factor
+authentication scheme, in which possession of a unique device also serves to authenticate the user.
+
 \section{Methods}
 \label{sec:org63d105c}
 \subsection{{\bfseries\sffamily TODO} Manufacturing, materials}
@@ -144,9 +152,31 @@ authentication scheme.
 \subsection{Subjects}
 \label{sec:orgaf30da9}
 \subsection{{\bfseries\sffamily TODO} Tasks}
-\label{sec:org86eea32}
 
 \underline{Explain stuff around tasks}
+
+\begin{table*}[t]
+\centering
+%% \begin{tabular}{llllll}
+\begin{tabularx}{\textwidth}{llllll}
+Task & Description & Stimuli? & Personal? & Eyes? & Imagery?\\
+\hline
+Breathe & Relaxed breathing with eyes closed & No & No & Closed & None\\
+Breathe - Open & Relaxed breathing with eyes open & No & No & Open & None\\
+Sport & Sport-related motor imagery & No & Yes & Closed & Motor\\
+Song & Imagining hearing a song & No & Yes & Closed & Aural\\
+Song - Open & Song task, with eyes open & No & Yes & Open & Aural\\
+Speech & Imagining a spoken phrase & No & Yes & Closed & Aural\\
+Listen \& Tone & Listening to a continuous tone & Yes & No & Closed & None\\
+Listen - ASSR & Listening to noise modulated at 40 Hz & Yes & No & Closed & None\\
+Face & Imagine a person's face & No & Yes & Closed & Visual\\
+Sequence & Imagine face, a number, and word on timed cues & Yes & Yes & Open & Visual\\
+\hline
+\end{tabularx}
+\caption{Properties of authentication tasks. We selected tasks with a variety of different properteries, but preferred tasks that did not require external stimuli, as the need to present such stimuli at authentication time could present challenges for usability, and user security.}
+\label{tab:addlabel}%
+\end{table*}
+
 
 \subsection{Protocol}
 \label{sec:org2041857}
@@ -243,7 +273,7 @@ does match the activity measured at Fp1.}
 
 \subsection{Classification}
 
-We analyzed the EEG signals collected during the tasks using a support vector classifier (SVC). Since past work has shown that classification tasks in EEG-based BCI are linear \underline{cite}, we used XGBoost, a popular tool for generating ensemble classifiers for logistic linear classification \underline{cite}.
+We analyzed the EEG signals collected during the tasks using a support vector classifier (SVC). Since past work has shown that classification tasks in EEG-based BCI are linear \underline{Garrett2003a}, we used XGBoost, a tool for logistic linear classification \underline{Chen2016}.
 
 To produce feature vectors, we took slices of 100 raw values from each electrode (about 500ms of data), and performed an FFT to produce power spectra for each electrode during that slice. We concatenated all electrode power spectra together, and performed PCA on all concatenated vectors such that the resulting vectors described 95\% of the variance in the full power specrum data. For each task, for each participant, 100 seconds of data were collected in total across 10 trials of 10 seconds each, resulting in 200 samples per participant, per task, following preprocessing.
 
@@ -341,7 +371,7 @@ The powerful interactions between inherence and knowledge emerged in our spoofin
 
 In our analysis, some notable patterns emerged. First, \textit{breathe} tended to be the best-performing task among participants. Classifiers overall distinguished the breath task even compared to breath tasks from other subjects, implying that the task is expressed differently for each subject, i.e. that this task has an inherence factor sufficient for authentication, even though the task does not have a knowledge factor. Second, we were able to achieve good results by generating feature vectors based on only 500ms (300 voltage readings across the three electrodes). This short timespan is somewhat surprising, given that some tasks (like songs) presumably rely on changes or patterns over a longer period of time. 
 
-Counter to our expectations, we found that referencing on the same side as the electrodes improves classification accuracy, compared to referencing on the other side of the head, as is commonly done in EEG. \underline{Theory as to why?} Furthermore, the use of conductive gel results in decent results (low impedances) on other subjects' custom-fit earpieces. This is somewhat surprising, since ear canals are believed to be more unique than fingerprints \underline{cite}. Finally, performance on FP1 was not as high as performance in the ear, despite FP1's popularity in past work on passthoughts \underline{cite}. This could be explained by the greater number of electrodes in the ear (compared to just one on FP1). Another explanation might be in the neural activity required to perform the tasks we chose. Future work might shed light on this issue.
+Counter to our expectations, we found that referencing on the same side as the electrodes improves classification accuracy, compared to referencing on the other side of the head, as is commonly done in EEG. \underline{Theory as to why?} Furthermore, the use of conductive gel results in decent results (low impedances) on other subjects' custom-fit earpieces. This is somewhat surprising, since ear canals are believed to be more unique than fingerprints \underline{cite}. Finally, performance on FP1 was not as high as performance in the ear, despite FP1's popularity in past work on passthoughts \cite{Chuang2013b}. This could be explained by the greater number of electrodes in the ear (compared to just one on FP1). Another explanation might be in the neural activity required to perform the tasks we chose. Future work might shed light on this issue.
 
 
 \section{Future Work}
@@ -363,29 +393,8 @@ on the human side might impact authentication performance, as the human and mach
 
 \section{TODO Conclusion}
 
-\section{Endnotes}
-
-\begin{table}[h]
-\centering
-%% \begin{tabular}{llllll}
-\begin{tabularx}{\textwidth}{llllll}
-Task & Description & Stimuli? & Personal? & Eyes? & Imagery?\\
-\hline
-Breathe & Relaxed breathing with eyes closed & No & No & Closed & None\\
-Breathe - Open & Relaxed breathing with eyes open & No & No & Open & None\\
-Sport & Sport-related motor imagery & No & Yes & Closed & Motor\\
-Song & Imagining hearing a song & No & Yes & Closed & Aural\\
-Song - Open & Song task, with eyes open & No & Yes & Open & Aural\\
-Speech & Imagining a spoken phrase & No & Yes & Closed & Aural\\
-Listen \& Tone & Listening to a continuous tone & Yes & No & Closed & None\\
-Listen - ASSR & Listening to noise modulated at 40 Hz & Yes & No & Closed & None\\
-Face & Imagine a person's face & No & Yes & Closed & Visual\\
-Sequence & Imagine face, a number, and word on timed cues & Yes & Yes & Open & Visual\\
-\hline
-\end{tabularx}
-\caption{Properties of authentication tasks. We selected tasks with a variety of different properteries, but preferred tasks that did not require external stimuli, as the need to present such stimuli at authentication time could present challenges for usability, and user security.}
-\label{tab:addlabel}%
-\end{table}
+{\footnotesize \bibliographystyle{acm}
+\bibliography{references}}
 
 
 \end{document}
