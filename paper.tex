@@ -44,15 +44,15 @@ It is well appreciated by experts and end-users alike that strong authentication
 critical to cybersecurity and privacy, now and into the future. Unfortunately,
 news 
 reports of celebrity account hackings serve as regular reminders that
-the currently dominant method of authentication in consumer applications, 
 single-factor authentication using passwords or other user-chosen secrets, 
-is faced by many challenges. Major industry players such as Google and
-Facebook have been strongly encouraging their users to adopt two-factor
+the currently dominant method of authentication in consumer applications, 
+face many challenges. Major industry players such as Google and
+Facebook have strongly encouraged their users to adopt two-factor
 authentication (2FA). However, the need for users to submit two different 
 authenticators in two separate steps has frustrated wide adoption, 
 due its additional hassle cost to the users. For instance, the popular Apple
 iPhone has already implemented the necessary technologies to support device
-unlock using either a user-selected passcode or a fingerprint. Therefore the
+unlock using either a user-selected passcode or a fingerprint. The
 device could easily support a two-step two-factor authentication scheme if
 desired. However, it is easy to understand why users would balk at having to
 enter a passcode \emph{and} provide a fingerprint each time they want to unlock their phone.
@@ -68,7 +68,7 @@ single mental task \cite{Chuang2014}. Additionally, the robustness of this metho
 impersonation attacks was demonstrated, including conditions where the attacker
 may have learned the target’s secret thought and/or secret task \cite{Johnson2014}.
 
-In the present proposal, we will undertake, to the best of our knowledge, the first
+In this paper, we undertake, to the best of our knowledge, the first
 ever study of one-step three-factor authentication. In computer security,
 authenticators are classified into three types: knowledge factors (e.g., passwords
 and PINs), possession factors (e.g., physical tokens, ATM cards), and inherence
@@ -77,17 +77,21 @@ authentication (3FA) requires the user to submit one distinct instance of each
 type of authenticator, it represents the strongest level of authentication security
 possible.
 
-We propose the use of custom-fit Ear EEG technology as the platform for
+We find that we can achieve good classification accuracy with a single earpiece containing only three electrodes. \underline{More result details.....}
+
+\section{Related work}
+
+We investigate custom-fit ear-EEG technology as the platform for
 investigating the feasibility, performance, and usability of one-step three-factor
-authentication. In addition to the same knowledge factor and inherence factor as
-in previous work, the user can submit in the same step the possession factor
+authentication. In addition to the dual knowledge and inherence factors in
+in previous work, this work includes a posession factor
 in the form of the EEG-sensing ear-piece(s) that are custom-fitted to and worn in
 their ear. These earpieces can serve as physical tokens in the same way as bank
-ATM cards and wearable hardware tokens. Furthermore, because the earpieces
+ATM cards and wearable hardware tokens. Because the earpieces
 are custom-fitted to each individual, they will likely not be able to produce good
 electrical impedances when worn by a different individual.
 
-\section{Related work}
+\underline{Brief outline of the rest of this lit review....}
 
 \subsection{Passthought authentication}
 The use of EEG as a biometric signal for user authentication has a short history.
@@ -273,7 +277,7 @@ does match the activity measured at Fp1.}
 
 \subsection{Classification}
 
-We analyzed the EEG signals collected during the tasks using a support vector classifier (SVC). Since past work has shown that classification tasks in EEG-based BCI are linear \underline{Garrett2003a}, we used XGBoost, a tool for logistic linear classification \underline{Chen2016}.
+We analyzed the EEG signals collected during the tasks using a support vector classifier (SVC). Since past work has shown that classification tasks in EEG-based BCI are linear \cite{Garrett2003a}, we used XGBoost, a tool for logistic linear classification \cite{Chen2016}.
 
 To produce feature vectors, we took slices of 100 raw values from each electrode (about 500ms of data), and performed an FFT to produce power spectra for each electrode during that slice. We concatenated all electrode power spectra together, and performed PCA on all concatenated vectors such that the resulting vectors described 95\% of the variance in the full power specrum data. For each task, for each participant, 100 seconds of data were collected in total across 10 trials of 10 seconds each, resulting in 200 samples per participant, per task, following preprocessing.
 
