@@ -294,7 +294,7 @@ For each configuration of electrodes, we calculated the mean FAR and FRR across 
 Incorporating all electrodes data results in a perfect score for all tasks.
 Using data from all left-ear electrodes achieves the next lowest FAR, followed by all right ear electrodes.
 Interestingly, no single electrode from the left or right ear performs as well as the aggregate left and right ear conditions. 
-Counter to our expectations, FP1 does not perform as well as most ear electrodes.
+Counter to our expectations, Fp1 does not perform as well as most ear electrodes.
 
 Our results indicate acceptable accuracy using electrodes on the left ear alone. 
 This corresponds to our original scenario, in which the device could be worn as an earbud.
@@ -374,8 +374,14 @@ The powerful interactions between inherence and knowledge emerged in our spoofin
 
 In our analysis, some notable patterns emerged. First, \textit{breathe} tended to be the best-performing task among participants. Classifiers overall distinguished the breath task even compared to breath tasks from other subjects, implying that the task is expressed differently for each subject, i.e. that this task has an inherence factor sufficient for authentication, even though the task does not have a knowledge factor. Second, we were able to achieve good results by generating feature vectors based on only 500ms (300 voltage readings across the three electrodes). This short timespan is somewhat surprising, given that some tasks (like songs) presumably rely on changes or patterns over a longer period of time. 
 
-Counter to our expectations, we found that referencing on the same side as the electrodes improves classification accuracy, compared to referencing on the other side of the head, as is commonly done in EEG. \underline{Theory as to why?} Furthermore, the use of conductive gel results in decent results (low impedances) on other subjects' custom-fit earpieces. This is somewhat surprising, since ear canals are believed to be more unique than fingerprints \underline{cite}. Finally, performance on FP1 was not as high as performance in the ear, despite FP1's popularity in past work on passthoughts \cite{Chuang2013b}. This could be explained by the greater number of electrodes in the ear (compared to just one on FP1). Another explanation might be in the neural activity required to perform the tasks we chose. Future work might shed light on this issue.
+Furthermore, the use of conductive gel results in low impedances on other subjects' custom-fit earpieces, despite the uniquness of ear canal shapes between individuals \cite{Akkermans2005}.
+Nevertheless, classifiers appear to resists spoofing attacks, indicating that task-related signals are unique to individuals.
+In the future, the custom-fit earbuds could include a hardware keypair to sign authentication attempts, providing a more secure method for establishing the posession factor in our three-factor, one-step scheme.
 
+
+Counter to our expectations, we found that referencing on the same side as the electrodes improves classification accuracy. This result implies that our tasks do not involve inter-hemispheric dynamics (if our tasks require symmetric neural activity, referencing to the other hemisphere would incorporate additional noise, explaining our finding). Since a single earpiece is more convenient from a usability and manufacturing standpoint, tasks with symmetric activity should be preferred in future work.
+
+Finally, performance on Fp1 was not as high as performance in the ear, despite Fp1's popularity in past work on passthoughts \cite{Chuang2013b}. This could be explained by the greater number of electrodes in the ear (compared to just one on Fp1). Additionally, Fp1 is best poised to pick up on frontal lobe activity (e..g, concentration), but our tasks did not generally involve frontal lobe activity; in fact, a good number of them involved audio, which we would expect to be better observed near the auditory cortex at the ears. Future work should continue to investigate what sorts of mental tasks lend themselves to in-ear recording.
 
 \section{Future Work}
 
