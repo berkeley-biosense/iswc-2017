@@ -35,15 +35,14 @@ Second Institution
 
 
 \subsection*{Abstract}
-In this paper, we present a system that provides 3-factors of authentication (knowledge, posession and inherence) in a single step, using brain-based authentication via a custom-fit, in-ear EEG. Across all subjects, we achieve a mean 0\% false acceptance and 0.12\% false rejection rate with data from only one earpiece. In a preliminary test of an ``imposter'' spoofing attack, we find a 0\% false acceptance rate. Our results indicate that in-ear EEG could provide a discrete, convenient, multifactor authentication.
+In this paper, we present a system that provides all three factors of authentication (knowledge, possession, and inherence) in a single step, using brain-based authentication via a custom-fit, in-ear EEG. Across all participants, we achieve mean 0\% false acceptance and 0.12\% false rejection rates with data from only one earpiece with three electrodes. In a preliminary test of an "imposter'' spoofing attack, we find a 0\% false acceptance rate. Our results indicate that in-ear EEG could provide a discreet, convenient, multi-factor authentication. (TO ADD: neural source of signal confirmation, usability summary)
 
 \section{Introduction}
 \label{sec:org7196b99}
 
 It is well appreciated by experts and end-users alike that strong authentication is
 critical to cybersecurity and privacy, now and into the future. Unfortunately,
-news 
-reports of celebrity account hackings serve as regular reminders that
+news reports of celebrity account hackings serve as regular reminders that
 single-factor authentication using passwords or other user-chosen secrets, 
 the currently dominant method of authentication in consumer applications, 
 face many challenges. Major industry players such as Google and
@@ -57,7 +56,7 @@ device could easily support a two-step two-factor authentication scheme if
 desired. However, it is easy to understand why users would balk at having to
 enter a passcode \emph{and} provide a fingerprint each time they want to unlock their phone.
 
-In previous work, “one-step two-factor authentication” has been proposed as a
+In previous work, "one-step two-factor authentication" has been proposed as a
 new approach to authentication that can provide the security benefits of two-
 factor authentication without incurring the hassle costs of two-step verification.
 By employing consumer-grade EEG (electroencephalogram) sensing
@@ -66,9 +65,9 @@ submit both a knowledge factor (i.e., secret thought) and an inherence factor
 (i.e., brainwave signal unique to the individual) in a single step by performing a
 single mental task \cite{Chuang2014}. Additionally, the robustness of this method against
 impersonation attacks was demonstrated, including conditions where the attacker
-may have learned the target’s secret thought and/or secret task \cite{Johnson2014}.
+may have learned the target'��s secret thought and/or secret task \cite{Johnson2014}.
 
-In this paper, we undertake, to the best of our knowledge, the first
+In this study we undertake, to the best of our knowledge, the first
 ever study of one-step three-factor authentication. In computer security,
 authenticators are classified into three types: knowledge factors (e.g., passwords
 and PINs), possession factors (e.g., physical tokens, ATM cards), and inherence
@@ -133,7 +132,7 @@ those from conventional EEG electrode placements, robustness to common
 sources of artifacts, and use in a brain-computer interface (BCI) system based on
 auditory evoked potentials and visual evoked potentials
 \cite{Looney2012a,Kidmose2013a,Kidmose2013b}.
-United Sciences is currently developing a consumer ``hearable'' (in-ear wearable) called The Aware, which will measure EEG from the ear, among other biometrics \cite{UnitedSciences}.
+United Sciences is currently developing a consumer "hearable'' (in-ear wearable) called The Aware, which will measure EEG from the ear, among other biometrics \cite{UnitedSciences}.
 
 
 \cite{curranpassthoughts} was the first to merge in-ear EEG with passthought authentication.
@@ -142,7 +141,7 @@ United Sciences is currently developing a consumer ``hearable'' (in-ear wearable
 Behavioral authentication methods such as keystroke dynamics and speaker
 authentication can be categorized as one-step two-factor authentication
 schemes. In both cases, the knowledge factor (password or passphrase) and
-inherence factor (typing rhythm or speaker’s voice) are employed \cite{Monrose1997}.
+inherence factor (typing rhythm or speaker's voice) are employed \cite{Monrose1997}.
 In contrast, the Nymi band supports one-step two-factor authentication via the inherence
 factor (cardiac rhythm that is supposed to be unique to each individual) and the
 possession factor (the wearing of the band on the wrist) \cite{Nymi}.
@@ -153,17 +152,20 @@ authentication scheme, in which possession of a unique device also serves to aut
 \label{sec:org63d105c}
 \subsection{{\bfseries\sffamily TODO} Manufacturing, materials}
 \label{sec:orgb483219}
-\subsection{Subjects}
-\label{sec:orgaf30da9}
-\subsection{{\bfseries\sffamily TODO} Tasks}
+\subsection{Study Overview}
 
-\underline{Explain stuff around tasks}
+7 male participants, 5 students and 2 non-students, completed our study protocol approved by the UC Berkeley Committee for Protection of Human Subjects (CPHS). The participant pool was limited due to the necessity of creating a pair of custom-fitted earpieces for each. There were three study visits per participant, the first to obtain 3D molds of participants' ears to use in creating the earpieces, the second to do a fit and impedance check once earpieces were manufactured, and a third to collect data using the earpieces while participants performed a set of mental tasks to be used in authentication analysis. Informed consent was obtained prior to study procedures. On the third study visit participants completed a short demographics questionnaire, a set up period with the openBCI and earpieces including a second impedance check, performed 9 mental tasks presented on a laptop, and finally a post-experiment questionnaire. Approximately two weeks after the third study visit, a subset of participants reported via e-mail whether or not they remembered the passthoughts they chose and performed.
+
+\label{sec:orgaf30da9}
+\subsection{Tasks}
+
+We used an expanded set of mental tasks with properties based on findings in related work regarding the relative strengths of different mental tasks in authentication accuracy and usability as reported by participants. Furthermore, given the in-ear placement of the electrodes and therefore the proximity to the temporal lobes containing the auditory cortex, we tested several novel authentication tasks based specifically on auditory imagery or stimuli. The nine authentication tasks and their attributes are listed in Table I. We purposefully selected tasks that captured a diversity of possibilities across the dimensions of external stimuli, involving a personalized secret, eyes open or closed (due to known significant effects on EEG), and different types of imagery.
 
 \begin{table*}[t]
 \centering
 %% \begin{tabular}{llllll}
 \begin{tabularx}{\textwidth}{llllll}
-Task & Description & Stimuli? & Personal? & Eyes? & Imagery?\\
+Task & Description & Stimuli? & Secret? & Eyes & Imagery\\
 \hline
 Breathe & Relaxed breathing with eyes closed & No & No & Closed & None\\
 Breathe - Open & Relaxed breathing with eyes open & No & No & Open & None\\
@@ -171,31 +173,26 @@ Sport & Sport-related motor imagery & No & Yes & Closed & Motor\\
 Song & Imagining hearing a song & No & Yes & Closed & Aural\\
 Song - Open & Song task, with eyes open & No & Yes & Open & Aural\\
 Speech & Imagining a spoken phrase & No & Yes & Closed & Aural\\
-Listen \& Tone & Listening to a continuous tone & Yes & No & Closed & None\\
 Listen - ASSR & Listening to noise modulated at 40 Hz & Yes & No & Closed & None\\
 Face & Imagine a person's face & No & Yes & Closed & Visual\\
 Sequence & Imagine face, a number, and word on timed cues & Yes & Yes & Open & Visual\\
 \hline
 \end{tabularx}
-\caption{Properties of authentication tasks. We selected tasks with a variety of different properteries, but preferred tasks that did not require external stimuli, as the need to present such stimuli at authentication time could present challenges for usability, and user security.}
+\caption{Table I. Properties of authentication tasks. We selected tasks with a variety of different properties, but preferred tasks that did not require external stimuli, as the need to present such stimuli at authentication time could present challenges for usability, and user security.}
 \label{tab:addlabel}%
 \end{table*}
 
 
-\subsection{Protocol}
+\subsection{Data Collection Protocol}
 \label{sec:org2041857}
-Our initial participants were recruited from a nearby university and scheduled for ear molding
-and impedance checking sessions. Finally, the data collection visit was scheduled and took
-approximately 90 minutes for set up and experiment execution. The OpenBCI system we used
+The data collection visit took approximately 90 minutes for set up and experiment execution. The OpenBCI system we used
 allows for 8 channels of simultaneous recording, along with separate ground and reference channels.
 Data was initially collected with the ground placed at the center of the forehead, and using the left
-mastoid as reference, though we can easily re-reference to another channel by subtracting a desired
-channel (such as right mastoid). Each earpiece (shown in the image below) contain three channels: 
-one placed on the helix, and two inside the canal - one front-facing and the other back-facing. The remaining
+mastoid as reference, though we later re-referenced to the right mastoid channel. Each earpiece (shown in the image below) contains three channels: one placed on the helix, and two inside the canal - one front-facing and the other back-facing. The remaining
 two channels were placed on the right mastoid for later re-referencing, and at approximately Fp1 (on the 
 forehead above the left eye) for validating the data collected in the ears against a scalp-based measure. 
-Before beginning the experiment, the data from all channels was visualized and participants were asked to
-blink and clench their jaws to confirm visibly that all channels were active and properly connected.
+Before beginning the experiment, the data from each channel was visually inspected and participants were asked to
+blink and clench their jaws to confirm that all channels were active and properly connected. Audio stimuli was delivered through small tubes in the earpieces opening into the ear canal.
 
 During the experiment, participants were seated in a comfortable position in a quiet room facing a laptop screen on which the
 instructions and stimuli were presented using PsychoPy. Each task was completed once in sets five trials each, and then
@@ -204,9 +201,11 @@ each was completed again for another five trials. Each trial was 10 seconds in l
 the experiment was advanced using a pointer held in the participant's lap to minimize motion artifacts in the data.  
 The experimenter also recorded the participant's chosen secrets for the sport, song, face, speech, and sequence
  tasks and reminded the participant of these for the second set of trials.
+ 
+ After the completion of the experiment, a subset of participants completed a usability questionnaire asking about the ease of performing, level of engagement, perceived repeatability, and likeliness of using each task. The questionnaire also asked participants to rank the tasks overall from most to least favorite, as well as several open response questions regarding potential use cases of ear EEG and this method of authentication, level of comfort wearing the earpieces, and any other comments they chose to provide.
 \section{Analysis}
 \label{sec:org6c1a839}
-\subsection{Validating the data}
+\subsection{Validating the data {\bfseries\sffamily TODO (Update beyond pilot participants}}
 \label{sec:org800f2bd}
 
 In this section, we establish that the data we collected were EEG signals with relatively low noise. 
@@ -395,7 +394,7 @@ Future work should try using dry electrodes, commonly found in consumer EEG devi
 Future work should also attempt a closed-loop (or online) passthought system, in which users receive immediate feedback on the result of their authentication attempt. A closed-loop BCI system could help us understand how learning effects
 on the human side might impact authentication performance, as the human and machine co-adapt during multiple authentication attempts.
 
-\section{TODO Conclusion}
+\section{{\bfseries\sffamily TODO} Conclusion}
 
 {\footnotesize \bibliographystyle{acm}
 \bibliography{references}}
