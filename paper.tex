@@ -190,7 +190,7 @@ Sequence & Imagine face, a number, and word on timed cues & Yes & Yes & Open & V
 The data collection visit took approximately 90 minutes for set up and experiment execution. The OpenBCI system we used
 allows for 8 channels of simultaneous recording, along with separate ground and reference channels.
 Data was initially collected with the ground placed at the center of the forehead, and using the left
-mastoid as reference, though we later re-referenced to the right mastoid channel. Each earpiece (shown in the image below) contains three channels: one placed on the helix, and two inside the canal - one front-facing and the other back-facing. The remaining
+mastoid as reference, though we later re-referenced to the right mastoid channel, so that our analysis reflects data from a single earpiece. Each earpiece (shown in the image below) contains three channels: one placed on the helix, and two inside the canal - one front-facing and the other back-facing. The remaining
 two channels were placed on the right mastoid for later re-referencing, and at approximately Fp1 (on the 
 forehead above the left eye) for validating the data collected in the ears against a scalp-based measure. 
 Before beginning the experiment, the data from each channel was visually inspected and participants were asked to
@@ -205,15 +205,16 @@ The experimenter also recorded the participant's chosen secrets for the sport, s
  tasks and reminded the participant of these for the second set of trials.
  
  After the completion of the experiment, a subset of participants completed a usability questionnaire asking about the ease of performing, level of engagement, perceived repeatability, and likeliness of using each task. The questionnaire also asked participants to rank the tasks overall from most to least favorite, as well as several open response questions regarding potential use cases of ear EEG and this method of authentication, level of comfort wearing the earpieces, and any other comments they chose to provide.
+
 \section{Analysis}
 \label{sec:org6c1a839}
 \subsection{Validating the data {\bfseries\sffamily TODO (Update beyond pilot participants}}
 \label{sec:org800f2bd}
 
-In this section, we establish that the data we collected were EEG signals with relatively low noise. 
-Using the pilot data from two participants, we were able to confirm the custom-fit earpieces are able to collect EEG
-data using three tests: good impedances measured for the ear electrodes, alpha-band activity attenuation when a
-participant's eyes were open versus closed, and the presence of a significant ASSR signal.
+In this section, we establish that the data we collected were of a neural origin, and had relatively little noise. 
+Using data from two participants, we were able to confirm the custom-fit earpieces are able to collect EEG
+data using three tests: good impedances measured for the ear electrodes, and alpha-band activity attenuation when a
+participant's eyes were open versus closed.
 
 The recorded impedances of the earpiece electrodes were less than 5 kOhms except one, a benchmark used widely in previous
 ear EEG work. The left helix electrode of one participant was measured at 9 kOhms, and generally the 
@@ -252,29 +253,6 @@ eyes open, blue indicates the same task with eyes closed.}
 eyes open, blue indicates the same task with eyes closed.}
 \end{figure}
 
-Finally, for the ASSR test we calculated power spectra for data from the "Listen - ASSR" task. The audio stimulus used for this task is modulated 
-at 40 Hz, which should, in turn, produce an EEG response visible in the data at 40 Hz. Strangely, in our tests we do see an ASSR spike but it is located 
-around 74 Hz instead. While this has us somewhat perplexed about our stimulus, the purpose of this test was to ensure that the response seen in the ear channels 
-matched the response seen from the Fp1 recordings, which is evident comparing the figures below.
-
-\begin{figure}[h]
-\centering
-\includegraphics[width=0.5\textwidth]{figures/001_ASSR_Fp1.jpg}
-\caption{Power spectrum for data collected from the Fp1 channel during 40 Hz ASSR stimulus. An ASSR spike is clearly visible, though not at 40 Hz where it was expected.}
-\end{figure}
-
-\begin{figure}[h]
-  \centering
-  \begin{minipage}[b]{0.45\textwidth}
-    \includegraphics[width=\textwidth]{figures/001_ASSR_Left.jpg}
-  \end{minipage}
-  \hfill
-  \begin{minipage}[b]{0.45\textwidth}
-    \includegraphics[width=\textwidth]{figures/001_ASSR_Right.jpg}
-  \end{minipage}
-\caption{Power spectra for data collected from the earpiece channels during 40 Hz ASSR stimulus. Again, the spike is clearly visible though not at 40 Hz, however it 
-does match the activity measured at Fp1.}
-\end{figure}
 
 \subsection{Classification}
 
@@ -353,18 +331,22 @@ FRR & 0.00442 & 0.001522 & 0.0397\\
 Overall, our original training strategy achieves the lowest FAR (Table \ref{tab:compare}). Within-tasks FAR ten times higher, and within-subjects FAR is one hundred times higher.
 However, FRR is \textit{lower} in the within-tasks training strategy than in our original strategy's FRR. Within-subjects again results in the highest FRR.
 
-\subsection{Imposter attack}
+\section{Imposter attack}
 
 While our left-ear results establish that passthoughts achieve low FAR and FRR when tested against other subjects' passthoughts, we do not know how robust passthoughts are against a spoofing attack, in which both a subject's custom-fit electrode, and details of that subject's chosen passthought, are leaked. 
 
-To explore this scenario, we chose one subject (subject 6), and referred to their report of chosen passsthoughts. We recorded spoofed passthoughts for two ``imposter'' subjects. One subject appeared in our initial pool performing their own passthoughts (subject 2), while the other subject did not appear in the initial pool, and thus was not included when training subject classifiers. (How well the imposters were able to spoof subject 6's passthought is an open question; see Discussion).
+To explore this scenario, we chose one subject (subject 6), and referred to their report of chosen passsthoughts. One subject, drawn from the initial pool, \underline{...methods..}.
+\underline{....results.....}
 
-For each task, we ran the spoofed version of the task through the classifier trained on subject 6's task as the passthought.
-None of the spoofed passthoughts were accepted, resulting in a 0\% FAR.
+However, since this subject's data appeared in the initial pool, the classifier may have been trained on his or her recordings as negative examples. To explore the efficacy of an outsider spoofing recordings, we repeated the same protocol with a subject who did not appear in our initial set of subjects.
+\underline{...results....}
 
 
-\subsection{{\bfseries\sffamily TODO} Usability}
-\label{sec:org18d5968}
+% We recorded spoofed passthoughts for two ``imposter'' subjects. One subject appeared in our initial pool performing their own passthoughts (subject 2), while the other subject did not appear in the initial pool, and thus was not included when training subject classifiers. (How well the imposters were able to spoof subject 6's passthought is an open question; see Discussion).
+% For each task, we ran the spoofed version of the task through the classifier trained on subject 6's task as the passthought. None of the spoofed passthoughts were accepted, resulting in a 0\% FAR.
+
+
+\section{{\bfseries\sffamily TODO} Usability}
 
 \underline{Quantitative and qualitative data, where appropriate}
 
@@ -379,9 +361,6 @@ In our analysis, some notable patterns emerged. First, \textit{breathe} tended t
 Furthermore, the use of conductive gel results in low impedances on other subjects' custom-fit earpieces, despite the uniquness of ear canal shapes between individuals \cite{Akkermans2005}.
 Nevertheless, classifiers appear to resists spoofing attacks, indicating that task-related signals are unique to individuals.
 In the future, the custom-fit earbuds could include a hardware keypair to sign authentication attempts, providing a more secure method for establishing the posession factor in our three-factor, one-step scheme.
-
-
-Counter to our expectations, we found that referencing on the same side as the electrodes improves classification accuracy. This result implies that our tasks do not involve inter-hemispheric dynamics (if our tasks require symmetric neural activity, referencing to the other hemisphere would incorporate additional noise, explaining our finding). Since a single earpiece is more convenient from a usability and manufacturing standpoint, tasks with symmetric activity should be preferred in future work.
 
 Finally, performance on Fp1 was not as high as performance in the ear, despite Fp1's popularity in past work on passthoughts \cite{Chuang2013b}. This could be explained by the greater number of electrodes in the ear (compared to just one on Fp1). Additionally, Fp1 is best poised to pick up on frontal lobe activity (e..g, concentration), but our tasks did not generally involve frontal lobe activity; in fact, a good number of them involved audio, which we would expect to be better observed near the auditory cortex at the ears. Future work should continue to investigate what sorts of mental tasks lend themselves to in-ear recording.
 
