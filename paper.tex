@@ -161,7 +161,7 @@ Custom ear impressions were made by injecting silicon into the ear canal. A cott
 \label{sec:orgaf30da9}
 \subsection{Tasks}
 
-We used an expanded set of mental tasks with properties based on findings in related work regarding the relative strengths of different mental tasks in authentication accuracy and usability as reported by participants. Furthermore, given the in-ear placement of the electrodes and therefore the proximity to the temporal lobes containing the auditory cortex, we tested several novel authentication tasks based specifically on auditory imagery or stimuli. The nine authentication tasks and their attributes are listed in Table I. We purposefully selected tasks that captured a diversity of possibilities across the dimensions of external stimuli, involving a personalized secret, eyes open or closed (due to known significant effects on EEG), and different types of imagery.
+We used an expanded set of mental tasks with properties based on findings in related work regarding the relative strengths of different mental tasks in authentication accuracy and usability as reported by participants. Furthermore, given the in-ear placement of the electrodes and therefore the proximity to the temporal lobes containing the auditory cortex, we tested several novel authentication tasks based specifically on auditory imagery or stimuli. The nine authentication tasks and their attributes are listed in Table \ref{tab:tasks}. We purposefully selected tasks that captured a diversity of possibilities across the dimensions of external stimuli, involving a personalized secret, eyes open or closed (due to known significant effects on EEG), and different types of imagery.
 
 \begin{table*}[t]
 \centering
@@ -175,13 +175,13 @@ Sport & Sport-related motor imagery & No & Yes & Closed & Motor\\
 Song & Imagining hearing a song & No & Yes & Closed & Aural\\
 Song - Open & Song task, with eyes open & No & Yes & Open & Aural\\
 Speech & Imagining a spoken phrase & No & Yes & Closed & Aural\\
-Listen - ASSR & Listening to noise modulated at 40 Hz & Yes & No & Closed & None\\
+Listen - Tone & Listening to noise modulated at 40 Hz & Yes & No & Closed & None\\
 Face & Imagine a person's face & No & Yes & Closed & Visual\\
 Sequence & Imagine face, a number, and word on timed cues & Yes & Yes & Open & Visual\\
 \hline
 \end{tabularx}
-\caption{Table I. Properties of authentication tasks. We selected tasks with a variety of different properties, but preferred tasks that did not require external stimuli, as the need to present such stimuli at authentication time could present challenges for usability, and user security.}
-\label{tab:addlabel}%
+\caption{Properties of authentication tasks. We selected tasks with a variety of different properties, but preferred tasks that did not require external stimuli, as the need to present such stimuli at authentication time could present challenges for usability, and user security.}
+\label{tab:tasks}%
 \end{table*}
 
 
@@ -297,13 +297,13 @@ In the previous section, we trained and tested a passthought classifier with eac
 \begin{tabular}{rrrl}
 FAR & FRR & subject & task\\
 \hline
-0.0 & 0.0 & 1 & listennoise\\
-0.0 & 0.0 & 2 & breathe\\
-0.0 & 0.0 & 3 & breathe\\
-0.0 & 0.0 & 4 & breathe\\
-0.0 & 0.012 & 5 & breathe\\
-0.0 & 0.0 & 6 & breathe\\
-0.0 & 0.0 & 7 & breathe\\
+0.0 & 0.0 & 1 & Listen - noise\\
+0.0 & 0.0 & 2 & Breathe\\
+0.0 & 0.0 & 3 & Breathe\\
+0.0 & 0.0 & 4 & Breathe\\
+0.0 & 0.012 & 5 & Breathe\\
+0.0 & 0.0 & 6 & Breathe\\
+0.0 & 0.0 & 7 & Breathe\\
 \end{tabular}
 \end{center}
 \caption{Best-case passthought FAR and FRR results by participant using data from the left ear.}
@@ -335,11 +335,33 @@ However, FRR is \textit{lower} in the within-tasks training strategy than in our
 
 While our left-ear results establish that passthoughts achieve low FAR and FRR when tested against other subjects' passthoughts, we do not know how robust passthoughts are against a spoofing attack, in which both a subject's custom-fit electrode, and details of that subject's chosen passthought, are leaked. 
 
-To explore this scenario, we chose one subject (subject 6), and referred to their report of chosen passsthoughts. One subject, drawn from the initial pool, \underline{...methods..}.
-\underline{....results.....}
+To explore this scenario, we chose one subject (subject 6), and referred to their report of chosen passsthoughts.
+One subject, drawn from the initial subject pool, performed each of subject 6's passthoughts (simulating an ``inside imposter'').
+Following the same classification and preprocessing steps, we generated 200 samples per task for our imposter, using data from all left ear electrodes.
 
-However, since this subject's data appeared in the initial pool, the classifier may have been trained on his or her recordings as negative examples. To explore the efficacy of an outsider spoofing recordings, we repeated the same protocol with a subject who did not appear in our initial set of subjects.
-\underline{...results....}
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{lll}
+Task & FAR (Insider) & FAR (Outsider)\\
+\hline
+Breathe & 0.0 & 0.0\\
+Breathe - Open & 0.0 & 0.0\\
+Sport \& & 0.0 & 0.0\\
+Song \& I & 0.0 & 0.0\\
+Song - Open & 0.0 & 0.0\\
+Speech \& & 0.0 & 0.0\\
+Listen - Tone & 0.0 & 0.0\\
+Face \& I & 0.0 & 0.0\\
+Sequence & 0.0 & 0.0\\
+\end{tabular}
+\end{center}
+\caption{False acceptance rate for spoofed versions of Subject 6's passthoughts, performed by an inside imposter (from the original subject pool) and an outsid eimposter (not from the original subject pool).}
+\label{tab:imposter}
+\end{table}
+
+Since every subject has one classifier per task (for which that task is the passthought), we are able to make 200 spoofed attempts with the correct passthought on each of subject 6's classifiers (Table \ref{tab:imposter}). We find no successful spoof attempts for tasks with a chosen secret (e.g., song, face). However, we also do not find any successful spoof attacks for tasks with no chosen secret (e.g., breathe). In all 1,800 spoof attempts (200 attempts for each of the 9 classifiers), we do not find a single successful attack on any of subject 6's classifiers.
+
+However, since this subject's data appeared in the initial pool, the classifier may have been trained on his or her recordings as negative examples. To explore the efficacy of an outsider spoofing recordings, we repeated the same protocol with a subject who did not appear in our initial set of subjects (an ``outside imposter,'' Table \ref{tab:imposter}). Again, we do not find any successful authentication attempts.
 
 
 % We recorded spoofed passthoughts for two ``imposter'' subjects. One subject appeared in our initial pool performing their own passthoughts (subject 2), while the other subject did not appear in the initial pool, and thus was not included when training subject classifiers. (How well the imposters were able to spoof subject 6's passthought is an open question; see Discussion).
