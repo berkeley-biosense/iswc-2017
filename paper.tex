@@ -16,11 +16,17 @@
 
 %forsupose single author (just remove % characters)
 \author{
-{\rm Your N.\ Here}\\
+{\rm First Name}\\
 Your Institution
 \and
 {\rm Second Name}\\
 Second Institution
+\and
+{\rm Third Name}\\
+Third Institution
+\and
+{\rm Fourth Name}\\
+Fourth Institution
 % copy the following lines to add more authors
 % \and
 % {\rm Name}\\
@@ -222,10 +228,10 @@ is best for obtaining quality EEG signals. Table \ref{tab:impedances} below summ
 \begin{table}[h]
 \begin{center}
 \begin{tabular}{lrrrrrr}
-& \multicolumn{6}{c}{Impedances [kOhm]} \\
+& \multicolumn{6}{c}{Impedances [k\(\Omega\)]} \\
 \cline{2-7}
 & \multicolumn{3}{|c|}{Left ear} & \multicolumn{3}{c|}{Right ear} \\
-Subject & Helix & Front & Back & Helix & Front & Back \\
+Participant & Helix & Front & Back & Helix & Front & Back \\
 \hline
 1 & 4 & 4 & 4 & \textless1 & 4 & 3\\
 2 & 9 & 5 & 4 & 3 & 4 & 4\\
@@ -284,7 +290,7 @@ We analyzed the EEG signals collected during the tasks using a support vector cl
 
 To produce feature vectors, we took slices of 100 raw values from each electrode (about 500ms of data), and performed an FFT to produce power spectra for each electrode during that slice. We concatenated all electrode power spectra together, and performed PCA on all concatenated vectors such that the resulting vectors described 95\% of the variance in the full power specrum data. For each task, for each participant, 100 seconds of data were collected in total across 10 trials of 10 seconds each, resulting in 200 samples per participant, per task, following preprocessing.
 
-We trained the classifier using a balanced sample of positive and negative examples, where positive examples were from the target subject and target task, and negative examples were randomly selected tasks from any subject besides the target subject.
+We trained the classifier using a balanced sample of positive and negative examples, where positive examples were from the target participant and target task, and negative examples were randomly selected tasks from any participant besides the target participant.
 From this corpus of positive and negative samples, we withheld one third of data for testing. 
 The remaining training set was fed into a XGBoost's cross-validation method, which we set to iteratively tweak parameters over a maximum of fifty rounds of cross-validation to minimize classification error.
 After cross-validation, the updated classifier (with paramters applied) predicted labels on each sample in the test set, and we calculated FAR and FRR on its results.
@@ -294,7 +300,7 @@ After cross-validation, the updated classifier (with paramters applied) predicte
 \subsection{Combinations of electrodes}
 \label{sec:org21b14ae}
 
-For each configuration of electrodes, we calculated the mean FAR and FRR across all subjects using each task as the passthought (Figure \ref{fig:meanByElectrode}).
+For each configuration of electrodes, we calculated the mean FAR and FRR across all participants using each task as the passthought (Figure \ref{fig:meanByElectrode}).
 Incorporating all electrodes data results in a perfect score for all tasks.
 Using data from all left-ear electrodes achieves the next lowest FAR, followed by all right ear electrodes.
 Interestingly, no single electrode from the left or right ear performs as well as the aggregate left and right ear conditions. 
@@ -314,12 +320,12 @@ As such, we focus on results from the left ear alone in our following analysis.
 
 \subsection{Authentication results in the left-ear}
 
-In the previous section, we trained and tested a passthought classifier with each task as the passthought, for all subjects. Focusing on the left ear, we filter our results for the best-performing tasks. We rank tasks by lowest FAR and, given a tie, the lowest FRR (Table \ref{tab:best}).
+In the previous section, we trained and tested a passthought classifier with each task as the passthought, for all participants. Focusing on the left ear, we filter our results for the best-performing tasks. We rank tasks by lowest FAR and, given a tie, the lowest FRR (Table \ref{tab:best}).
 
 \begin{table}[h]
 \begin{center}
 \begin{tabular}{rrrl}
-FAR & FRR & subject & task\\
+FAR & FRR & Participant & Task\\
 \hline
 0.0 & 0.0 & 1 & Listen - noise\\
 0.0 & 0.0 & 2 & Breathe\\
@@ -334,34 +340,64 @@ FAR & FRR & subject & task\\
 \label{tab:best}
 \end{table}
 
-Breathe appeared as the best task across all participants. Given our training strategy, these results indicate that a given person's breathe task is distinguishable not only among other tasks, but among breathe tasks from other subjects.
-All best-performing tasks in our set achieved perfect FAR and FRRs, with the exception of subject 5, whose best-performing task (breathe) had a nonzero FRR.
+Breathe appeared as the best task across all participants. Given our training strategy, these results indicate that a given person's breathe task is distinguishable not only among other tasks, but among breathe tasks from other participants.
+All best-performing tasks in our set achieved perfect FAR and FRRs, with the exception of P5, whose best-performing task (breathe) had a nonzero FRR.
 
-These results establish good performance in our original training strategy, in which we count as negative examples recordings from the wrong subject performing any task. For comparison, we try two additional training strategies: one in which negative examples are the correct task recorded from the wrong subject (within-tasks), and one in which negative examples are the incorrect task recorded from the correct subject (within-subjects).
+These results establish good performance in our original training strategy, in which we count as negative examples recordings from the wrong participant performing any task. For comparison, we try two additional training strategies: one in which negative examples are the correct task recorded from the wrong participant (within-tasks), and one in which negative examples are the incorrect task recorded from the correct participant (within-participants).
 
 \begin{table}[h]
 \begin{center}
 \begin{tabular}{lrrr}
- & Original & Within-tasks & Within-subjects\\
+ & Original & Within-tasks & Within-participants\\
 \hline
 FAR & 0.000074 & 0.000724 & 0.00252\\
 FRR & 0.00442 & 0.001522 & 0.0397\\
 \end{tabular}
 \end{center}
-\caption{Mean FAR and FRR for all subjects and pssthoughts across three different training strategies.}
+\caption{Mean FAR and FRR for all participants and passthoughts across three different training strategies.}
 \label{tab:compare}
 \end{table}
 
-Overall, our original training strategy achieves the lowest FAR (Table \ref{tab:compare}). Within-tasks FAR ten times higher, and within-subjects FAR is one hundred times higher.
-However, FRR is \textit{lower} in the within-tasks training strategy than in our original strategy's FRR. Within-subjects again results in the highest FRR.
+Overall, our original training strategy achieves the lowest FAR (Table \ref{tab:compare}). Within-tasks FAR ten times higher, and within-participants FAR is one hundred times higher.
+However, FRR is \textit{lower} in the within-tasks training strategy than in our original strategy's FRR. Within-participants again results in the highest FRR.
+
+
+\subsection{Usability}
+
+A subset of four participants completed our usability questionnaire. This questionnaire asked them to rank each of the mental tasks on 7-point likert-type scales on ease of use, level of engagement, perceived repeatability, and likeliness to use in a real-world authentication setting. The breathe and listen (\(\mu\)=6.75) tasks were ranked easiest to use, while the sequence (\(\mu\)=2.25) and face (\(\mu\)=2.75) tasks were ranked the most difficult. Sequence was rated highly in engagement however (\(\mu\)=5), as was the song task (\(\mu\)=5), while breathe-open and listen-noise were ranked least engaging (\(\mu\)=2.25). Breathe (\(\mu\)=7) and listen-noise (\(\mu\)=6.75) were ranked highest in repeatability, with sequence (\(\mu\)=2.5) along with face and sport (\(\mu\)=3) ranked least repeatable. Finally in terms of likeliness of use for authentication, song-open (\(\mu\)=5) and sequence (\(\mu\)=4.25) performed highest though modestly, while breathe (\(\mu\)=2.75) and listen-noise (\(\mu\)=3) were rated least likely to use. In addition to these rating scales we asked participants to rank the tasks from most (1) to least (9) favorite overall. The song-open task ranked highest among favorites (\(\mu\)=4.25) followed by a tie between breathe-open, song, and speech (\(\mu\)=4.75). In line with some of the results above, sequence (\(\mu\)=7.75) and face (\(\mu\)=6.75) were rated as least favorites.
+
+In addition to the scales and rankings, we included in our questionnaire a few open response questions to ascertain attitudes about the use cases for in-ear EEG and passthoughts, and the comfort of wearing an in-ear EEG device in everyday life. Participants first read the prompt, "Imagine a commercially available wireless earbud product is now available based on this technology that you've just experienced. It requires minimal effort for you to put on and wear.", and were asked about use cases for in-ear EEG and passthoughts. Responses about in-ear EEG expectedly included authentication for unlocking a phone or computer and building access, but also aspects of self-improvement such as P4's response "Help people increase focus and productivity". P5 and P6 also indicated a use for measuring engagement with media like movies and music, and relatedly P4 wrote "music playback optimized for current mental state and feelings". In terms of comfort wearing such a device, participants generally responded they would be comfortable, though P5 and P6 stipulated only when they would otherwise be wearing something like earphones in their ears already. In response to an "any other comments" prompt, notably three participants pointed out the mental imagery of a face was difficult for them and some concerns about their ability to repeat tasks in the same exact way each time.
+
+A final component of usability we measured was the ability of the participants to recall their specific chosen passthoughts for the song, sport, speech, face, and sequence tasks. Participants were contacted approximately two weeks after their data collection study visit and were prompted with these categories and asked to respond with what they remembered their choices being. As evidenced by their responses, all participants were able to recall all of their chosen secrets, with the exception of one participant who incorrectly remembered their chosen word for the sequence task. 
 
 \section{Imposter attack}
 
-While our left-ear results establish that passthoughts achieve low FAR and FRR when tested against other subjects' passthoughts, we do not know how robust passthoughts are against a spoofing attack, in which both a subject's custom-fit electrode, and details of that subject's chosen passthought, are leaked. 
+While our left-ear results establish that passthoughts achieve low FAR and FRR when tested against other participants' passthoughts, we do not know how robust passthoughts are against a spoofing attack, in which both a participant's custom-fit electrode, and details of that participant's chosen passthought, are leaked. 
 
-To explore this scenario, we chose one subject (subject 6), and referred to their report of chosen passsthoughts.
-One subject, drawn from the initial subject pool, performed each of subject 6's passthoughts (simulating an ``inside imposter'').
-Following the same classification and preprocessing steps, we generated 200 samples per task for our imposter, using data from all left ear electrodes.
+The first aspect of this scenario we tested was the ability of an imposter to wear an earpiece acquired from someone else and achieve viable impedance values for EEG collection. P1 tried on each of the other participants' earpieces, which firstly were able to fit at least somewhat in P1's ears. The impedances of P1 wearing other participants' earpieces were then recorded and are listed in Table \ref{tab:imposter_impedances} below.
+
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{lrrrrrr}
+& \multicolumn{6}{c}{Impedances [k\(\Omega\)]} \\
+\cline{2-7}
+& \multicolumn{3}{|c|}{Left ear} & \multicolumn{3}{c|}{Right ear} \\
+Participant & Helix & Front & Back & Helix & Front & Back \\
+\hline
+2 & 34.1 & 10.2 & 12.8 & 27.8 & 16.0 & 16.3\\
+3 & 21.1 & 20.9 & 19.0 & 13.5 & 11.3 & 19.5\\
+4 & 14.1 & 11.9 & 9.7 & 11.0 & 11.1 & 13.3\\
+5 & 17.2 & 21.9 & 10.3 & 32.6 & 12.5 & 11.6\\
+6 & 18.7 & 10.0 & 8.4 & 14.8 & 11.5 & 8.9\\
+7 & 91.5 & \textgreater1000 & 21.5 & 33.5 & 26.4 & 31.0\\
+\end{tabular}
+\end{center}
+\caption{Electrical impedances measured while P1 wore each other participant's custom-fitted earpieces.}
+\label{tab:imposter_impedances}
+\end{table}
+
+To explore the scenario of an imposter attempting to gain access, we chose the worst case participant, P6, whose earpieces P1 had the lowest impedances wearing. We collected data using the same data collection protocol, but had P1 refer to P6's report of chosen passsthoughts.
+P1 performed each of P6's passthoughts (simulating an ``inside imposter''). Following the same classification and preprocessing steps, we generated 200 samples per task for our imposters, using data from all left ear electrodes.
 
 \begin{table}[h]
 \begin{center}
@@ -379,32 +415,27 @@ Face \& I & 0.0 & 0.0\\
 Sequence & 0.0 & 0.0\\
 \end{tabular}
 \end{center}
-\caption{False acceptance rate for spoofed versions of Subject 6's passthoughts, performed by an inside imposter (from the original subject pool) and an outsid eimposter (not from the original subject pool).}
+\caption{False acceptance rate for spoofed versions of P6's passthoughts, performed by an inside imposter (P1 from the original participant pool) and an outside imposter (not from the original participant pool).}
 \label{tab:imposter}
 \end{table}
 
-Since every subject has one classifier per task (for which that task is the passthought), we are able to make 200 spoofed attempts with the correct passthought on each of subject 6's classifiers (Table \ref{tab:imposter}). We find no successful spoof attempts for tasks with a chosen secret (e.g., song, face). However, we also do not find any successful spoof attacks for tasks with no chosen secret (e.g., breathe). In all 1,800 spoof attempts (200 attempts for each of the 9 classifiers), we do not find a single successful attack on any of subject 6's classifiers.
+Since every participant has one classifier per task (for which that task is the passthought), we are able to make 200 spoofed attempts with the correct passthought on each of P6's classifiers (Table \ref{tab:imposter}). We find no successful spoof attempts for tasks with a chosen secret (e.g., song, face). However, we also do not find any successful spoof attacks for tasks with no chosen secret (e.g., breathe). In all 1,800 spoof attempts (200 attempts for each of the 9 classifiers), we do not find a single successful attack on any of P6's classifiers.
 
-However, since this subject's data appeared in the initial pool, the classifier may have been trained on his or her recordings as negative examples. To explore the efficacy of an outsider spoofing recordings, we repeated the same protocol with a subject who did not appear in our initial set of subjects (an ``outside imposter,'' Table \ref{tab:imposter}). Again, we do not find any successful authentication attempts.
+However, since this participant's data appeared in the initial pool, the classifier may have been trained on his or her recordings as negative examples. To explore the efficacy of an outsider spoofing recordings, we repeated the same protocol with an individual who did not appear in our initial set of participants (an ``outside imposter,'' Table \ref{tab:imposter}). Again, we do not find any successful authentication attempts.
 
 
 % We recorded spoofed passthoughts for two ``imposter'' subjects. One subject appeared in our initial pool performing their own passthoughts (subject 2), while the other subject did not appear in the initial pool, and thus was not included when training subject classifiers. (How well the imposters were able to spoof subject 6's passthought is an open question; see Discussion).
 % For each task, we ran the spoofed version of the task through the classifier trained on subject 6's task as the passthought. None of the spoofed passthoughts were accepted, resulting in a 0\% FAR.
 
-
-\section{{\bfseries\sffamily TODO} Usability}
-
-\underline{Quantitative and qualitative data, where appropriate}
-
 \section{Discussion}
 
-Our findings demonstrate the apparent feasibility of single earpiece, achieving good results with only three electrodes and a reference, all on the left ear. FARs and FRRs are low across all subjects and tasks, with FARs overall lower than FRRs. Subjects' best-performing passthoughts typically seeing no errors in our training. Furthermore, no spoofed attacks were successful in our cursory analysis.
+Our findings demonstrate the apparent feasibility of single earpiece, achieving good results with only three electrodes and a reference, all on the left ear. FARs and FRRs are low across all participants and tasks, with FARs overall lower than FRRs. Participants' best-performing passthoughts typically seeing no errors in our training. Furthermore, no spoofed attacks were successful in our cursory analysis.
 
-The powerful interactions between inherence and knowledge emerged in our spoofing attack. Although our target subject documented their chosen passthought, the spoofers found ambiguity in how these passthoughts could be expressed. For the face task, the spoofers did not know the friend the original subject had chosen. For the song tasks, though the song was known, the spoofers did not know what part of the song the original subject had imagined, or how it was imagined (humming, imagining a full performance, melody, vocals, etc). This experience sheds light on the highly individual nature of passthoughts, and provides a positive indication that there may be some intrinsic difficulty ofr spoofing passthoughts.
+The powerful interactions between inherence and knowledge emerged in our spoofing attack. Although our target participant documented their chosen passthought, the spoofers found ambiguity in how these passthoughts could be expressed. For the face task, the spoofers did not know the friend the original participant had chosen. For the song tasks, though the song was known, the spoofers did not know what part of the song the original participant had imagined, or how it was imagined (humming, imagining a full performance, melody, vocals, etc). This experience sheds light on the highly individual nature of passthoughts, and provides a positive indication that there may be some intrinsic difficulty ofr spoofing passthoughts.
 
-In our analysis, some notable patterns emerged. First, \textit{breathe} tended to be the best-performing task among participants. Classifiers overall distinguished the breath task even compared to breath tasks from other subjects, implying that the task is expressed differently for each subject, i.e. that this task has an inherence factor sufficient for authentication, even though the task does not have a knowledge factor. Second, we were able to achieve good results by generating feature vectors based on only 500ms (300 voltage readings across the three electrodes). This short timespan is somewhat surprising, given that some tasks (like songs) presumably rely on changes or patterns over a longer period of time. 
+In our analysis, some notable patterns emerged. First, \textit{breathe} tended to be the best-performing task among participants. Classifiers overall distinguished the breath task even compared to breath tasks from other participants, implying that the task is expressed differently for each participant, i.e. that this task has an inherence factor sufficient for authentication, even though the task does not have a knowledge factor. Second, we were able to achieve good results by generating feature vectors based on only 500ms (300 voltage readings across the three electrodes). This short timespan is somewhat surprising, given that some tasks (like songs) presumably rely on changes or patterns over a longer period of time. 
 
-Furthermore, the use of conductive gel results in low impedances on other subjects' custom-fit earpieces, despite the uniquness of ear canal shapes between individuals \cite{Akkermans2005}.
+Furthermore, the use of conductive gel results in low impedances on other participants' custom-fit earpieces, despite the uniquness of ear canal shapes between individuals \cite{Akkermans2005}.
 Nevertheless, classifiers appear to resists spoofing attacks, indicating that task-related signals are unique to individuals.
 In the future, the custom-fit earbuds could include a hardware keypair to sign authentication attempts, providing a more secure method for establishing the posession factor in our three-factor, one-step scheme.
 
