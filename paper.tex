@@ -149,7 +149,7 @@ United Sciences is currently developing a consumer "hearable'' (in-ear wearable)
 \cite{curranpassthoughts} was the first to merge in-ear EEG with passthought authentication,
  using a single modified consumer grade EEG device among participants and achieving approximately 80 percent authentication accuracy.
 
-\subsection{Multi-Factor Authentication in a Single Step}
+\subsection{One-Step, Multi-Factor Authentication}
 Behavioral authentication methods such as keystroke dynamics and speaker
 authentication can be categorized as one-step two-factor authentication
 schemes. In both cases, the knowledge factor (password or passphrase) and
@@ -261,7 +261,7 @@ the effect clearly here as well. The figure below shows the alpha attenuation in
 
 \subsection{Classification}
 
-We analyzed the EEG signals collected during the tasks using a support vector classifier (SVC). Since past work has shown that classification tasks in EEG-based BCI are linear \cite{Garrett2003a}, we used XGBoost, a tool for logistic linear classification \cite{Chen2016}.
+We analyzed the EEG signals collected during the tasks using a support vector classifier (SVC). Since past work has shown that classification tasks in EEG-based BCI are linear \cite{Garrett2003a}, we used XGBoost, a tool for logistic linear classification \cite{Chen2016}. Compared to other linear classiifers, XGBoost uses gradient boosting; in which an algorithm generates an ensemble (in this case, a decision tree) of weak linear classifiers that minimizes a given loss function. Gradient boosting gives better results in linear classification problems, without our needing to manually tune classifier hyperparameters.
 
 To produce feature vectors, we took slices of 100 raw values from each electrode (about 500ms of data), and performed an FFT to produce power spectra for each electrode during that slice. We concatenated all electrode power spectra together, and performed PCA on all concatenated vectors such that the resulting vectors described 95\% of the variance in the full power spectrum data. For each task, for each participant, 100 seconds of data were collected in total across 10 trials of 10 seconds each, resulting in 200 samples per participant, per task, following preprocessing.
 
