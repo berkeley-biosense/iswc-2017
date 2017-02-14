@@ -53,20 +53,19 @@ single-factor authentication using passwords or other user-chosen secrets,
 the currently dominant method of authentication in consumer applications, 
 face many challenges. Major industry players such as Google and
 Facebook have strongly encouraged their users to adopt two-factor
-authentication (2FA). However, the need for users to submit two different 
-authenticators in two separate steps has frustrated wide adoption, 
-due its additional hassle cost to the users. For instance, the popular Apple
-iPhone has already implemented the necessary technologies to support device
-unlock using either a user-selected passcode or a fingerprint. The
+authentication (2FA). However, submitting two different 
+authenticators in two separate steps has frustrated wide adoption
+due to its additional hassle cost to users. The Apple iPhone, for instance,
+already supports device unlock using either a user-selected passcode or a fingerprint. The
 device could easily support a two-step two-factor authentication scheme if
 desired. However, it is easy to understand why users would balk at having to
 enter a passcode \emph{and} provide a fingerprint each time they want to unlock their phone.
 
 In previous work, "one-step two-factor authentication" has been proposed as a
 new approach to authentication that can provide the security benefits of two-
-factor authentication without incurring the hassle costs of two-step verification.
-By employing consumer-grade EEG (electroencephalogram) sensing
-technologies, it was demonstrated in a 2013 passthoughts study that a user can
+factor authentication without incurring the hassle of two-step verification.
+By employing consumer-grade EEG (electroencephalogram),
+it was demonstrated in a 2013 passthoughts study that a user can
 submit both a knowledge factor (i.e., secret thought) and an inherence factor
 (i.e., brainwave signal unique to the individual) in a single step by performing a
 single mental task \cite{Chuang2014}. Additionally, the robustness of this method against
@@ -87,6 +86,11 @@ earpieces which could easily contain a hardware key-pair as a possession factor.
 The ability to utilize all three of these security factors in a single step by performing 
 a mental task of a few seconds is a promising in pursuit of extremely strong security 
 while maintaining a low amount of effort and obtrusiveness to the user.
+
+We find that we can achieve low FARs and FRRs with a single, three-electrode earpiece.
+Interestingly, we found that we performed better in the ear than on the scalp.
+Additionally, we find that an passthoughts could not be spoofed by imposters, even when the imposters had the subject's earpiece and knew the secret passthoughts.
+We discuss the benefits of passthoughts to usable authentication, and raise questions about how and why passthoughts work as well as they do.
 
 \section{Related work}
 
@@ -425,7 +429,7 @@ One primary question surrounds how our passthought system performance will chang
 
 % We provide cursory evidence that passthoughts are difficult to spoof, though further work should expand on ours with more subjects.
 Another important question surrounds how passthoughts might be cracked.
-Generally, we do not understand how an individual's passthought is drawn from the general distribution of EEG signals that an individual produces throughout the day.
+Generally, we do not understand how an individual's passthought is drawn from the distribution of EEG signals that an individual produces throughout the day. 
 Given a large enough corpus of EEG data, are some passthoughts as easy to guess as \textit{password1234} is for passwords?
 Future work should perform statistical analysis on passthoughts, such as clustering (perhaps with t-SNE) to better understand the space of possible passthoughts.
 This work will allow us simulate cracking attempts, and to develop empirically motivated strategies for prevention, e.g. locking users out after a certain number of attempts.
