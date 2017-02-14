@@ -126,7 +126,7 @@ knowledge factor (the secret mental task) \cite{Chuang2014}.
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=.9\linewidth]{./figures/CFEEEG_piecefig_Right.jpg}
-\caption{Example of right ear custom-fit earpieces with 3 embedded electrodes located at the helix, and front-facing in the ear canal, and back-facing in the ear canal.}
+\caption{Labeled photo of one of our manufactured right ear custom-fit earpieces with 3 embedded electrodes located at the helix, and front-facing in the ear canal, and back-facing in the ear canal.}
 \end{figure}
 
 \subsection{In-Ear EEG}
@@ -172,7 +172,7 @@ can simply mention 2 in the ear canal and 1 on the outer ear (helix)***
 
 \subsection{Study Overview}
 
-7 male participants, 5 students and 2 non-students, completed our study protocol approved by the UC Berkeley Committee for Protection of Human Subjects (CPHS). Three study visits took place per participant, in the first the 3D molds of participants' ears to use in creating the earpieces were obtained, the second to do a fit and electrical impedance check once earpieces were manufactured, and a third to collect data using the earpieces while participants performed a set of mental tasks to be used in authentication analysis. Informed consent was obtained prior to study procedures. The third study visit consisted of participants completing a short demographics questionnaire, a set up period with the openBCI system and earpieces including a second impedance check, the performance of 9 mental tasks presented on a laptop, and finally a post-experiment questionnaire. Approximately two weeks after the third study visit, a subset of participants reported via e-mail whether or not they remembered the passthoughts they chose and performed.
+7 male participants (P1-P7), 5 students and 2 non-students, completed our study protocol that was approved by our local Institutional Review Board. Three study visits took place per participant, in the first the 3D molds of participants' ears to use in creating the earpieces were obtained, the second to do a fit and electrical impedance check once earpieces were manufactured, and a third to collect data using the earpieces while participants performed a set of mental tasks to be used in authentication analysis. Informed consent was obtained prior to study procedures. The third study visit consisted of participants completing a short demographics questionnaire, a set up period with the openBCI system and earpieces including a second impedance check, the performance of 9 mental tasks presented on a laptop, and finally a post-experiment questionnaire. Approximately two weeks after the third study visit, a subset of participants reported via e-mail whether or not they remembered the passthoughts they chose and performed.
 
 \label{sec:orgaf30da9}
 \subsection{Tasks}
@@ -191,7 +191,7 @@ Sport & Sport-related motor imagery & No & Yes & Closed & Motor\\
 Song & Imagining hearing a song & No & Yes & Closed & Aural\\
 Song - Open & Song task, with eyes open & No & Yes & Open & Aural\\
 Speech & Imagining a spoken phrase & No & Yes & Closed & Aural\\
-Listen - Noise & Listening to noise modulated at 40 Hz & Yes & No & Closed & None\\
+Listen & Listening to noise modulated at 40 Hz & Yes & No & Closed & None\\
 Face & Imagine a person's face & No & Yes & Closed & Visual\\
 Sequence & Imagine face, a number, and word on timed cues & Yes & Yes & Open & Visual\\
 \hline
@@ -203,7 +203,7 @@ Sequence & Imagine face, a number, and word on timed cues & Yes & Yes & Open & V
 
 \subsection{Data Collection Protocol}
 \label{sec:org2041857}
-The data collection visit took approximately 90 minutes for set up and experiment execution. All collection sites were cleaned with ethanol prior to electrode placement, and a small amount of conductive gel was used on each electrode. For EEG recording we used OpenBCI \cite{OpenBCI}, an open-source biosensing system to maintain an overall low cost our set up. OpenBCI has a price tag of about \$600, and thus is an affordable alternative to medical-grade EEG systems that can cost tens of thousands of dollars. Recent work has demonstrated the robustness of OpenBCI compared to an industry standard medical-grade EEG system, particularly for non-medical use cases such as ours \cite{Frey2016}. The OpenBCI system we used allows for 8 channels of simultaneous recording, along with separate ground and reference channels. Data was initially collected with the ground placed at the center of the forehead (a common approach to not bias one side of the head over the other), and using the left mastoid as reference, though we later re-referenced to the right mastoid channel so that our analysis reflects data from a single earpiece. Each earpiece (shown in the image below) contains three channels: one placed on the helix, and two inside the canal - one on the anterior canal wall (front-facing) and the other on the posterior wall (back-facing). The remaining two channels, AGCL ring electrodes, were placed on the right mastoid for later re-referencing, and at approximately Fp1 (the forehead above the left eye) for validating the data collected in the ears against a scalp-based placement. Before beginning the experiment, the data from each channel was visually inspected using the OpenBCI GUI and participants were asked to blink and clench their jaws to confirm that all channels were active and properly connected. Audio stimuli were delivered through small tubes in the earpieces opening into the ear canal.
+The data collection visit took approximately 90 minutes for set up and experiment execution. All collection sites were cleaned with ethanol prior to electrode placement, and a small amount of conductive gel was used on each electrode. For EEG recording we used OpenBCI \cite{OpenBCI}, an open-source biosensing system to maintain an overall low cost our set up. OpenBCI has a price tag of about \$600, and thus is an affordable alternative to medical-grade EEG systems that can cost tens of thousands of dollars. Recent work has demonstrated the robustness of OpenBCI compared to an industry standard medical-grade EEG system, particularly for non-medical use cases such as ours \cite{Frey2016}. The OpenBCI system we used allows for 8 channels of simultaneous recording, along with separate ground and reference channels. Data was collected with the ground placed at the center of the forehead, approximately AFz according to the 10-20 International Standard for Electrode Placement (ISEP), and using the left mastoid as reference. Notably, when examining data from the right earpiece, we re-referenced to the right mastoid channel so that our results reflect data from a single earpiece. Each earpiece (shown in Figure 1) contains three channels: one placed on the helix, and two inside the canal - one on the anterior canal wall (front-facing) and the other on the posterior wall (back-facing). The remaining two channels, AGCL ring electrodes, were placed on the right mastoid for later re-referencing, and at approximately Fp1 (left frontal lobe region, above the left eye in accordance with the ISEP) for validating the data collected in the ears against a common scalp-based placement. Before beginning the experiment, the data from each channel was visually inspected using the OpenBCI GUI and participants were asked to blink and clench their jaws to confirm that all channels were active and properly connected. Audio stimuli were delivered through small tubes in the earpieces opening into the ear canal.
 
 During the experiment, participants were seated in a comfortable position in a quiet room facing a laptop screen on which the
 instructions and stimuli were presented using PsychoPy. Each task was completed once in sets five trials each, and then
@@ -217,13 +217,13 @@ The experimenter also recorded the participant's chosen secrets for the sport, s
 
 \section{Analysis}
 \label{sec:org6c1a839}
-\subsection{Validating the data {\bfseries\sffamily TODO (Update beyond pilot participants}}
+\subsection{Data Validation}
 \label{sec:org800f2bd}
 
 In this section, we establish that the data we collected were of a neural origin, and had relatively little noise. We were able to confirm the custom-fit earpieces are able to collect EEG data using two tests: good impedances measured for the ear electrodes, and alpha-band activity attenuation when a participant's eyes were open versus closed.
 
 The first quality check was examining the electrical impedances achieved for the ear pieces as a low impedance (<10 kOhm) 
-is best for obtaining quality EEG signals. Table \ref{tab:impedances} below summarizes the impedances across the seven participants' six ear channels. With the exception of a few channels in select participants, impedances achieved were overall very good. 
+is best for obtaining quality EEG signals. Table \ref{tab:impedances} below summarizes the impedances across the seven participants' six ear channels. With the exception of a few channels in select participants, impedances achieved were overall good. 
 
 \begin{table}[h]
 \begin{center}
@@ -231,7 +231,7 @@ is best for obtaining quality EEG signals. Table \ref{tab:impedances} below summ
 & \multicolumn{6}{c}{Impedances [k\(\Omega\)]} \\
 \cline{2-7}
 & \multicolumn{3}{|c|}{Left ear} & \multicolumn{3}{c|}{Right ear} \\
-Participant & Helix & Front & Back & Helix & Front & Back \\
+P & Helix & Front & Back & Helix & Front & Back \\
 \hline
 1 & 4 & 4 & 4 & \textless1 & 4 & 3\\
 2 & 9 & 5 & 4 & 3 & 4 & 4\\
@@ -246,54 +246,31 @@ Participant & Helix & Front & Back & Helix & Front & Back \\
 \label{tab:impedances}
 \end{table}
 
-The recorded impedances of the earpiece electrodes were less than 5 kOhms except one, a benchmark used widely in previous
-ear EEG work. The left helix electrode of one participant was measured at 9 kOhms, and generally the 
-helix impedances for both participants were higher than their ear canal counterparts. We expected this result, given that the
-helix electrode relies on quality of the earpiece's fit outside the ear for good contact, and is not as securely and tightly placed as the
-electrodes within the ear canal. Nonetheless, the data from all electrodes were tested in the remaining two data quality tests.
+Most of the recorded impedances of the earpiece electrodes were less than 5 k\(\Omega\), a benchmark used widely in previous
+ear EEG work, and all except two were less than 10 k\(\Omega\). Nonetheless, the data from all electrodes were tested in the remaining two data quality tests.
 
 For the alpha-attenuation test, data from the "Breathe" task was compared with that of the "Breathe - Open" task. It is a well-
 known feature of EEG data that activity in the alpha-band (approximately 8-12 Hz range) increases when the eyes are closed
 compared with a similar state with eyes open. For our participants, this attenuation is clearly visible even in just
 a single trial's data. To further validate, we also performed this calculation on the data collected from the Fp1 electrode and see
-the effect clearly here as well. It is important to note that the left ear results are reported using the right mastoid as reference, and
-the right ear results in turn using the left mastoid as reference. When using the same side mastoid for reference the effect is not 
-visible, though it may be if we average across many trials. This is not surprising, as the further a reference electrode is from the active
-channel the less "real" signal is being subtracted from the active channel. This has important design implications for eventual 
-real-world deployment of this authentication method however, as it will likely require pieces worn on or around both ears to properly 
-function, and not just one. The figures below show the alpha attenuation in the left and right ear channels, as well as Fp1 of one participant for example.
+the effect clearly here as well. The figure below shows the alpha attenuation in the left ear channels, as well as Fp1 of one participant as an example. We see the same effect in the right ear channels referenced to the right mastoid.
 
 \begin{figure}[h]
 \centering
-\includegraphics[width=0.5\textwidth]{figures/001_AlphaAtt_Fp1.jpg}
-\caption{Alpha-attenuation (8-12 Hz range) in Fp1 channel, referenced at left mastoid, for comparison to ear channels. Red indicates breathing data with
-eyes open, blue indicates the same task with eyes closed.}
+\includegraphics[width=0.5\textwidth]{figures/002_AlphaAtt_all.jpg}
+\caption{Alpha-attenuation (8-12 Hz range) in left ear channels compared against the Fp1 channel, referenced at left mastoid. Red indicates breathing data with eyes open, blue indicates the same task with eyes closed.}
 \end{figure}
-
-\begin{figure}[h]
-  \centering
-  \begin{minipage}[b]{0.45\textwidth}
-    \includegraphics[width=\textwidth]{figures/001_AlphaAtt_Left.jpg}
-  \end{minipage}
-  \hfill
-  \begin{minipage}[b]{0.45\textwidth}
-    \includegraphics[width=\textwidth]{figures/001_AlphaAtt_Right.jpg}
-  \end{minipage}
-\caption{Alpha-attenuation (8-12 Hz range) in left and right ear canal channels, referenced at opposite mastoids respectfully. Red indicates breathing data with
-eyes open, blue indicates the same task with eyes closed.}
-\end{figure}
-
 
 \subsection{Classification}
 
 We analyzed the EEG signals collected during the tasks using a support vector classifier (SVC). Since past work has shown that classification tasks in EEG-based BCI are linear \cite{Garrett2003a}, we used XGBoost, a tool for logistic linear classification \cite{Chen2016}.
 
-To produce feature vectors, we took slices of 100 raw values from each electrode (about 500ms of data), and performed an FFT to produce power spectra for each electrode during that slice. We concatenated all electrode power spectra together, and performed PCA on all concatenated vectors such that the resulting vectors described 95\% of the variance in the full power specrum data. For each task, for each participant, 100 seconds of data were collected in total across 10 trials of 10 seconds each, resulting in 200 samples per participant, per task, following preprocessing.
+To produce feature vectors, we took slices of 100 raw values from each electrode (about 500ms of data), and performed an FFT to produce power spectra for each electrode during that slice. We concatenated all electrode power spectra together, and performed PCA on all concatenated vectors such that the resulting vectors described 95\% of the variance in the full power spectrum data. For each task, for each participant, 100 seconds of data were collected in total across 10 trials of 10 seconds each, resulting in 200 samples per participant, per task, following preprocessing.
 
 We trained the classifier using a balanced sample of positive and negative examples, where positive examples were from the target participant and target task, and negative examples were randomly selected tasks from any participant besides the target participant.
 From this corpus of positive and negative samples, we withheld one third of data for testing. 
 The remaining training set was fed into a XGBoost's cross-validation method, which we set to iteratively tweak parameters over a maximum of fifty rounds of cross-validation to minimize classification error.
-After cross-validation, the updated classifier (with paramters applied) predicted labels on each sample in the test set, and we calculated FAR and FRR on its results.
+After cross-validation, the updated classifier (with parameters applied) predicted labels on each sample in the test set, and we calculated FAR and FRR on its results.
 
 \section{Results}
 \label{sec:org6705b1d}
@@ -325,9 +302,9 @@ In the previous section, we trained and tested a passthought classifier with eac
 \begin{table}[h]
 \begin{center}
 \begin{tabular}{rrrl}
-FAR & FRR & Participant & Task\\
+FAR & FRR & P & Task\\
 \hline
-0.0 & 0.0 & 1 & Listen - noise\\
+0.0 & 0.0 & 1 & Listen\\
 0.0 & 0.0 & 2 & Breathe\\
 0.0 & 0.0 & 3 & Breathe\\
 0.0 & 0.0 & 4 & Breathe\\
@@ -364,7 +341,7 @@ However, FRR is \textit{lower} in the within-tasks training strategy than in our
 
 \subsection{Usability}
 
-A subset of four participants completed our usability questionnaire. This questionnaire asked them to rank each of the mental tasks on 7-point likert-type scales on ease of use, level of engagement, perceived repeatability, and likeliness to use in a real-world authentication setting. The breathe and listen (\(\mu\)=6.75) tasks were ranked easiest to use, while the sequence (\(\mu\)=2.25) and face (\(\mu\)=2.75) tasks were ranked the most difficult. Sequence was rated highly in engagement however (\(\mu\)=5), as was the song task (\(\mu\)=5), while breathe-open and listen-noise were ranked least engaging (\(\mu\)=2.25). Breathe (\(\mu\)=7) and listen-noise (\(\mu\)=6.75) were ranked highest in repeatability, with sequence (\(\mu\)=2.5) along with face and sport (\(\mu\)=3) ranked least repeatable. Finally in terms of likeliness of use for authentication, song-open (\(\mu\)=5) and sequence (\(\mu\)=4.25) performed highest though modestly, while breathe (\(\mu\)=2.75) and listen-noise (\(\mu\)=3) were rated least likely to use. In addition to these rating scales we asked participants to rank the tasks from most (1) to least (9) favorite overall. The song-open task ranked highest among favorites (\(\mu\)=4.25) followed by a tie between breathe-open, song, and speech (\(\mu\)=4.75). In line with some of the results above, sequence (\(\mu\)=7.75) and face (\(\mu\)=6.75) were rated as least favorites.
+A subset of four participants completed our usability questionnaire. This questionnaire asked them to rank each of the mental tasks on 7-point likert-type scales on ease of use, level of engagement, perceived repeatability, and likeliness to use in a real-world authentication setting. The breathe and listen (\(\mu\)=6.75) tasks were ranked easiest to use, while the sequence (\(\mu\)=2.25) and face (\(\mu\)=2.75) tasks were ranked the most difficult. Sequence was rated highly in engagement however (\(\mu\)=5), as was the song task (\(\mu\)=5), while breathe-open and listen were ranked least engaging (\(\mu\)=2.25). Breathe (\(\mu\)=7) and listen (\(\mu\)=6.75) were ranked highest in repeatability, with sequence (\(\mu\)=2.5) along with face and sport (\(\mu\)=3) ranked least repeatable. Finally in terms of likeliness of use for authentication, song-open (\(\mu\)=5) and sequence (\(\mu\)=4.25) performed highest though modestly, while breathe (\(\mu\)=2.75) and listen (\(\mu\)=3) were rated least likely to use. In addition to these rating scales we asked participants to rank the tasks from most (1) to least (9) favorite overall. The song-open task ranked highest among favorites (\(\mu\)=4.25) followed by a tie between breathe-open, song, and speech (\(\mu\)=4.75). In line with some of the results above, sequence (\(\mu\)=7.75) and face (\(\mu\)=6.75) were rated as least favorites.
 
 In addition to the scales and rankings, we included in our questionnaire a few open response questions to ascertain attitudes about the use cases for in-ear EEG and passthoughts, and the comfort of wearing an in-ear EEG device in everyday life. Participants first read the prompt, "Imagine a commercially available wireless earbud product is now available based on this technology that you've just experienced. It requires minimal effort for you to put on and wear.", and were asked about use cases for in-ear EEG and passthoughts. Responses about in-ear EEG expectedly included authentication for unlocking a phone or computer and building access, but also aspects of self-improvement such as P4's response "Help people increase focus and productivity". P5 and P6 also indicated a use for measuring engagement with media like movies and music, and relatedly P4 wrote "music playback optimized for current mental state and feelings". In terms of comfort wearing such a device, participants generally responded they would be comfortable, though P5 and P6 stipulated only when they would otherwise be wearing something like earphones in their ears already. In response to an "any other comments" prompt, notably three participants pointed out the mental imagery of a face was difficult for them and some concerns about their ability to repeat tasks in the same exact way each time.
 
@@ -382,7 +359,7 @@ The first aspect of this scenario we tested was the ability of an imposter to we
 & \multicolumn{6}{c}{Impedances [k\(\Omega\)]} \\
 \cline{2-7}
 & \multicolumn{3}{|c|}{Left ear} & \multicolumn{3}{c|}{Right ear} \\
-Participant & Helix & Front & Back & Helix & Front & Back \\
+P & Helix & Front & Back & Helix & Front & Back \\
 \hline
 2 & 34.1 & 10.2 & 12.8 & 27.8 & 16.0 & 16.3\\
 3 & 21.1 & 20.9 & 19.0 & 13.5 & 11.3 & 19.5\\
@@ -410,7 +387,7 @@ Sport \& & 0.0 & 0.0\\
 Song \& I & 0.0 & 0.0\\
 Song - Open & 0.0 & 0.0\\
 Speech \& & 0.0 & 0.0\\
-Listen - Tone & 0.0 & 0.0\\
+Listen & 0.0 & 0.0\\
 Face \& I & 0.0 & 0.0\\
 Sequence & 0.0 & 0.0\\
 \end{tabular}
