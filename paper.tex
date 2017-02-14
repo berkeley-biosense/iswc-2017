@@ -126,7 +126,7 @@ knowledge factor (the secret mental task) \cite{Chuang2014}.
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=.9\linewidth]{./figures/CFEEEG_piecefig_Right.jpg}
-\caption{Labeled photo of one of our manufactured right ear custom-fit earpieces with 3 embedded electrodes located at the helix, and front-facing in the ear canal, and back-facing in the ear canal.}
+\caption{Labeled photo of one of our manufactured right ear custom-fit earpieces with 3 embedded electrodes located in the concha, and front-facing in the ear canal, and back-facing in the ear canal.}
 \end{figure}
 
 \subsection{In-Ear EEG}
@@ -166,9 +166,7 @@ authentication scheme, in which possession of a unique device also serves to aut
 
 Custom ear impressions were made by cleaning and injecting silicon into the ear canal. A cotton ball with a string attached is placed into the ear canal first.  When the silicon dries after a few minutes, the string is pulled to remove the impression from the ear canal. This impression is then scanned with a 3D scanner and the resulting scan modified based on some heuristics to achieve a comfortable fit and to ensure the intended electrode sites will make good contact with the skin. Channels are created in the 3D model to allow wire leads and associated EEG electrodes as well as a plastic tube to deliver audio. This 3D model is then sent to a 3D printer. Following this wires leads and associated AGCL electrodes are installed. 
 
-***Is there specifics on how the exactly positions
-of the electrodes on these pieces were chosen? If not,
-can simply mention 2 in the ear canal and 1 on the outer ear (helix)***
+The electrode positions were simplified from the positions described in \cite{mikkelsen2014eeg}. We reduced the canal electrodes in order to help prevent bridging and positioned them approximately 180 degrees apart in the canal (posterior/back and anterior/front locations in the canal). We also reduced the number of electrodes in the concha to one.
 
 \subsection{Study Overview}
 
@@ -203,7 +201,7 @@ Sequence & Imagine face, a number, and word on timed cues & Yes & Yes & Open & V
 
 \subsection{Data Collection Protocol}
 \label{sec:org2041857}
-The data collection visit took approximately 90 minutes for set up and experiment execution. All collection sites were cleaned with ethanol prior to electrode placement, and a small amount of conductive gel was used on each electrode. For EEG recording we used OpenBCI \cite{OpenBCI}, an open-source biosensing system to maintain an overall low cost our set up. OpenBCI has a price tag of about \$600, and thus is an affordable alternative to medical-grade EEG systems that can cost tens of thousands of dollars. Recent work has demonstrated the robustness of OpenBCI compared to an industry standard medical-grade EEG system, particularly for non-medical use cases such as ours \cite{Frey2016}. The OpenBCI system we used allows for 8 channels of simultaneous recording, along with separate ground and reference channels. Data was collected with the ground placed at the center of the forehead, approximately AFz according to the 10-20 International Standard for Electrode Placement (ISEP), and using the left mastoid as reference. Notably, when examining data from the right earpiece, we re-referenced to the right mastoid channel so that our results reflect data from a single earpiece. Each earpiece (shown in Figure 1) contains three channels: one placed on the helix, and two inside the canal - one on the anterior canal wall (front-facing) and the other on the posterior wall (back-facing). The remaining two channels, AGCL ring electrodes, were placed on the right mastoid for later re-referencing, and at approximately Fp1 (left frontal lobe region, above the left eye in accordance with the ISEP) for validating the data collected in the ears against a common scalp-based placement. Before beginning the experiment, the data from each channel was visually inspected using the OpenBCI GUI and participants were asked to blink and clench their jaws to confirm that all channels were active and properly connected. Audio stimuli were delivered through small tubes in the earpieces opening into the ear canal.
+The data collection visit took approximately 90 minutes for set up and experiment execution. All collection sites were cleaned with ethanol prior to electrode placement, and a small amount of conductive gel was used on each electrode. For EEG recording we used OpenBCI \cite{OpenBCI}, an open-source biosensing system to maintain an overall low cost our set up. OpenBCI has a price tag of about \$600, and thus is an affordable alternative to medical-grade EEG systems that can cost tens of thousands of dollars. Recent work has demonstrated the robustness of OpenBCI compared to an industry standard medical-grade EEG system, particularly for non-medical use cases such as ours \cite{Frey2016}. The OpenBCI system we used allows for 8 channels of simultaneous recording, along with separate ground and reference channels. Data was collected with the ground placed at the center of the forehead, approximately AFz according to the 10-20 International Standard for Electrode Placement (ISEP), and using the left mastoid as reference. Notably, when examining data from the right earpiece, we re-referenced to the right mastoid channel so that our results reflect data from a single earpiece. Each earpiece (shown in Figure 1) contains three channels: one placed in the concha, and two inside the canal - one on the anterior canal wall (front-facing) and the other on the posterior wall (back-facing). The remaining two channels, AGCL ring electrodes, were placed on the right mastoid for later re-referencing, and at approximately Fp1 (left frontal lobe region, above the left eye in accordance with the ISEP) for validating the data collected in the ears against a common scalp-based placement. Before beginning the experiment, the data from each channel was visually inspected using the OpenBCI GUI and participants were asked to blink and clench their jaws to confirm that all channels were active and properly connected. Audio stimuli were delivered through small tubes in the earpieces opening into the ear canal.
 
 During the experiment, participants were seated in a comfortable position in a quiet room facing a laptop screen on which the
 instructions and stimuli were presented using PsychoPy. Each task was completed once in sets five trials each, and then
@@ -231,7 +229,7 @@ is best for obtaining quality EEG signals. Table \ref{tab:impedances} below summ
 & \multicolumn{6}{c}{Impedances [k\(\Omega\)]} \\
 \cline{2-7}
 & \multicolumn{3}{|c|}{Left ear} & \multicolumn{3}{c|}{Right ear} \\
-P & Helix & Front & Back & Helix & Front & Back \\
+P & Concha & Front & Back & Concha & Front & Back \\
 \hline
 1 & 4 & 4 & 4 & \textless1 & 4 & 3\\
 2 & 9 & 5 & 4 & 3 & 4 & 4\\
@@ -359,7 +357,7 @@ The first aspect of this scenario we tested was the ability of an imposter to we
 & \multicolumn{6}{c}{Impedances [k\(\Omega\)]} \\
 \cline{2-7}
 & \multicolumn{3}{|c|}{Left ear} & \multicolumn{3}{c|}{Right ear} \\
-P & Helix & Front & Back & Helix & Front & Back \\
+P & Concha & Front & Back & Concha & Front & Back \\
 \hline
 2 & 34.1 & 10.2 & 12.8 & 27.8 & 16.0 & 16.3\\
 3 & 21.1 & 20.9 & 19.0 & 13.5 & 11.3 & 19.5\\
