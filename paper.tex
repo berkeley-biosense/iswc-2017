@@ -185,11 +185,11 @@ Task & Description & Stimuli? & Secret? & Eyes & Imagery\\
 \hline
 Breathe & Relaxed breathing with eyes closed & No & No & Closed & None\\
 Breathe - Open & Relaxed breathing with eyes open & No & No & Open & None\\
-Sport & Sport-related motor imagery & No & Yes & Closed & Motor\\
-Song & Imagining hearing a song & No & Yes & Closed & Aural\\
+Sport & Imagine acting out a sport-related task & No & Yes & Closed & Motor\\
+Song & Imagine hearing a song & No & Yes & Closed & Aural\\
 Song - Open & Song task, with eyes open & No & Yes & Open & Aural\\
-Speech & Imagining a spoken phrase & No & Yes & Closed & Aural\\
-Listen & Listening to noise modulated at 40 Hz & Yes & No & Closed & None\\
+Speech & Imagine a spoken phrase & No & Yes & Closed & Aural\\
+Listen & Listen to noise modulated at 40 Hz & Yes & No & Closed & None\\
 Face & Imagine a person's face & No & Yes & Closed & Visual\\
 Sequence & Imagine face, a number, and word on timed cues & Yes & Yes & Open & Visual\\
 \hline
@@ -315,8 +315,16 @@ FAR & FRR & P & Task\\
 \label{tab:best}
 \end{table}
 
+All best-performing tasks in our best-case set achieved perfect FAR and FRRs, with the exception of P5, whose best-performing task (breathe) had a nonzero FRR.
 Breathe appeared as the best task across all participants. Given our training strategy, these results indicate that a given person's breathe task is distinguishable not only among other tasks, but among breathe tasks from other participants.
-All best-performing tasks in our set achieved perfect FAR and FRRs, with the exception of P5, whose best-performing task (breathe) had a nonzero FRR.
+This task performed about as well as its open-eyes counterpart (Figure \ref{fig:meanByTask}), as did /Song (eyes open)/ and /sport/ (though, interestingly, song with eyes closed performed less well).
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=.9\linewidth]{./figures/mean-far-by-task.png}
+\caption{FAR in the left ear by task, across all subjects.}
+\label{fig:meanByTask}
+\end{figure}
 
 These results establish good performance in our original training strategy, in which we count as negative examples recordings from the wrong participant performing any task. For comparison, we try two additional training strategies: one in which negative examples are the correct task recorded from the wrong participant (within-tasks), and one in which negative examples are the incorrect task recorded from the correct participant (within-participants).
 
@@ -325,8 +333,8 @@ These results establish good performance in our original training strategy, in w
 \begin{tabular}{lrrr}
  & Original & Within-tasks & Within-participants\\
 \hline
-FAR & 0.000074 & 0.000724 & 0.00252\\
-FRR & 0.00442 & 0.001522 & 0.0397\\
+FAR & 0.000074 & 0.000724 & 0.002523\\
+FRR & 0.004424 & 0.001522 & 0.039702\\
 \end{tabular}
 \end{center}
 \caption{Mean FAR and FRR for all participants and passthoughts across three different training strategies.}
@@ -335,7 +343,6 @@ FRR & 0.00442 & 0.001522 & 0.0397\\
 
 Overall, our original training strategy achieves the lowest FAR (Table \ref{tab:compare}). Within-tasks FAR ten times higher, and within-participants FAR is one hundred times higher.
 However, FRR is \textit{lower} in the within-tasks training strategy than in our original strategy's FRR. Within-participants again results in the highest FRR.
-
 
 \subsection{Usability}
 
