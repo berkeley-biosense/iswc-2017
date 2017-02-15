@@ -77,7 +77,7 @@ Interestingly, we found that performance improves in the ear compared to on the 
 Additionally, we find that an passthoughts could not be spoofed by imposters, even when the imposters had the subject's earpiece and knew the secret passthoughts.
 We discuss the benefits of passthoughts to usable authentication, and raise questions about how and why passthoughts work as well as they do.
 
-\section{Related work}
+\section{Related Work}
 
 Because three-factor authentication (3FA) requires the user to
 submit one distinct instance of each
@@ -100,7 +100,7 @@ ATM cards and wearable hardware tokens by implementing a hardware key-pair.
 Furthermore, because the earpieces are custom-fitted to each individual, we predicted 
 they would likely not be able to produce good electrical impedances when worn by a different individual.
 
-\subsection{Usable authentication}
+\subsection{Usable Authentication}
 
 Authentication protocols are often susceptible to a so-called \textit{rubber-hose attack}, in which users are coerced into giving up their chosen secret (e.g. password), biometric, or unique token, voluntarily or not \cite{Bojinov2012, Martinovic2012}. This attack is particularly effective against protocols that rely only on inherence factors, as inherent traits such as fingerprints are difficult to change without costly reprocussions \cite{Spielberg2002}. One defense against such an attack is textit{tacit authentication}, in which the user does not know exacly how s/he performs the authenticating action.
 
@@ -121,7 +121,7 @@ However, as far as we know, no one has proposed or demonstrated a one-step three
 authentication scheme, in which possession of a unique device also serves to authenticate the user. In this paper, we introduce custom-built EEG devices, incorporating an added posession factor to the already two-step authentication provided by passthoughs.
 
 
-\subsection{Passthought authentication}
+\subsection{Passthoughts Authentication}
 The use of EEG as a biometric signal for user authentication has a short history.
 In 2005, Thorpe et al. motivate and outline the design of a passthoughts system \cite{Thorpe2005}.
 Since 2002, a number of independent groups have achieved 99-
@@ -169,7 +169,7 @@ United Sciences is currently developing a consumer "hearable'' (in-ear wearable)
 
 \section{Methods}
 
-\subsection{Manufacturing and materials}
+\subsection{Earpiece Design and Manufacturing}
 
 To produce custom ear impressions, we cleaned subjects' ears and injected silicon into the ear canal. A cotton ball with a string attached is placed into the ear canal first.  When the silicon dries after a few minutes, the string is pulled to remove the impression from the ear canal. This impression is then scanned with a 3D scanner and the resulting scan modified based on some heuristics to achieve a comfortable fit and to ensure the intended electrode sites will make good contact with the skin. Channels are created in the 3D model to allow wire leads and associated EEG electrodes as well as a plastic tube to deliver audio. This 3D model is then sent to a 3D printer. Following this wires leads and associated AGCL electrodes are installed. 
 
@@ -295,9 +295,9 @@ As such, we focus on results from the left ear alone in our following analysis.
 \end{figure}
 
 
-\subsection{Authentication results in the left-ear}
+\subsection{Authentication Results}
 
-In the previous section, we trained and tested a passthought classifier with each task as the passthought, for all participants. Focusing on the left ear, we filter our results for the best-performing tasks. We rank tasks by lowest FAR and, given a tie, the lowest FRR (Table \ref{tab:best}).
+In the previous section, we trained and tested a passthought classifier with each task as the passthought, for all participants. Our analyses revealed the choice between left and right ear to have little effect on the results, this enables us to postulate around a more usable device using channels only around the left ear.  Focusing on the left ear, we filter our results for the best-performing tasks. We rank tasks by lowest FAR and, given a tie, the lowest FRR (Table \ref{tab:best}).
 
 \begin{table}[h]
 \begin{center}
@@ -349,7 +349,9 @@ However, FRR is \textit{lower} in the within-tasks training strategy than in our
 
 \subsection{Usability}
 
-A subset of four participants completed our usability questionnaire. This questionnaire asked them to rank each of the mental tasks on 7-point likert-type scales on ease of use, level of engagement, perceived repeatability, and likeliness to use in a real-world authentication setting. The breathe and listen (\(\mu\)=6.75) tasks were ranked easiest to use, while the sequence (\(\mu\)=2.25) and face (\(\mu\)=2.75) tasks were ranked the most difficult. Sequence was rated highly in engagement however (\(\mu\)=5), as was the song task (\(\mu\)=5), while breathe-open and listen were ranked least engaging (\(\mu\)=2.25). Breathe (\(\mu\)=7) and listen (\(\mu\)=6.75) were ranked highest in repeatability, with sequence (\(\mu\)=2.5) along with face and sport (\(\mu\)=3) ranked least repeatable. Finally in terms of likeliness of use for authentication, song-open (\(\mu\)=5) and sequence (\(\mu\)=4.25) performed highest though modestly, while breathe (\(\mu\)=2.75) and listen (\(\mu\)=3) were rated least likely to use. In addition to these rating scales we asked participants to rank the tasks from most (1) to least (9) favorite overall. The song-open task ranked highest among favorites (\(\mu\)=4.25) followed by a tie between breathe-open, song, and speech (\(\mu\)=4.75). In line with some of the results above, sequence (\(\mu\)=7.75) and face (\(\mu\)=6.75) were rated as least favorites.
+A subset of four participants completed our usability questionnaire. This questionnaire asked them to rank each of the mental tasks on 7-point likert-type scales on ease of use, level of engagement, perceived repeatability, and likeliness to use in a real-world authentication setting. The breathe and listen (\(\mu\)=6.75) tasks were ranked easiest to use, while the sequence (\(\mu\)=2.25) and face (\(\mu\)=2.75) tasks were ranked the most difficult. Sequence was rated highly in engagement however (\(\mu\)=5), as was the song task (\(\mu\)=5), while breathe-open and listen were ranked least engaging (\(\mu\)=2.25). Breathe (\(\mu\)=7) and listen (\(\mu\)=6.75) were ranked highest in repeatability, with sequence (\(\mu\)=2.5) along with face and sport (\(\mu\)=3) ranked least repeatable. Finally in terms of likeliness of use for authentication, song-open (\(\mu\)=5) and sequence (\(\mu\)=4.25) performed highest though modestly, while breathe (\(\mu\)=2.75) and listen (\(\mu\)=3) were rated least likely to use.
+
+In addition to these rating scales we asked participants to rank the tasks from most (1) to least (9) favorite overall. The song-open task ranked highest among favorites (\(\mu\)=4.25) followed by a tie between breathe-open, song, and speech (\(\mu\)=4.75). In line with some of the results above, sequence (\(\mu\)=7.75) and face (\(\mu\)=6.75) were rated as least favorites.
 
 In addition to the scales and rankings, we included in our questionnaire a few open response questions to ascertain attitudes about the use cases for in-ear EEG and passthoughts, and the comfort of wearing an in-ear EEG device in everyday life. Participants first read the prompt, "Imagine a commercially available wireless earbud product is now available based on this technology that you've just experienced. It requires minimal effort for you to put on and wear.", and were asked about use cases for in-ear EEG and passthoughts. Responses about in-ear EEG expectedly included authentication for unlocking a phone or computer and building access, but also aspects of self-improvement such as P4's response "Help people increase focus and productivity". P5 and P6 also indicated a use for measuring engagement with media like movies and music, and relatedly P4 wrote "music playback optimized for current mental state and feelings". In terms of comfort wearing such a device, participants generally responded they would be comfortable, though P5 and P6 stipulated only when they would otherwise be wearing something like earphones in their ears already. In response to an "any other comments" prompt, notably three participants pointed out the mental imagery of a face was difficult for them and some concerns about their ability to repeat tasks in the same exact way each time.
 
@@ -410,15 +412,17 @@ However, since this participant's data appeared in the initial pool, the classif
 
 \section{Discussion}
 
-Our findings demonstrate the apparent feasibility of single earpiece, achieving good results with only three electrodes and a reference, all on the left ear. FARs and FRRs are low across all participants and tasks, with FARs overall lower than FRRs. Participants' best-performing passthoughts typically seeing no errors in our training. Furthermore, no spoofed attacks were successful in our cursory analysis.
+Our findings demonstrate the apparent feasibility of single earpiece, achieving good results with only three electrodes and a reference, all on or around the left ear. FARs and FRRs are low across all participants and tasks, with FARs overall lower than FRRs, a desirable pattern in terms of authenticating access to potentially sensitive information. Participants' best-performing passthoughts typically see no errors in our training. Furthermore, no spoofed attacks were successful in our cursory analysis.
+
+This study was conducted with a small, relatively homogeneous sample of participants. We recognize this weakness and agree that more participants from diverse sample would greatly improve our understanding and interpretation of the capabilities of this technology. This does not lessen the importance of the work reported here however, as this sample size is comparable to that of previous scalp-based EEG passthoughts work\cite{Ashby2011, Marcel2007a, Palaniappan2008, palaniappan2006electroencephalogram, Poulos2002, Chuang2013b}, the only other in-ear EEG passthoughts study we are aware of \cite{curranpassthoughts} (notably a generic fit system was used here), and other custom-fit in-ear EEG research \cite{kidmose2013study}. The fitting and manufacturing of custom-fit earpieces was the main limitation to increasing our sample size, and may very well pose a limitation in adoption of such a technology. Recently, however there have been developments in at-home kits for creating one's own custom-fitted earpieces \cite{voix2015settable} that could help overcome this barrier.
 
 The powerful interactions between inherence and knowledge emerged in our spoofing attack. Although our target participant documented their chosen passthought, the spoofers found ambiguity in how these passthoughts could be expressed. For the face task, the spoofers did not know the friend the original participant had chosen. For the song tasks, though the song was known, the spoofers did not know what part of the song the original participant had imagined, or how it was imagined (humming, imagining a full performance, melody, vocals, etc). This experience sheds light on the highly individual nature of passthoughts, and provides a positive indication that there may be some intrinsic difficulty ofr spoofing passthoughts.
 
-In our analysis, some notable patterns emerged. First, \textit{breathe} tended to be the best-performing task among participants. Classifiers overall distinguished the breath task even compared to breath tasks from other participants, implying that the task is expressed differently for each participant, i.e. that this task has an inherence factor sufficient for authentication, even though the task does not have a knowledge factor. Second, we were able to achieve good results by generating feature vectors based on only 500ms (300 voltage readings across the three electrodes). This short timespan is somewhat surprising, given that some tasks (like songs) presumably rely on changes or patterns over a longer period of time. 
+In our analysis, some notable patterns emerged. First, \textit{breathe} tended to be the best-performing task among participants. Classifiers overall distinguished the breathe task even compared to breathe tasks from other participants, implying that the task is expressed differently for each participant, i.e. that this task has an inherence factor sufficient for authentication, even though the task does not have a knowledge factor. Second, we were able to achieve good results by generating feature vectors based on only 500ms (300 voltage readings across the three electrodes). This short timespan is somewhat surprising, given that some tasks (like songs) presumably rely on changes or patterns over a longer period of time. 
 
-Furthermore, the use of conductive gel results in low impedances on other participants' custom-fit earpieces, despite the uniquness of ear canal shapes between individuals \cite{Akkermans2005}.
+Furthermore, the use of conductive gel results in low impedances on other participants' custom-fit earpieces, despite the uniqueness of ear canal shapes between individuals \cite{Akkermans2005}.
 Nevertheless, classifiers appear to resists spoofing attacks, indicating that task-related signals are unique to individuals.
-In the future, the custom-fit earbuds could include a hardware keypair to sign authentication attempts, providing a more secure method for establishing the posession factor in our three-factor, one-step scheme.
+In the future, the custom-fit earbuds could easily include a hardware keypair to sign authentication attempts, providing a more secure method for establishing the possession factor in our three-factor, one-step scheme.
 
 Finally, performance on Fp1 was not as high as performance in the ear, despite Fp1's popularity in past work on passthoughts \cite{Chuang2013b}. This could be explained by the greater number of electrodes in the ear (compared to just one on Fp1). Additionally, Fp1 is best poised to pick up on frontal lobe activity (e..g, concentration), but our tasks did not generally involve frontal lobe activity; in fact, a good number of them involved audio, which we would expect to be better observed near the auditory cortex at the ears. Future work should continue to investigate what sorts of mental tasks lend themselves to in-ear recording.
 
