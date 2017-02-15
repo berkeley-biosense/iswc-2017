@@ -55,17 +55,7 @@ device could easily support a two-step two-factor authentication scheme if
 desired. However, it is easy to understand why users would balk at having to
 enter a passcode \emph{and} provide a fingerprint each time they want to unlock their phone.
 
-In previous work, "one-step two-factor authentication" has been proposed as a
-new approach to authentication that can provide the security benefits of two-
-factor authentication without incurring the hassle cost of two-step verification.
-By employing consumer-grade EEG (electroencephalogram),
-it was demonstrated in a 2013 passthoughts study that a user can
-submit both a knowledge factor (i.e., secret thought) and an inherence factor
-(i.e., brainwave signal unique to the individual) in a single step by performing a
-single mental task \cite{Chuang2014}. Additionally, the robustness of this method against
-impersonation attacks was demonstrated, including conditions where the attacker
-may have learned the target'€™s secret thought and/or secret task \cite{Johnson2014}.
-
+In previous work, "one-step two-factor authentication" has been proposed as a new approach to authentication that can provide the security benefits of two- factor authentication without incurring the hassle cost of two-step verification.
 In this study we undertake, to the best of our knowledge, the first
 ever study of one-step, three-factor authentication. In computer security,
 authenticators are classified into three types: knowledge factors (e.g., passwords
@@ -81,29 +71,18 @@ Additionally, we find that a passthoughts could not be spoofed by imposters, eve
 
 \section{Related Work}
 
-Because three-factor authentication (3FA) requires the user to
-submit one distinct instance of each type of authenticator, it represents the strongest level of authentication security
-possible. The system we propose and test here uses the choice of a mental task
-or "passthought" to perform as knowledge, the uniqueness of an individual's brain
-activity as measured by EEG as inherence, and the physical token of custom-fit 
-earpieces, which could easily contain a hardware key-pair, as a possession factor.
-The ability to utilize all three of these security factors in a single step by performing 
-a mental task of a few seconds is a promising in pursuit of extremely strong security 
-while maintaining a low amount of effort and obtrusiveness to the user.
 
-Following this, we investigate custom-fit in-ear EEG technology as the platform for
-investigating the feasibility, performance, and usability of one-step three-factor
-authentication. In addition to the dual knowledge and inherence factors in
-in previous work, this work includes a possession factor
-in the form of the EEG-sensing ear-piece(s) that are custom-fitted to and worn in
-their ear. These earpieces can serve as physical tokens in the same way as bank
-ATM cards and wearable hardware tokens by implementing a hardware key-pair.
-Furthermore, because the earpieces are custom-fitted to each individual, we predicted 
-they would likely not be able to produce good electrical impedances when worn by a different individual.
+By employing consumer-grade EEG (electroencephalogram), it was demonstrated in a 2013 passthoughts study that a user can submit both a knowledge factor (i.e., secret thought) and an inherence factor (i.e., brainwave signal unique to the individual) in a single step by performing a single mental task \cite{Chuang2014}. Additionally, the robustness of this method against impersonation attacks was demonstrated, including conditions where the attacker may have learned the target'€™s secret thought and/or secret task \cite{Johnson2014}.
+
+Following this, we investigate custom-fit in-ear EEG technology as the platform for investigating the feasibility, performance, and usability of one-step three-factor authentication.
+ The system we propose and test here uses the choice of a mental task or "passthought" to perform as knowledge (factor one), the uniqueness of an individual's brain activity as measured by EEG as inherence (factor two), and the physical token of custom-fit earpieces, which could easily contain a hardware key-pair, as a possession factor (factor 3).
+ %% In addition to the dual knowledge and inherence factors established in previous work, this study incorporates a possession factor in the form of the EEG-sensing ear-piece(s) that are custom-fitted to and worn in their ear. These earpieces can serve as physical tokens in the same way as bank ATM cards and wearable hardware tokens by implementing a hardware key-pair.
+ %% Furthermore, because the earpieces are custom-fitted to each individual, we predicted they would likely not be able to produce good electrical impedances when worn by a different individual.
+%% Because three-factor authentication (3FA) requires the user to submit one distinct instance of each type of authenticator, it represents the strongest level of authentication security possible. The ability to utilize all three of these security factors in a single step by performing a mental task of a few seconds is a promising in pursuit of extremely strong security while maintaining a low amount of effort and obtrusiveness to the user.
 
 \subsection{Usable Authentication}
 
-Authentication protocols are often susceptible to a so-called \textit{rubber-hose attack}, in which users are coerced into giving up their chosen secret (e.g. password), biometric, or unique token, voluntarily or not \cite{Bojinov2012, Martinovic2012}. This attack is particularly effective against protocols that rely only on inherence factors, as inherent traits such as fingerprints are difficult to change without costly repercussions \cite{Spielberg2002}. One defense against such an attack is \textit{tacit authentication}, in which the user does not know exactly how s/he performs the authenticating action.
+In addition, authentication protocols are often susceptible to a so-called \textit{rubber-hose attack}, in which users are coerced into giving up their chosen secret (e.g. password), biometric, or unique token, voluntarily or not \cite{Bojinov2012, Martinovic2012}. This attack is particularly effective against protocols that rely only on inherence factors, as inherent traits such as fingerprints are difficult to change without costly repercussions \cite{Spielberg2002}. One defense against such an attack is \textit{tacit authentication}, in which the user does not know exactly how s/he performs the authenticating action.
 
 Past work has exploited tacit skills (skills we know how to do, but cannot readily explain our method for doing, e.g. riding a bike or walking \cite{Bojinov2012}. In practice, these skills require time to learn, and their visible performance could open opportunities for recording and replay attacks.
 
@@ -278,17 +257,6 @@ After cross-validation, the updated classifier (with parameters applied) predict
 \subsection{Combinations of electrodes}
 \label{sec:org21b14ae}
 
-For each configuration of electrodes, we calculated the mean FAR and FRR across all participants using each task as the passthought (Figure \ref{fig:meanByElectrode}).
-Incorporating all electrodes data results in a perfect score for all tasks.
-Using data from all left-ear electrodes achieves the next lowest FAR, followed by all right ear electrodes.
-Interestingly, no single electrode from the left or right ear performs as well as the aggregate left and right ear conditions. 
-Counter to our expectations, Fp1 does not perform as well as most ear electrodes, though overall these reported rates are far less 
-than 1\%. 
-
-Our results indicate acceptable accuracy using electrodes on the left ear alone. 
-This corresponds to our original scenario, in which the device could be worn as an earbud (ideally, only one earbud would need sensors).
-As such, we focus on results from the left ear alone in our following analysis.
-
 \begin{figure*}[t]
 \centering
 \includegraphics[width=.9\linewidth]{./figures/mean-far-and-frr-by-electrode-config.png}
@@ -296,6 +264,19 @@ As such, we focus on results from the left ear alone in our following analysis.
 \label{fig:meanByElectrode}
 \end{figure*}
 
+For each configuration of electrodes, we calculated the mean FAR and FRR across all participants using each task as the passthought (Figure \ref{fig:meanByElectrode}).
+Incorporating all electrodes data results in a perfect score for all tasks.
+Using data from all left-ear electrodes achieves the next lowest FAR, followed by all right ear electrodes.
+Interestingly, no single electrode from the left or right ear performs as well as the aggregate left and right ear conditions. 
+
+Counter to our expectations, Fp1 does not perform as well as most ear electrodes, though overall these reported rates are far less 
+than 1\%. 
+Further, while FRR seemed to correlate roughly with FAR for most electrodes, the right concha and right canal front electrodes achieved extremeley high FRRs, while their FARs were among the lowest. 
+
+
+Our results indicate acceptable accuracy using electrodes on the left ear alone. 
+This corresponds to our original scenario, in which the device could be worn as an earbud (ideally, only one earbud would need sensors).
+As such, we focus on results from the left ear alone in our following analysis.
 
 \subsection{Authentication Results}
 
