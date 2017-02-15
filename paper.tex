@@ -318,7 +318,7 @@ In the previous section, we trained and tested a passthought classifier with eac
 \end{table}
 
 All best-performing tasks in our best-case set achieved perfect FAR and FRRs, with the exception of P5, whose best-performing task (breathe) had a nonzero FRR.
-Breathe appeared as the best task across all participants. Given our training strategy, these results indicate that a given person's breathe task is distinguishable not only among other tasks, but among breathe tasks from other participants.
+Breathe appeared as the best task across all participants. Given our training strategy, these results indicate that a given person's breathe task is distinguishable not only among other tasks, but among breathe tasks from other participants (that is, we are not simply picking a unique passthought task for each subject).
 This task performed about as well as its open-eyes counterpart (Figure \ref{fig:meanByTask}), as did song (eyes open) and sport (though, interestingly, song with eyes closed performed less well).
 
 \begin{figure}[htbp]
@@ -439,7 +439,9 @@ This work will allow us simulate cracking attempts, and to develop empirically m
 This work could also reveal interesting tradeoffs between the usability or accuracy of passthoughts and their security.
 
 Finally, our work leaves room for some clear UX improvements.
-Future work should try using dry electrodes, commonly found in consumer EEG devices, for comfort and usability.
+Future work should try using dry electrodes, commonly found in consumer EEG devices, for comfort and usability. The electrodes could be grounded to the ear, instead of the forehead.
+Additionally, future work could easily place a speaker inside our current custom-fit earbuds to produce working ``hearables'' that can be used as ordinary headphones.
+
 Future work should also attempt a closed-loop (or online) passthought system, in which users receive immediate feedback on the result of their authentication attempt. A closed-loop BCI system could help us understand how learning effects
 on the human side might impact authentication performance, as the human and machine co-adapt through authentication attempts.
 
