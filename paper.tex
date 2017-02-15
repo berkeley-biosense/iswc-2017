@@ -232,7 +232,7 @@ is best for obtaining quality EEG signals. Table \ref{tab:impedances} below summ
 & \multicolumn{6}{c}{\textbf{Impedances} [k\(\Omega\)]} \\
 \cline{2-7}
 & \multicolumn{3}{|c|}{\textbf{Left ear}} & \multicolumn{3}{c|}{\textbf{Right ear}} \\
-\textbf{P} & \textbf{Concha} & \textbf{Front} & \textbf{Back} & \textbf{Concha} & \textbf{Front} & \textbf{Back} \\
+\textbf{P} & \textbf{C} & \textbf{F} & \textbf{B} & \textbf{C} & \textbf{F} & \textbf{B} \\
 \hline
 1 & 4 & 4 & 4 & \textless1 & 4 & 3\\
 2 & 9 & 5 & 4 & 3 & 4 & 4\\
@@ -243,7 +243,7 @@ is best for obtaining quality EEG signals. Table \ref{tab:impedances} below summ
 7 & 2 & 9 & 8 & 7 & 5 & 6\\
 \end{tabular}
 \end{center}
-\caption{Electrical impedances measured for earpiece electrodes.}
+\caption{Electrical impedances measured for earpiece electrodes, for concha (C), front (F) and back (B).}
 \label{tab:impedances}
 \end{table}
 
@@ -291,7 +291,7 @@ As such, we focus on results from the left ear alone in our following analysis.
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=.9\linewidth]{./figures/mean-far-by-electrode-config.png}
+\includegraphics[width=.9\linewidth]{./figures/mean-far-and-frr-by-electrode-config.png}
 \caption{FAR by electrode configuration. All electrodes combined achieves a perfect score. We achieve the next best scores using data from the left ear only.}
 \label{fig:meanByElectrode}
 \end{figure}
@@ -306,13 +306,13 @@ In the previous section, we trained and tested a passthought classifier with eac
 \begin{tabular}{rrrl}
 \textbf{P} & \textbf{FAR} & \textbf{FRR} & \textbf{Task}\\
 \hline
-1 & 0.0 & 0.0 & Listen\\
-2 & 0.0 & 0.0 & Breathe\\
-3 & 0.0 & 0.0 & Breathe\\
-4 & 0.0 & 0.0 & Breathe\\
-5 & 0.0 & 0.012 & Breathe\\
-6 & 0.0 & 0.0 & Breathe\\
-7 & 0.0 & 0.0 & Breathe\\
+1 & 0.000 & 0.000 & Listen\\
+2 & 0.000 & 0.000 & Breathe\\
+3 & 0.000 & 0.000 & Breathe\\
+4 & 0.000 & 0.000 & Breathe\\
+5 & 0.000 & 0.012 & Breathe\\
+6 & 0.000 & 0.000 & Breathe\\
+7 & 0.000 & 0.000 & Breathe\\
 \end{tabular}
 \end{center}
 \caption{Best-performing passthought, with FAR and FRR, for each participant, using data from the left ear.}
@@ -325,8 +325,8 @@ This task performed about as well as its open-eyes counterpart (Figure \ref{fig:
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=.9\linewidth]{./figures/mean-far-by-task.png}
-\caption{FAR in the left ear by task, across all subjects.}
+\includegraphics[width=.9\linewidth]{./figures/mean-far-and-frr-by-task.png}
+\caption{FAR by task, across all subjects, using data from the left ear only.}
 \label{fig:meanByTask}
 \end{figure}
 
@@ -371,7 +371,7 @@ The first aspect of this scenario we tested was the ability of an imposter to we
 & \multicolumn{6}{c}{Impedances [k\(\Omega\)]} \\
 \cline{2-7}
 & \multicolumn{3}{|c|}{\textbf{Left ear}} & \multicolumn{3}{c|}{\textbf{Right ear}} \\
-\textbf{P} & \textbf{Concha} & \textbf{Front} & \textbf{Back} & \textbf{Concha} & \textbf{Front} & \textbf{Back} \\
+\textbf{P} & \textbf{C} & \textbf{F} & \textbf{B} & \textbf{C} & \textbf{F} & \textbf{B} \\
 \hline
 2 & 34.1 & 10.2 & 12.8 & 27.8 & 16.0 & 16.3\\
 3 & 21.1 & 20.9 & 19.0 & 13.5 & 11.3 & 19.5\\
@@ -381,7 +381,7 @@ The first aspect of this scenario we tested was the ability of an imposter to we
 7 & 91.5 & \textgreater1000 & 21.5 & 33.5 & 26.4 & 31.0\\
 \end{tabular}
 \end{center}
-\caption{Electrical impedances measured while P1 wore each other participant's custom-fitted earpieces.}
+\caption{Electrical impedances measured while P1 wore each other participant's custom-fitted earpieces, for concha (C), front (F) and back (B).}
 \label{tab:imposter_impedances}
 \end{table}
 
@@ -441,7 +441,9 @@ This work will allow us simulate cracking attempts, and to develop empirically m
 This work could also reveal interesting tradeoffs between the usability or accuracy of passthoughts and their security.
 
 Finally, our work leaves room for some clear UX improvements.
-Future work should try using dry electrodes, commonly found in consumer EEG devices, for comfort and usability.
+Future work should try using dry electrodes, commonly found in consumer EEG devices, for comfort and usability. The electrodes could be grounded to the ear, instead of the forehead.
+Additionally, future work could easily place a speaker inside our current custom-fit earbuds to produce working ``hearables'' that can be used as ordinary headphones.
+
 Future work should also attempt a closed-loop (or online) passthought system, in which users receive immediate feedback on the result of their authentication attempt. A closed-loop BCI system could help us understand how learning effects
 on the human side might impact authentication performance, as the human and machine co-adapt through authentication attempts.
 
