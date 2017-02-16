@@ -12,7 +12,7 @@
 \date{}
 
 %make title bold and 14 pt font (Latex default is non-bold, 16 pt)
-\title{\Large \bf One-Step, Three-Factor Authentication with Custom-Fit, In-Ear EEG}
+\title{\Large \bf One-Step, Three-Factor Authentication With Custom-Fit, In-Ear EEG}
 
 %forsupose single author (just remove % characters)
 \author{
@@ -35,7 +35,11 @@ Second Institution
 
 
 \subsection*{Abstract}
+<<<<<<< HEAD
 In this paper, we present a system that provides all three factors of authentication (knowledge, possession, and inherence) in a single step by using brain-based authentication via custom-fit, in-ear electroencephalography (EEG). We demonstrate its potential by collecting electroencephalography (EEG) data from seven participants using manufactured custom-fit earpieces with embedded electrodes. Across all participants, we achieve mean 0\% false acceptance and 0.017\% false rejection rates with data from only one earpiece with three electrodes. Furthermore, we find a 0\% false acceptance rate in a preliminary simulation of an impersonation attack. We also report some positive usability perspectives from our participants and discuss constructive directions for future work. Our results indicate that in-ear EEG could provide a discreet, convenient, and usable method for secure one-step, three-factor authentication.
+=======
+We present a system that provides all three factors of authentication (knowledge, possession, and inherence) in a single step, using brain-based authentication via custom-fit, in-ear electroencephalography (EEG). We demonstrate collecting EEG data from seven participants using manufactured custom-fit earpieces with embedded electrodes. Across all participants, we achieve mean 0\% false acceptance and 0.017\% false rejection rates with data from only one earpiece with three electrodes. We find a 0\% false acceptance rate in a preliminary simulation of an impersonation attack. Our results indicate that in-ear EEG could provide a discreet, convenient, and useable method for one-step, three-factor authentication.
+>>>>>>> 07e66bcdce4602cf96516996c0eac75bc7e08567
 
 \section{Introduction}
 \label{sec:org7196b99}
@@ -66,12 +70,49 @@ a choice of mental task to use as one's passthoughts, we seek to achieve all thr
 of authentication in a single step by the user.
 
 We find that we can achieve low false acceptance rates (FAR) and false rejection rates (FRR) with a single, 
-three-electrode earpiece. Interestingly, we found that performance improves in the ear compared to a single electrode on the scalp, a site typically used for collecting EEG data.
+<<<<<<< HEAD
+three-electrode earpiece. Interestingly, we found that performance in our protocol improves in the ear compared to a single electrode placed more traditionally on the scalp. Additionally, we find that passthoughts are not able to be spoofed by imposters, either from within the data set or outside of it, even when the imposters had a user's earpiece that fit their ear and knew their chosen passthoughts. We discuss the benefits of passthoughts for usable authentication, and raise questions for future pursuit about how and why passthoughts work as well as they do.
+
+\section{Related Work}
+
+=======
+three-electrode earpiece. Interestingly, we found that performance improves in the ear compared to a single electrode on the scalp.
 Additionally, we find that a passthoughts could not be spoofed by imposters, even when the imposters had the user's earpiece and knew their chosen passthoughts.
 We discuss future work to investigate the robustness of passthoughts in day-to-day life, and raise questions about how and why passthoughts work as well as they do.
 
 \section{Related Work}
 
+
+By employing consumer-grade EEG (electroencephalogram), it was demonstrated in a 2013 passthoughts study that a user can submit both a knowledge factor (i.e., secret thought) and an inherence factor (i.e., brainwave signal unique to the individual) in a single step by performing a single mental task \cite{Chuang2014}. Additionally, the robustness of this method against impersonation attacks was demonstrated, including conditions where the attacker may have learned the target'€™s secret thought \cite{Johnson2014}.
+
+Following this work, we investigate custom-fit, in-ear EEG earpieces as a platform for one-step, three-factor authentication.
+We use the choice of a mental task or "passthought" to perform as knowledge (factor one), the uniqueness of an individual's brain activity as measured by EEG as inherence (factor two), and the physical token of custom-fit earpieces, which could easily contain a hardware key-pair, as a possession factor (factor three).
+ %% In addition to the dual knowledge and inherence factors established in previous work, this study incorporates a possession factor in the form of the EEG-sensing ear-piece(s) that are custom-fitted to and worn in their ear. These earpieces can serve as physical tokens in the same way as bank ATM cards and wearable hardware tokens by implementing a hardware key-pair.
+ %% Furthermore, because the earpieces are custom-fitted to each individual, we predicted they would likely not be able to produce good electrical impedances when worn by a different individual.
+%% Because three-factor authentication (3FA) requires the user to submit one distinct instance of each type of authenticator, it represents the strongest level of authentication security possible. The ability to utilize all three of these security factors in a single step by performing a mental task of a few seconds is a promising in pursuit of extremely strong security while maintaining a low amount of effort and obtrusiveness to the user.
+
+\subsection{Usable Authentication}
+
+In addition, authentication protocols are often susceptible to a so-called \textit{rubber-hose attack}, in which users are coerced into giving up their chosen secret (e.g. password), biometric, or unique token, voluntarily or not \cite{Bojinov2012, Martinovic2012}. This attack is particularly effective against protocols that rely only on inherence factors, as inherent traits such as fingerprints are difficult to change without costly repercussions \cite{Spielberg2002}. One defense against such an attack is \textit{tacit authentication}, in which the user does not know exactly how s/he performs the authenticating action.
+
+Past work has exploited tacit skills (skills we know how to do, but cannot readily explain our method for doing, e.g. riding a bike or walking \cite{Bojinov2012}. In practice, these skills require time to learn, and the fact that they are performed visibly could open up opportunities for recording and replay attacks.
+
+In this work, we explore a different solution to rubber-hose attacks: a thought, which is secret (and thus changeable), but has a particular expression unique to an individual, the performance of which cannot be described  (and thus cannot be coerced).
+Furthermore, the performance of the chosen thought is invisible to outside observers, making the actual authentication impervious to shoulder-surfing.
+
+\subsection{One-Step, Multi-Factor Authentication}
+Behavioral authentication methods such as keystroke dynamics and speaker
+authentication can be categorized as one-step two-factor authentication
+schemes. In both cases, the knowledge factor (password or passphrase) and
+inherence factor (typing rhythm or speaker's voice) are employed \cite{Monrose1997}.
+In contrast, the Nymi band supports one-step two-factor authentication via the inherence
+factor (cardiac rhythm that is supposed to be unique to each individual) and the
+possession factor (the wearing of the band on the wrist) \cite{Nymi}.
+However, as far as we know, no one has proposed or demonstrated a one-step three-factor
+authentication scheme, in which possession of a unique device also serves to authenticate the user. In this paper, we introduce custom-built EEG devices, incorporating an added possession factor to the already two-step authentication provided by passthoughts.
+
+
+>>>>>>> 07e66bcdce4602cf96516996c0eac75bc7e08567
 \subsection{Passthoughts Authentication}
 The use of EEG as a biometric signal for user authentication has a short history.
 In 2005, Thorpe et al. motivated and outlined the design of a passthoughts system \cite{Thorpe2005}.
@@ -146,11 +187,22 @@ Furthermore, the performance of the chosen thought is largely invisible to outsi
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=.9\linewidth]{./figures/CFEEEG_piecefig_Right.jpg}
+<<<<<<< HEAD
 \caption{Labeled photo of one of our manufactured custom-fit earpieces with 3 embedded electrodes located in the concha, front-facing (anterior) in the ear canal, and back-facing (posterior) in the ear canal.}
 \label{fig:earpiece_diagram}
 \end{figure}
 
 To produce custom ear impressions during the first study visit, we cleaned subjects' ears and injected silicon into the ear canals. A cotton ball with a string attached is placed into the ear canal first.  When the silicon dries after a few minutes, the string is pulled to remove the impression from the ear canal. This impression is then scanned with a 3D scanner and the resulting scan modified based on some heuristics to achieve a comfortable fit and to ensure the intended electrode sites will make good contact with the skin. Channels are created in the 3D model to allow wire leads and associated EEG electrodes as well as a plastic tube to deliver audio. This 3D model is then sent to a 3D printer. Following this wires, leads, and associated AgCl electrodes are installed. 
+=======
+\caption{Labeled photo of one of our manufactured custom-fit earpieces with 3 embedded electrodes located in the concha, and front-facing in the ear canal, and back-facing in the ear canal.}
+\end{figure}
+
+To produce custom ear impressions, we cleaned subjects' ears and injected silicon into the ear canal. A cotton ball with a string attached is placed into the ear canal first.  When the silicon dries after a few minutes, the string is pulled to remove the impression from the ear canal. This impression is then scanned with a 3D scanner and the resulting scan modified based on some heuristics to achieve a comfortable fit and to ensure the intended electrode sites will make good contact with the skin. Channels are created in the 3D model to allow wire leads and associated EEG electrodes as well as a plastic tube to deliver audio. This 3D model is then sent to a 3D printer. Following this wires leads and associated AgCl electrodes are installed. 
+
+The electrode positions were simplified from the positions described in \cite{Mikkelsen2015}. We reduced the canal electrodes in order to help prevent bridging and positioned them approximately 180 degrees apart in the canal (posterior/back and anterior/front locations in the canal). We also reduced the number of electrodes in the concha to one. An example of one of the manufactured earpieces is shown in Figure 1.
+
+\subsection{Study Overview}
+>>>>>>> 07e66bcdce4602cf96516996c0eac75bc7e08567
 
 The positions of the earpiece electrodes were simplified from those described in \cite{Mikkelsen2015}. We reduced the number of canal electrodes in order to prevent electrical bridging and positioned them approximately 180 degrees apart in the canal (posterior/back and anterior/front locations in the canal). We also reduced the number of electrodes in the concha to one. An example of one of the manufactured earpieces is shown in Figure \ref{fig:earpiece_diagram}.
 
@@ -182,8 +234,15 @@ Sequence & Imagine a chosen face, number, and word on timed cues & Yes & Yes & O
 \end{table*}
 
 \subsection{Data Collection Protocol}
+<<<<<<< HEAD
 \label{sec:org2041857}
 The data collection visit took approximately 90 minutes for set up and experiment execution. All collection sites were cleaned with ethanol prior to electrode placement, and a small amount of conductive gel was used on each electrode. For EEG recording we used OpenBCI \cite{michalska2009openbci}, an open-source biosensing system to maintain an overall low cost for our setup. OpenBCI costs about 600 USD, and thus is an affordable alternative to medical-grade EEG systems that can cost tens of thousands of dollars. Recent work has demonstrated the robustness of OpenBCI compared to an industry standard medical-grade EEG system, particularly for non-medical use cases such as ours \cite{Frey2016}. The OpenBCI system we used allows for 8 channels of simultaneous recording, along with separate ground and reference channels. Data was collected with the ground placed at the center of the forehead, approximately AFz according to the 10-20 International Standard for Electrode Placement (ISEP), and using the left mastoid as reference. Notably, when examining data from the right earpiece, we re-referenced to the right mastoid channel so that our results reflect data from a single ear. Each earpiece (shown in Figure \ref{fig:earpiece_diagram}) contains three channels, for the remaining two channels AgCl ring electrodes were placed on the right mastoid for later re-referencing, and at approximately Fp1 (left frontal lobe region, above the left eye in accordance with the ISEP) for validating the data collected in the ears against a common scalp-based placement. Before beginning the experiment, the data from each channel was visually inspected using the OpenBCI interface and participants were asked to blink and clench their jaws to confirm that all channels were active and properly connected. Audio stimuli were delivered through small tubes in the earpieces opening into the ear canal.
+=======
+
+The data collection visit took approximately 90 minutes for set up and experiment execution. All collection sites were cleaned with ethanol prior to electrode placement, and a small amount of conductive gel was used on each electrode. For EEG recording we used OpenBCI \cite{Frey2016}, an open-source biosensing system to maintain an overall low cost our set up. OpenBCI costs about 600 USD, and thus is an affordable alternative to medical-grade EEG systems that can cost tens of thousands of dollars. Recent work has demonstrated the robustness of OpenBCI compared to an industry standard medical-grade EEG system, particularly for non-medical use cases such as ours \cite{Frey2016}. The OpenBCI system we used allows for 8 channels of simultaneous recording, along with separate ground and reference channels. Data was collected with the ground placed at the center of the forehead, approximately AFz according to the 10-20 International Standard for Electrode Placement (ISEP), and using the left mastoid as reference.
+Notably, when examining data from the right earpiece, we re-referenced to the right mastoid channel so that our results reflect data from a single earpiece.
+Each earpiece (shown in Figure 1) contains three channels: one placed in the concha, and two inside the canal - one on the anterior canal wall (front-facing) and the other on the posterior wall (back-facing). The remaining two channels, AgCl ring electrodes, were placed on the right mastoid for later re-referencing, and at approximately Fp1 (left frontal lobe region, above the left eye in accordance with the ISEP) for validating the data collected in the ears against a common scalp-based placement. Before beginning the experiment, the data from each channel was visually inspected using the OpenBCI GUI and participants were asked to blink and clench their jaws to confirm that all channels were active and properly connected. Audio stimuli were delivered through small tubes in the earpieces opening into the ear canal.
+>>>>>>> 07e66bcdce4602cf96516996c0eac75bc7e08567
 
 During the experiment, participants were seated in a comfortable position in a quiet room facing a laptop screen on which the instructions and stimuli were presented using PsychoPy \cite{peirce2007psychopy}. Each task was completed once in sets five trials each, and then each was completed again for another five trials. Each trial was 10 seconds in length, for a total of 10 trials and 100 seconds of data collected per task. The instructions were read aloud to the participant by the experimenter, and the experiment was advanced using a pointer held in the participant's lap to minimize motion artifacts in the data. The experimenter also recorded the participant's chosen secrets for the \textit{sport}, \textit{song}, \textit{face}, \textit{speech}, and \textit{sequence} tasks and reminded the participant of these for the second set of trials.
  
@@ -196,8 +255,13 @@ During the experiment, participants were seated in a comfortable position in a q
 
 In this section, we establish that the data we collected were of a neural origin, and had relatively little noise. We were able to confirm the custom-fit earpieces are able to collect EEG data via two metrics: good impedances measured for the ear electrodes, and alpha-band EEG activity attenuation when a participant's eyes were open versus closed.
 
+<<<<<<< HEAD
 The first quality check was examining the electrical impedances achieved for the ear pieces as a low impedance (<10 kOhm) 
 is best for obtaining quality EEG signals. Table \ref{tab:impedances} below summarizes the impedances across the seven participants' six ear channels. With the exception of a few channels in select participants, impedances achieved were overall good. Most of the recorded impedances of the earpiece electrodes were less than 5 k\(\Omega\), a benchmark used widely in previous ear EEG work, and all except two were less than 10 k\(\Omega\). Nonetheless, the data from all electrodes were tested in the remaining two data quality tests.
+=======
+The first quality check was examining the electrical impedances achieved for the ear pieces as a low impedance ($<$10 kOhm) 
+is best for obtaining quality EEG signals. Table \ref{tab:impedances} below summarizes the impedances across the seven participants' six ear channels. With the exception of a few channels in select participants, impedances achieved were overall good. 
+>>>>>>> 07e66bcdce4602cf96516996c0eac75bc7e08567
 
 \begin{table}[h]
 \begin{center}
@@ -224,7 +288,12 @@ For the alpha-attenuation test, data from the \textit{breathe} task was compared
 known feature of EEG data that activity in the alpha-band (approximately 8-12 Hz range) increases when the eyes are closed
 compared with a similar state with eyes open. For our participants, this attenuation is clearly visible even in just
 a single trial's data. To further validate, we also performed this calculation on the data collected from the Fp1 electrode and see
+<<<<<<< HEAD
 the effect clearly here as well to compare. Figure \ref{fig:alpha_atten} shows the alpha attenuation in the left ear channels, as well as Fp1 of one participant as an example. We see the same effect in the right ear channels.
+=======
+the effect clearly here as well. The figure below shows the alpha attenuation in the left ear channels, as well as Fp1 of one participant as an example.
+We see the same effect in the right ear channels referenced to the right mastoid. 
+>>>>>>> 07e66bcdce4602cf96516996c0eac75bc7e08567
 
 \begin{figure}[h]
 \centering
@@ -257,6 +326,15 @@ After cross-validation, the updated classifier (with parameters applied) predict
 \end{figure*}
 
 For each configuration of electrodes, we calculated the mean FAR and FRR across all participants using each task as the passthought (Figure \ref{fig:meanByElectrode}).
+<<<<<<< HEAD
+Incorporating all electrodes' data results in a perfect score for all tasks.
+Using data from all left-ear electrodes achieves the next lowest FAR, followed by all right ear electrodes.
+Notably, no single electrode from the left or right ear performs as well as the aggregate left and right ear conditions. 
+
+Counter to our expectations, Fp1 does not perform as well as most ear electrodes, though overall these reported rates are far less 
+than 1\%. 
+Further, while FRR seemed to correlate roughly with FAR for most electrodes, the right concha and right canal front electrodes achieved extremely high FRRs, while their FARs were among the lowest. 
+=======
 Incorporating all electrodes data results in a perfect score for all tasks.
 Using data from all left-ear electrodes achieves the next lowest FAR.
 Interestingly, no single electrode performs as well as the aggregate left or both-ear plus Fp1 (all) conditions. 
@@ -266,6 +344,7 @@ than 1\%.
 For each position, FAR was about ten times lower than FRR, which is preferable for authentication, as false authentications are potentially more costly than false rejections.
 % Further, while FRR seemed to correlate roughly with FAR for most electrodes, the right concha and right canal front electrodes achieved extremeley high FRRs, while their FARs were among the lowest. 
 % Since our results were similar in the right and left ear aggregate conditions, we proceed with only one ear (the left) in the following analyses.
+>>>>>>> 07e66bcdce4602cf96516996c0eac75bc7e08567
 
 Our results indicate acceptable accuracy using electrodes on the left ear alone. 
 This corresponds to our original scenario, in which the device could be worn like an earbud (ideally, only one earbud would need sensors).
@@ -273,7 +352,11 @@ As such, we focus on results from the left ear alone in our following analyses.
 
 \subsection{Authentication Results}
 
-In the previous section, we trained and tested a passthoughts classifier with each task as the passthought, for all participants. Our analyses revealed the left ear alone produced decent results. Focusing on the left ear, we filter our results for the best-performing tasks. We rank tasks by lowest FAR and, given a tie, the lowest FRR (Table \ref{tab:best}). Overall, we find  a mean FAR of zero and mean FRR of 0.017\%.
+<<<<<<< HEAD
+In the previous section, we trained and tested a passthought classifier with each task as the passthought, for all participants. Our analyses revealed the choice between left and right ear to have little effect on the results and this enables us to postulate around a more usable device using sensors only around the left ear.  Focusing on the left ear, we filter our results for the best-performing tasks. We rank tasks by lowest FAR and, given a tie, the lowest FRR (Table \ref{tab:best}).
+=======
+In the previous section, we trained and tested a passthought classifier with each task as the passthought, for all participants. Our analyses revealed the left produced decent results. Focusing on the left ear, we filter our results for the best-performing tasks. We rank tasks by lowest FAR and, given a tie, the lowest FRR (Table \ref{tab:best}). Overall, we find  a mean FAR of zero and mean FRR of 0.017\%.
+>>>>>>> 07e66bcdce4602cf96516996c0eac75bc7e08567
 
 \begin{table}[h]
 \begin{center}
@@ -390,7 +473,13 @@ However, since this participant's data appeared in the initial pool, the classif
 
 Our findings demonstrate the apparent feasibility of a single earpiece, achieving good results with only three electrodes and a reference, all on or around the left ear. FARs and FRRs are very low across all participants and tasks, with FARs overall lower than FRRs, a desirable pattern in terms of authenticating access to potentially sensitive information. Participants' best-performing passthoughts typically see no errors in our training. Furthermore, no spoofed attacks were successful in our cursory analysis.
 
+<<<<<<< HEAD
 This study was conducted with a small, relatively homogeneous sample of participants. We feel that more participants from a more diverse pool would greatly improve our understanding and interpretation of the capabilities of this technology. This does not lessen the importance of this work however, as this sample size is comparable to that of previous scalp-based EEG passthoughts work\cite{Ashby2011, Marcel2007a, Palaniappan2008, palaniappan2006electroencephalogram, Poulos2002, Chuang2013b}, the only other in-ear EEG passthoughts study we are aware of \cite{curran2016passthoughts} (notably a generic fit system was used here), and other custom-fit in-ear EEG research \cite{kidmose2013study}. The fitting and manufacturing of custom-fit earpieces was the main limitation to increasing our sample size, and may very well pose a limitation in proliferation and adoption of such a technology. Recently however, there have been developments in at-home kits for creating one's own custom-fitted earpieces \cite{voix2015settable} that could help overcome this barrier.
+=======
+This study was conducted with a small, relatively homogeneous sample of participants. We feel that more participants from a more diverse pool would greatly improve our understanding and interpretation of the capabilities of this technology. This does not lessen the importance of this work however, as this sample size is comparable to that of previous scalp-based EEG passthoughts work \cite{Ashby2011, Marcel2007a, Palaniappan2008, palaniappan2006electroencephalogram, Poulos2002, Chuang2013b}, the only other in-ear EEG passthoughts study we are aware of \cite{curranpassthoughts} (notably a generic fit system was used here), and other custom-fit in-ear EEG research \cite{kidmose2013study}. The fitting and manufacturing of custom-fit earpieces was the main limitation to increasing our sample size, and may very well pose a limitation in adoption of such a technology. Recently, however there have been developments in at-home kits for creating one's own custom-fitted earpieces \cite{voix2015settable} that could help overcome this barrier in the future. 
+
+The powerful interactions between inherence and knowledge emerged in our spoofing attack. Although our target participant documented their chosen passthought, the spoofers found ambiguity in how these passthoughts could be expressed. For the \textit{face} task, the spoofers did not know the precise friend the original participant had chosen. For the \textit{song} and \textit{song - open} tasks, though the song was known, the spoofers did not know what part of the song the original participant had imagined, or how it was imagined (humming, imagining a full performance, melody, vocals, etc). This experience sheds light on the highly individual nature of passthoughts, and provides a positive indication that there may be some intrinsic difficulty in spoofing attempts of passthoughts.
+>>>>>>> 07e66bcdce4602cf96516996c0eac75bc7e08567
 
 In our analysis, some notable patterns emerged. First, \textit{breathe} tended to be the best-performing task among participants. Classifiers overall distinguished the \textit{breathe} task even compared to \textit{breathe} tasks from other participants, implying that the task is expressed differently for each participant, i.e. that this task has an inherence factor sufficient for authentication, even though the task does not have an explicit secondary knowledge factor as in \textit{song}, for example. Second, we were able to achieve good results by generating feature vectors based on only 500ms (300 voltage readings across the three electrodes). This short timespan is somewhat surprising, given that some tasks (like songs) presumably rely on changes or patterns over a longer period of time. 
 
