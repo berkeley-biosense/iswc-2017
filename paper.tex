@@ -66,7 +66,9 @@ a choice of mental task to use as one's passthoughts, we seek to achieve all thr
 of authentication in a single step by the user.
 
 We find that we can achieve low false acceptance rates (FAR) and false rejection rates (FRR) with a single, 
-three-electrode earpiece. Interestingly, we found that performance in our protocol improves in the ear compared to a single electrode placed more traditionally on the scalp. Additionally, we find that passthoughts are not able to be spoofed by imposters, either from within the data set or outside of it, even when the imposters had a user's earpiece that fit their ear and knew their chosen passthoughts. We discuss the benefits of passthoughts for usable authentication, and raise questions for future pursuit about how and why passthoughts work as well as they do.
+three-electrode earpiece. Interestingly, we found that performance improves in the ear compared to a single electrode on the scalp.
+Additionally, we find that a passthoughts could not be spoofed by imposters, even when the imposters had the user's earpiece and knew their chosen passthoughts.
+We discuss future work to investigate the robustness of passthoughts in day-to-day life, and raise questions about how and why passthoughts work as well as they do.
 
 \section{Related Work}
 
@@ -255,13 +257,15 @@ After cross-validation, the updated classifier (with parameters applied) predict
 \end{figure*}
 
 For each configuration of electrodes, we calculated the mean FAR and FRR across all participants using each task as the passthought (Figure \ref{fig:meanByElectrode}).
-Incorporating all electrodes' data results in a perfect score for all tasks.
-Using data from all left-ear electrodes achieves the next lowest FAR, followed by all right ear electrodes.
-Notably, no single electrode from the left or right ear performs as well as the aggregate left and right ear conditions. 
+Incorporating all electrodes data results in a perfect score for all tasks.
+Using data from all left-ear electrodes achieves the next lowest FAR.
+Interestingly, no single electrode performs as well as the aggregate left or both-ear plus Fp1 (all) conditions. 
 
 Counter to our expectations, Fp1 does not perform as well as most ear electrodes, though overall these reported rates are far less 
 than 1\%. 
-Further, while FRR seemed to correlate roughly with FAR for most electrodes, the right concha and right canal front electrodes achieved extremely high FRRs, while their FARs were among the lowest. 
+For each position, FAR was about ten times lower than FRR, which is preferable for authentication, as false authentications are potentially more costly than false rejections.
+% Further, while FRR seemed to correlate roughly with FAR for most electrodes, the right concha and right canal front electrodes achieved extremeley high FRRs, while their FARs were among the lowest. 
+% Since our results were similar in the right and left ear aggregate conditions, we proceed with only one ear (the left) in the following analyses.
 
 Our results indicate acceptable accuracy using electrodes on the left ear alone. 
 This corresponds to our original scenario, in which the device could be worn like an earbud (ideally, only one earbud would need sensors).
@@ -269,7 +273,7 @@ As such, we focus on results from the left ear alone in our following analyses.
 
 \subsection{Authentication Results}
 
-In the previous section, we trained and tested a passthought classifier with each task as the passthought, for all participants. Our analyses revealed the choice between left and right ear to have little effect on the results and this enables us to postulate around a more usable device using sensors only around the left ear.  Focusing on the left ear, we filter our results for the best-performing tasks. We rank tasks by lowest FAR and, given a tie, the lowest FRR (Table \ref{tab:best}).
+In the previous section, we trained and tested a passthought classifier with each task as the passthought, for all participants. Our analyses revealed the left produced decent results. Focusing on the left ear, we filter our results for the best-performing tasks. We rank tasks by lowest FAR and, given a tie, the lowest FRR (Table \ref{tab:best}). Overall, we find  a mean FAR of zero and mean FRR of 0.017\%.
 
 \begin{table}[h]
 \begin{center}
