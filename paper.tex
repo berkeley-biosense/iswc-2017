@@ -391,7 +391,16 @@ Our findings demonstrate the apparent feasibility of a single earpiece, achievin
 
 This study was conducted with a small, relatively homogeneous sample of participants. We feel that more participants from a more diverse pool would greatly improve our understanding and interpretation of the capabilities of this technology. This does not lessen the importance of this work however, as this sample size is comparable to that of previous scalp-based EEG passthoughts work\cite{Ashby2011, Marcel2007a, Palaniappan2008, palaniappan2006electroencephalogram, Poulos2002, Chuang2013b}, the only other in-ear EEG passthoughts study we are aware of \cite{curran2016passthoughts} (notably a generic fit system was used here), and other custom-fit in-ear EEG research \cite{kidmose2013study}. The fitting and manufacturing of custom-fit earpieces was the main limitation to increasing our sample size, and may very well pose a limitation in proliferation and adoption of such a technology. Recently however, there have been developments in at-home kits for creating one's own custom-fitted earpieces \cite{voix2015settable} that could help overcome this barrier.
 
-In our analysis, some notable patterns emerged. First, the \textit{breathe}, \textit{breathe-open}, and \textit{listen} tasks performed exceedingly well among participants. Classifiers overall distinguished the \textit{breathe}  and \texit{listen} tasks even compared to the same tasks from other participants, implying that these tasks are expressed differently for each participant, i.e. that they have an inherence factor sufficient for authentication, even though they task do not involve an explicit secondary knowledge factor as in \textit{sport} or \texit{song}, for example. Second, we were able to achieve good results by generating feature vectors based on only 500ms (300 voltage readings across the three electrodes). This short timespan is somewhat surprising, given that some tasks (like songs) presumably rely on changes or patterns over a longer period of time. 
+In our analysis, some notable patterns emerged. First, the \textit{breathe},
+\textit{breathe-open}, and \textit{listen} tasks performed exceedingly well among participants.
+Classifiers overall distinguished the \textit{breathe}  and \textit{listen} tasks even compared
+to the same tasks from other participants, implying that these tasks are expressed differently
+for each participant, i.e. that they have an inherence factor sufficient for authentication,
+even though they task do not involve an explicit secondary knowledge factor as in \textit{sport}
+or \textit{song}, for example. Second, we were able to achieve good results by generating feature
+vectors based on only 500ms (300 voltage readings across the three electrodes).
+This short timespan is somewhat surprising, given that some tasks (like songs)
+presumably rely on changes or patterns over a longer period of time.
 
 Furthermore, likely due to the use of conductive gel, low impedances are still achievable using other participants' custom-fit earpieces, despite the uniqueness of ear canal shapes between individuals \cite{Akkermans2005}.
 Nevertheless, classifiers appear to resists spoofing attacks, indicating that task-related signals are unique to individuals.
