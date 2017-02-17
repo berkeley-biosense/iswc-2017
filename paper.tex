@@ -275,21 +275,21 @@ In the previous section, we trained and tested a passthoughts classifier with ea
 
 \begin{table*}[t]
 \centering
-\begin{tabularx}{\textwidth}{lrrrrrrrrrrrrrr}
-& \multicolumn{2}{c}{\textbf{P1}} & \multicolumn{2}{c}{\textbf{P2}} & \multicolumn{2}{c}{\textbf{P3}} & \multicolumn{2}{c}{\textbf{P4}} & \multicolumn{2}{c}{\textbf{P5}} & \multicolumn{2}{c}{\textbf{P6}} & \multicolumn{2}{c}{\textbf{P7}}\\
-\textbf{Task} & FAR & FRR & FAR & FRR & FAR & FRR & FAR & FRR & FAR & FRR & FAR & FRR & FAR & FRR\\ \hline
-Breathe & 0.0002 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0.0127 & 0 & 0 & 0 & 0\\
-Breathe - open & 0.0002 & 0.0127 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0.0253 & 0 & 0 & 0 & 0\\
-Face & 0.0002 & 0.0253 & 0.0005 & 0.0253 & 0 & 0.0127 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\
-Listen & 0 & 0 & 0.0005 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\
-Sequence & 0 & 0.0506 & 0.0002 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0.0007 & 0.0127\\
-Song	 & 0.0002 & 0.0380 & 0 & 0 & 0	 & 0 & 0 & 0 & 0 & 0.0127 & 0 & 0 & 0.0007 & 0.0127\\
-Song - open & 0.0002 & 0.0127 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0.0127\\
-Speech & 0.0002 & 0 & 0.0005 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\
-Sport & 0.0002 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0	 & 0.0127\\
-\textbf{Best Task} & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\ \hline
+\begin{tabularx}{\textwidth}{lrrrrrrrrrr}
+& \multicolumn{2}{c}{\textbf{P1}} & \multicolumn{2}{c}{\textbf{P2}} & \multicolumn{2}{c}{\textbf{P3}} & \multicolumn{2}{c}{\textbf{P5}} & \multicolumn{2}{c}{\textbf{P7}}\\
+\textbf{Task} & FAR & FRR & FAR & FRR & FAR & FRR & FAR & FRR & FAR & FRR\\ \hline
+Breathe & 0.0002 & 0 & 0 & 0 & 0 & 0 & 0 & 0.0127 & 0 & 0\\
+Breathe - open & 0.0002 & 0.0127 & 0 & 0 & 0 & 0 & 0 & 0.0253 & 0 & 0\\
+Face & 0.0002 & 0.0253 & 0.0005 & 0.0253 & 0 & 0.0127 & 0 & 0 & 0 & 0\\
+Listen & 0 & 0 & 0.0005 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\
+Sequence & 0 & 0.0506 & 0.0002 & 0 & 0 & 0 & 0 & 0 & 0.0007 & 0.0127\\
+Song	 & 0.0002 & 0.0380 & 0 & 0 & 0	 & 0 & 0 & 0.0127 & 0.0007 & 0.0127\\
+Song - open & 0.0002 & 0.0127 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0.0127\\
+Speech & 0.0002 & 0 & 0.0005 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\
+Sport & 0.0002 & 0 & 0 & 0 & 0 & 0 & 0 & 0  & 0 & 0.0127\\
+\textbf{Best Task} & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\ \hline
 \end{tabularx}
-\caption{FAR and FRR performance of each task for each participant using data from the left ear.}
+\caption{FAR and FRR performance of each task for each participant using data from the left ear. P4 and P6 achieve perfect zero FARs and FRRs across all tasks and so are not shown here.}
 \label{tab:farfrrall}
 \end{table*}
 
