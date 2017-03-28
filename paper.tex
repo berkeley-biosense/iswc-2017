@@ -1,44 +1,114 @@
-% TEMPLATE for Usenix papers, specifically to meet requirements of
+\documentclass{sigchi}
 
-% https://www.usenix.org/conference/usenixsecurity17/submitting-papers
+% Use this command to override the default ACM copyright statement (e.g. for preprints). 
+% Consult the conference website for the camera-ready copyright statement.
 
-% Complaints to /dev/null.
-% This version uses the latex2e styles, not the very ancient 2.09 stuff.
-\documentclass[letterpaper,twocolumn,10pt]{article}
-\usepackage{lib/usenix,epsfig,endnotes,tabularx}
+
+%% EXAMPLE BEGIN -- HOW TO OVERRIDE THE DEFAULT COPYRIGHT STRIP -- (July 22, 2013 - Paul Baumann)
+% \toappear{Permission to make digital or hard copies of all or part of this work for personal or classroom use is 	granted without fee provided that copies are not made or distributed for profit or commercial advantage and that copies bear this notice and the full citation on the first page. Copyrights for components of this work owned by others than ACM must be honored. Abstracting with credit is permitted. To copy otherwise, or republish, to post on servers or to redistribute to lists, requires prior specific permission and/or a fee. Request permissions from permissions@acm.org. \\
+% {\emph{CHI'14}}, April 26--May 1, 2014, Toronto, Canada. \\
+% Copyright \copyright~2014 ACM ISBN/14/04...\$15.00. \\
+% DOI string from ACM form confirmation}
+%% EXAMPLE END -- HOW TO OVERRIDE THE DEFAULT COPYRIGHT STRIP -- (July 22, 2013 - Paul Baumann)
+
+
+% Arabic page numbers for submission. 
+% Remove this line to eliminate page numbers for the camera ready copy
+% \pagenumbering{arabic}
+
+
+% Load basic packages
+%\usepackage{balance}  % to better equalize the last page
+%\usepackage{graphics} % for EPS, load graphicx instead
+\usepackage{epsfig} % Max added
+\usepackage{times}    % comment if you want LaTeX's default font
+\usepackage{url}      % llt: nicely formatted URLs
+\usepackage{tabularx} % Max added
+
+
+% llt: Define a global style for URLs, rather that the default one
+\makeatletter
+\def\url@leostyle{%
+  \@ifundefined{selectfont}{\def\UrlFont{\sf}}{\def\UrlFont{\small\bf\ttfamily}}}
+\makeatother
+\urlstyle{leo}
+
+
+% To make various LaTeX processors do the right thing with page size.
+\def\pprw{8.5in}
+\def\pprh{11in}
+\special{papersize=\pprw,\pprh}
+\setlength{\paperwidth}{\pprw}
+\setlength{\paperheight}{\pprh}
+\setlength{\pdfpagewidth}{\pprw}
+\setlength{\pdfpageheight}{\pprh}
+
+% Make sure hyperref comes last of your loaded packages, 
+% to give it a fighting chance of not being over-written, 
+% since its job is to redefine many LaTeX commands.
+\usepackage[pdftex]{hyperref}
+\hypersetup{
+pdftitle={SIGCHI Conference Proceedings Format},
+pdfauthor={LaTeX},
+pdfkeywords={SIGCHI, proceedings, archival format},
+bookmarksnumbered,
+pdfstartview={FitH},
+colorlinks,
+citecolor=black,
+filecolor=black,
+linkcolor=black,
+urlcolor=black,
+breaklinks=true,
+}
+
+% create a shortcut to typeset table headings
+\newcommand\tabhead[1]{\small\textbf{#1}}
+
+
+% End of preamble. Here it comes the document.
 \begin{document}
 
-%don't want date printed
-\date{}
+\title{One-Step, Three-Factor Authentication via Ear EEG}
 
-%make title bold and 14 pt font (Latex default is non-bold, 16 pt)
-\title{\Large \bf One-Step, Three-Factor Authentication with Custom-Fit, In-Ear EEG}
-
-%forsupose single author (just remove % characters)
+\numberofauthors{4}
 \author{
-{\rm First Name, Second Name, Third Name}\\
-First Institution
-\and
-{\rm Second Name}\\
-Second Institution
-% copy the following lines to add more authors
-% \and
-% {\rm Name}\\
-%Name Institution
-} % end author
+  \alignauthor 1st Author\\
+    \affaddr{Affiliation}\\
+    \email{e-mail}\\
+  \alignauthor 2nd Author\\
+    \affaddr{Affiliation}\\
+    \email{e-mail}\\
+  \alignauthor 3rd Author\\
+    \affaddr{Affiliation}\\
+    \email{e-mail}\\
+  \alignauthor 4th Author\\
+    \affaddr{Affiliation}\\
+    \email{e-mail}\\
+}
 
 \maketitle
 
-% Use the following at camera-ready time to suppress page numbers.
-% Comment it out when you first submit the paper for review.
-\thispagestyle{empty}
-
-
-\subsection*{Abstract}
+\begin{abstract}
 We present a system that provides all three factors of authentication (knowledge, possession, and inherence) in a single step by using brain-based authentication via custom-fit, in-ear electroencephalography (EEG). We demonstrate its potential by collecting EEG data from seven participants using manufactured custom-fit earpieces with embedded electrodes. Across all participants, we are able to achieve perfect performance when we select participants' best performing tasks, mean 0\% false acceptance and 0\% false rejection rates, with data from only one earpiece with three electrodes. Furthermore, we find a 0\% false acceptance rate in a preliminary simulation of an impersonation attack. We also report some positive usability perspectives from our participants and discuss constructive directions for future work. Our results indicate that in-ear EEG could provide a discreet, convenient, and usable method for secure one-step, three-factor authentication.
+\end{abstract}
+
+%\keywords{
+%	Guides; instructions; author's kit; conference publications;
+%	keywords should be separated by a semi-colon. \newline
+%	\textcolor{red}{Optional section to be included in your final version, 
+%  but strongly encouraged.}
+%}
+
+%\category{H.5.m.}{Information Interfaces and Presentation (e.g. HCI)}{Miscellaneous}
+
+%See: \url{http://www.acm.org/about/class/1998/}
+%for more information and the full list of ACM classifiers
+%and descriptors. \newline
+%\textcolor{red}{Optional section to be included in your final version, 
+%but strongly encouraged. On the submission page only the classifiers’ 
+%letter-number combination will need to be entered.}
 
 \section{Introduction}
-\label{sec:org7196b99}
 
 It is well appreciated by experts and end-users alike that strong authentication is
 critical to cybersecurity and privacy, now and into the future. Unfortunately,
@@ -55,7 +125,8 @@ device could very well support a two-step two-factor authentication scheme if
 desired. However, it is easy to understand why users would balk at having to
 enter a passcode \emph{and} provide a fingerprint each time they want to unlock their phone.
 
-In previous work, "one-step two-factor authentication" has been proposed as a new approach to authentication that can provide the security benefits of two-factor authentication without incurring the hassle cost of two-step verification.
+In previous work, "one-step two-factor authentication" has been proposed as a new approach
+to authentication that can provide the security benefits of two-factor authentication without incurring the hassle cost of two-step verification.
 In this study we undertake, to the best of our knowledge, the first
 ever study of one-step, three-factor authentication. In computer security,
 authenticators are classified into three types: knowledge factors (e.g., passwords
@@ -95,7 +166,7 @@ By employing scalp-based consumer-grade electroencephalography (EEG), it was dem
 Following this, we investigate custom-fit in-ear EEG technology as the platform for investigating the feasibility, performance, and usability of one-step three-factor authentication worn unobtrusively. The system we propose and test here uses the choice of a mental task or "passthought" to perform as knowledge (factor one), the uniqueness of an individual's brain activity as measured by EEG as inherence (factor two), and the physical token of custom-fit earpieces, which could easily contain a hardware key-pair, as a possession factor (factor 3). Because three-factor authentication (3FA) requires the user to submit one distinct instance of each type of authenticator, it represents the strongest level of authentication security possible. The ability to utilize all three of these security factors in a single step by performing a mental task of a few seconds is promising in pursuit of extremely strong security while maintaining a low amount of effort and obtrusiveness to the user.
 
 \subsection{In-Ear EEG}
-Even consumer-grade headsets can be uncomfortable to wear, and are awkwardly visible to outside observers. Sensors placed around the ear however, present a more discreet, comfortable location for an EEG sensor, as many people already wear technology like earbuds in day-to-day life.
+Even consumer-grade headsets can be uncomfortable to wear, and are awkwardly visible to outside observers. Sensors placed around the ear however, present a more discreet, comfortable location for EEG electrodes, as many people already wear technology like earbuds in day-to-day life.
 
 Research in in-ear EEG is only several years old. Nonetheless, the concept has
 attracted a lot of attention because of the discreetness factor of in-ear EEG over
@@ -137,7 +208,7 @@ Furthermore, the performance of the chosen thought is largely invisible to outsi
 
 \subsection{Study Overview}
 
-7 male participants (P1-P7), 5 students and 2 non-students, completed our study protocol that was approved by our local Institutional Review Board. Three study visits took place per participant, in the first the 3D molds of participants' ears to use in creating the earpieces were obtained, the second was a fit and electrical impedance check once earpieces were manufactured, and the third to collect data using the earpieces while participants performed a set mental tasks to be used in authentication analysis. Informed consent was obtained prior to study procedures. The third study visit consisted of participants completing a short demographics questionnaire, a set up period with the OpenBCI system and earpieces including a second impedance check, the performance of 9 mental tasks presented on a laptop, and finally a post-experiment questionnaire. Approximately two weeks after the third study visit, a subset of participants reported via e-mail whether or not they remembered the passthoughts they chose and performed during the third visit.
+7 male, right-handed participants (P1-P7), 5 students and 2 non-students, completed our study protocol that was approved by our local Institutional Review Board. Three study visits took place per participant, in the first the 3D molds of participants' ears to use in creating the earpieces were obtained, the second was a fit and electrical impedance check once earpieces were manufactured, and the third to collect data using the earpieces while participants performed a set mental tasks to be used in authentication analysis. Informed consent was obtained prior to study procedures. The third study visit consisted of participants completing a short demographics questionnaire, a set up period with the OpenBCI system and earpieces including a second impedance check, the performance of 9 mental tasks presented on a laptop, and finally a post-experiment questionnaire. Approximately two weeks after the third study visit, a subset of participants reported via e-mail whether or not they remembered the passthoughts they chose and performed during the third visit.
 
 \subsection{Earpiece Design and Manufacturing}
 
@@ -152,7 +223,7 @@ To produce custom ear impressions during the first study visit, we cleaned subje
 
 The positions of the earpiece electrodes were simplified from those described in \cite{Mikkelsen2015}. We reduced the number of canal electrodes in order to prevent electrical bridging and positioned them approximately 180 degrees apart in the canal (posterior/back and anterior/front locations in the canal). We also reduced the number of electrodes in the concha to one. An example of one of the manufactured earpieces is shown in Figure \ref{fig:earpiece_diagram}.
 
-\label{sec:orgaf30da9}
+%\label{sec:orgaf30da9}
 \subsection{Mental Tasks}
 
 We used a set of mental tasks based on findings in related work regarding the relative strengths of different tasks in authentication accuracy and usability as reported by participants. Furthermore, given the in-ear placement of the electrodes and therefore the proximity to the temporal lobes containing the auditory cortex, we tested several novel authentication tasks based specifically on aural imagery or stimuli. The 9 authentication tasks and their attributes are listed in Table \ref{tab:tasks}. Our strategy was to select tasks that captured a diversity of possibilities across the dimensions of external stimuli, involving a personal secret, eyes open or closed (due to known significant effects on EEG), and different types of mental imagery.
@@ -180,7 +251,7 @@ Sequence & Imagine a chosen face, number, and word on timed cues & Yes & Yes & O
 \end{table*}
 
 \subsection{Data Collection Protocol}
-\label{sec:org2041857}
+%\label{sec:org2041857}
 The data collection visit took approximately 90 minutes for set up and experiment execution. All collection sites were cleaned with ethanol prior to electrode placement, and a small amount of conductive gel was used on each electrode. For EEG recording we used OpenBCI \cite{michalska2009openbci}, an open-source biosensing system to maintain an overall low cost for our setup. OpenBCI costs about 600 USD, and thus is an affordable alternative to medical-grade EEG systems that can cost tens of thousands of dollars. Recent work has demonstrated the robustness of OpenBCI compared to an industry standard medical-grade EEG system, particularly for non-medical use cases such as ours \cite{Frey2016}. The OpenBCI system we used allows for 8 channels of simultaneous recording, along with separate ground and reference channels. Data was collected with the ground placed at the center of the forehead, approximately AFz according to the 10-20 International Standard for Electrode Placement (ISEP), and using the left mastoid as reference. Notably, when examining data from the right earpiece, we re-referenced to the right mastoid channel so that our results reflect data from a single ear. Each earpiece (shown in Figure \ref{fig:earpiece_diagram}) contains three channels, for the remaining two channels AgCl ring electrodes were placed on the right mastoid for later re-referencing, and at approximately Fp1 (left frontal lobe region, above the left eye in accordance with the ISEP) for validating the data collected in the ears against a common scalp-based placement. Before beginning the experiment, the data from each channel was visually inspected using the OpenBCI interface and participants were asked to blink and clench their jaws to confirm that all channels were active and properly connected. Audio stimuli were delivered through small tubes in the earpieces opening into the ear canal.
 
 During the experiment, participants were seated in a comfortable position in a quiet room facing a laptop screen on which the instructions and stimuli were presented using PsychoPy \cite{peirce2007psychopy}. Each task was completed once in sets of five trials each, and then each was completed again for another five trials. Each trial was 10 seconds in length, for a total of 10 trials and 100 seconds of data collected per task. The instructions were read aloud to the participant by the experimenter, and the experiment was advanced using a pointer held in the participant's lap to minimize motion artifacts in the data. The experimenter also recorded the participant's chosen secrets for the \textit{sport}, \textit{song}, \textit{face}, \textit{speech}, and \textit{sequence} tasks and reminded the participant of these for the second set of trials.
@@ -188,9 +259,9 @@ During the experiment, participants were seated in a comfortable position in a q
  After completing the experiment, a subset of participants completed a usability questionnaire in which they were asked to rate their ease of performing, level of engagement, perceived repeatability, and likeliness of using each task. The questionnaire also asked participants to rank the tasks overall from most to least favorite, as well as several open response questions regarding potential use cases of in-ear EEG and this method of authentication, level of comfort wearing the earpieces, and any other comments they chose to provide.
 
 \section{Analysis}
-\label{sec:org6c1a839}
+%\label{sec:org6c1a839}
 \subsection{Data Validation}
-\label{sec:org800f2bd}
+%\label{sec:org800f2bd}
 
 In this section, we establish that the data we collected were of a neural origin, and had relatively little noise. We were able to confirm the custom-fit earpieces are able to collect EEG data via two metrics: good impedances measured for the ear electrodes, and alpha-band EEG activity attenuation when a participant's eyes were open versus closed.
 
@@ -243,9 +314,9 @@ The remaining training set was fed into a XGBoost's cross-validation method, whi
 After cross-validation, the updated classifier (with parameters applied) predicted labels on each sample in the test set, and we calculated FAR and FRR on its results.
 
 \section{Results}
-\label{sec:org6705b1d}
+%\label{sec:org6705b1d}
 \subsection{Combinations of electrodes}
-\label{sec:org21b14ae}
+%\label{sec:org21b14ae}
 
 \begin{figure*}[t]
 \centering
@@ -326,7 +397,7 @@ However, FRR is \textit{lower} in the within-tasks training strategy than in our
 
 A subset of four participants completed our usability questionnaire. This questionnaire asked them to rank each of the mental tasks on 7-point likert-type scales on ease of use, level of engagement, perceived repeatability, and likeliness to use in a real-world authentication setting. The \textit{breathe} and \textit{listen} (\(\mu\)=6.75) tasks were ranked easiest to use, while the \textit{sequence} (\(\mu\)=2.25) and \textit{face} (\(\mu\)=2.75) tasks were ranked the most difficult. \textit{Sequence} was rated highly in engagement however (\(\mu\)=5), as was \textit{song}  (\(\mu\)=5), while \textit{breathe-open} and \textit{listen} were ranked least engaging (\(\mu\)=2.25). \textit{Breathe} (\(\mu\)=7) and \textit{listen} (\(\mu\)=6.75) were ranked highest in repeatability, with \textit{sequence} (\(\mu\)=2.5) along with \textit{face} and \textit{sport} (\(\mu\)=3) ranked least repeatable. Finally in terms of likeliness of use for authentication, \textit{song-open} (\(\mu\)=5) and \textit{sequence} (\(\mu\)=4.25) were rated highest, though modestly, while \textit{breathe} (\(\mu\)=2.75) and \textit{listen} (\(\mu\)=3) were rated least likely to use.
 
-In addition to these rating scales we asked participants to rank the tasks from most (1) to least (9) favorite overall. The \textit{song - open} task ranked highest among favorites (\(\mu\)=4.25) followed by a tie between \textit{breathe - open}, \textit{song}, and \textit{speech} (\(\mu\)=4.75). In line with some of the results above, \textit{sequence} (\(\mu\)=7.75) and \textit{face} (\(\mu\)=6.75) were rated as least favorites.
+We also asked participants to rank the tasks from most (1) to least (9) favorite overall. The \textit{song - open} task ranked highest among favorites (\(\mu\)=4.25) followed by a tie between \textit{breathe - open}, \textit{song}, and \textit{speech} (\(\mu\)=4.75). In line with some of the results above, \textit{sequence} (\(\mu\)=7.75) and \textit{face} (\(\mu\)=6.75) were rated as least favorites.
 
 In addition to the scales and rankings, we included in our questionnaire a few open response questions to ascertain attitudes about the use cases for in-ear EEG and passthoughts, and the comfort of wearing an in-ear EEG device in everyday life. Participants first read the prompt, "Imagine a commercially available wireless earbud product is now available based on this technology that you've just experienced. It requires minimal effort for you to put on and wear.", and were asked about use cases for in-ear EEG and passthoughts. Responses about in-ear EEG expectedly included authentication for unlocking a phone or computer and building access, but also aspects of self-improvement such as P4's response "Help people increase focus and productivity". P5 and P6 also indicated a use for measuring engagement with media like movies and music, and relatedly P4 wrote "music playback optimized for current mental state and feelings". In terms of comfort wearing such a device, participants generally responded they would be comfortable, though P5 and P6 stipulated only when they would otherwise be wearing something like earphones in their ears already. In response to an "any other comments" prompt, notably three participants pointed out the mental imagery of a face was difficult for them and some concerns about their ability to repeat tasks in the same exact way each time.
 
@@ -389,7 +460,7 @@ However, since this participant's data appeared in the initial pool, the classif
 
 Our findings demonstrate the apparent feasibility of a single earpiece, achieving good results with only three electrodes and a reference, all on or around the left ear. FARs and FRRs are very low across all participants and tasks, with FARs overall lower than FRRs, a desirable pattern in terms of authenticating access to potentially sensitive information. Participants' best-performing passthoughts typically see no errors in our training. Furthermore, no spoofed attacks were successful in our cursory analysis.
 
-This study was conducted with a small, relatively homogeneous sample of participants. We feel that more participants from a more diverse pool would greatly improve our understanding and interpretation of the capabilities of this technology. This does not lessen the importance of this work however, as this sample size is comparable to that of previous scalp-based EEG passthoughts work\cite{Ashby2011, Marcel2007a, Palaniappan2008, palaniappan2006electroencephalogram, Poulos2002, Chuang2013b}, the only other in-ear EEG passthoughts study we are aware of \cite{curran2016passthoughts} (notably a generic fit system was used here), and other custom-fit in-ear EEG research \cite{kidmose2013study}. The fitting and manufacturing of custom-fit earpieces was the main limitation to increasing our sample size, and may very well pose a limitation in proliferation and adoption of such a technology. Recently however, there have been developments in at-home kits for creating one's own custom-fitted earpieces \cite{voix2015settable} that could help overcome this barrier.
+This study was conducted with a small, relatively homogeneous sample of participants. In order to establish the validity of this system for widespread real-world use we feel it is necessary to expand the size and diversity of tested participants in future studies. In the case of this initial evaluation however, the homogeneity of our participant pool strengthens the reported results given the challenge of this system is distinguishing between individuals. We feel that more participants from a more diverse pool would greatly improve our understanding and interpretation of the capabilities of this technology. This sample size is comparable to that of previous scalp-based EEG passthoughts work\cite{Ashby2011, Marcel2007a, Palaniappan2008, palaniappan2006electroencephalogram, Poulos2002, Chuang2013b}, the only other in-ear EEG passthoughts study we are aware of \cite{curran2016passthoughts} (notably a generic fit system was used here), and other custom-fit in-ear EEG research \cite{kidmose2013study}. The fitting and manufacturing of custom-fit earpieces was the main limitation to increasing our sample size, and may very well pose a limitation in proliferation and adoption of such a technology. Recently, there have been developments in at-home kits for creating one's own custom-fitted earpieces \cite{voix2015settable} that could help overcome this barrier.
 
 In our analysis, some notable patterns emerged. First, the \textit{breathe},
 \textit{breathe-open}, and \textit{listen} tasks performed exceedingly well among participants.
@@ -433,8 +504,36 @@ on the human side might impact authentication performance, as the human and mach
 
 As demonstrated by these preliminary results, custom-fit, in-ear EEG earpieces provide three factors of authentication in a single authentication step: thinking one's passthought, using the discreet form factor of an earpiece. In this paper, we demonstrate quite high authentication accuracy using a single sensing earpiece. By expanding our corpus of EEG readings (in population size, time, and diversity of settings), we hope to better understand the underlying distribution of EEG signals, so that we may better understand the security properties of passthoughts.
 
-{\footnotesize \bibliographystyle{acm}
-\bibliography{references}}
 
+\section{Acknowledgments}
+
+The authors thank X. This work was funded by X.
+
+% Balancing columns in a ref list is a bit of a pain because you
+% either use a hack like flushend or balance, or manually insert
+% a column break.  http://www.tex.ac.uk/cgi-bin/texfaq2html?label=balance
+% multicols doesn't work because we're already in two-column mode,
+% and flushend isn't awesome, so I choose balance.  See this
+% for more info: http://cs.brown.edu/system/software/latex/doc/balance.pdf
+%
+% Note that in a perfect world balance wants to be in the first
+% column of the last page.
+%
+% If balance doesn't work for you, you can remove that and
+% hard-code a column break into the bbl file right before you
+% submit:
+%
+% http://stackoverflow.com/questions/2149854/how-to-manually-equalize-columns-
+% in-an-ieee-paper-if-using-bibtex
+%
+% Or, just remove \balance and give up on balancing the last page.
+%
+%\balance
+
+% REFERENCES FORMAT
+% References must be the same font size as other body text.
+
+\bibliographystyle{acm-sigchi}
+\bibliography{references.bib}
 
 \end{document}
