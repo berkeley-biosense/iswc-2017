@@ -287,7 +287,7 @@ Song	 & 0.0002 & 0.0380 & 0 & 0 & 0	 & 0 & 0 & 0.0127 & 0.0007 & 0.0127\\
 Song - open & 0.0002 & 0.0127 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0.0127\\
 Speech & 0.0002 & 0 & 0.0005 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\
 Sport & 0.0002 & 0 & 0 & 0 & 0 & 0 & 0 & 0  & 0 & 0.0127\\
-\textbf{Best Task} & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\ \hline
+\textbf{Best Task} & \textbf{0} & \textbf{0} & \textbf{0} & \textbf{0} & \textbf{0} & \textbf{0} & \textbf{0} & \textbf{0} & \textbf{0} & \textbf{0}\\ \hline
 \end{tabularx}
 \caption{FAR and FRR performance of each task for each participant using data from the left ear. P4 and P6 achieve perfect zero FARs and FRRs across all tasks and so are not shown here.}
 \label{tab:farfrrall}
@@ -308,16 +308,15 @@ These results establish good performance in our original training strategy (betw
 \begin{table}[h]
 \begin{center}
 \begin{tabular}{lrr}
- \textbf{Training Scheme} & \textbf{FAR} & \textbf{FRR}\\
+ \textbf{Analysis Scheme} & \textbf{FAR} & \textbf{FRR}\\
 \hline
 Between-participants, any task & 0.000074 & 0.004424\\
 Between-participants, same task & 0.000724 & 0.001522\\
-\hline
 Within-participants & 0.002523 & 0.039702\\
 \hline
 \end{tabular}
 \end{center}
-\caption{Mean FAR and FRR for all participants and passthoughts across three different training schemes.}
+\caption{Mean FAR and FRR for all participants and passthoughts across three analysis schemes.}
 \label{tab:compare}
 \end{table}
 
@@ -391,7 +390,7 @@ Our findings demonstrate the apparent feasibility of a passthoughts system consi
 
 This study was conducted with a small, relatively homogeneous sample of participants. In the case of this initial evaluation however, the homogeneity of our participant pool strengthens the reported results given that system is meant to distinguish between individuals. In order to establish the validity of this system for widespread real-world use we feel it is necessary to expand the size and diversity of participants in future studies. This sample size is comparable to that of other EEG passthoughts work \cite{Ashby2011, Marcel2007a, Poulos2002, Chuang2013b, curran2016passthoughts} and other custom-fit in-ear EEG research \cite{Kidmose2013a, Mikkelsen2015}. The fitting and manufacturing of custom-fit earpieces was the main limitation to increasing our sample size. This may very well pose a limitation in proliferation and adoption of such a technology, although recently there have been developments in at-home kits for creating one's own custom-fitted earpieces \cite{voix2015settable} that could help overcome this barrier.
 
-Among our authentication training schemes, the between-participants analyses achieved lower FAR than within-participants, indicating the inherence factor (a person's brainwaves) is likely stronger than the knowledge factor (their choice of task), though the knowledge factor is not trivial. The \textit{breathe}, \textit{breathe-open}, and \textit{listen} tasks performed exceedingly well among participants. Classifiers overall distinguished the \textit{breathe} and \textit{listen} tasks even compared to the same tasks from other participants, implying that these tasks are expressed differently for each participant, i.e. that they have an inherence factor sufficient for authentication, even though they task do not involve an explicit secondary knowledge factor as in \textit{sport} or \textit{song}. We were able to achieve these results by generating feature vectors based on only 500ms (300 voltage readings across the three electrodes). This short timespan is somewhat surprising, given that tasks like \textit{song} presumably change over longer time periods.
+Among our authentication analysis schemes, the between-participants analyses achieved lower FAR than within-participants, indicating the inherence factor (a person's brainwaves) is likely stronger than the knowledge factor (their choice of task), though the knowledge factor is not trivial. The \textit{breathe}, \textit{breathe-open}, and \textit{listen} tasks performed exceedingly well among participants. Classifiers overall distinguished the \textit{breathe} and \textit{listen} tasks even compared to the same tasks from other participants, implying that these tasks are expressed differently for each participant, i.e. that they have an inherence factor sufficient for authentication, even though they task do not involve an explicit secondary knowledge factor as in \textit{sport} or \textit{song}. We were able to achieve these results by generating feature vectors based on only 500ms (300 voltage readings across the three electrodes). This short timespan is somewhat surprising, given that tasks like \textit{song} presumably change over longer time periods.
 
 Contrary to our expectations, relatively low impedances are still achievable by an imposter using other participants' custom-fit earpieces, despite the uniqueness of ear canal shapes between individuals \cite{Akkermans2005}. This could likely have been due to our use of conductive gel and warrants further exploration. This discovery is not detrimental, however, as the primary inherence factor of this system is drawn from the uniqueness of EEG and not ear canal shape. Classifiers appear to still resist spoofing attacks, indicating that task-related signals are unique to individuals. In terms of establishing a possession factor, the custom-fit earpieces could easily include a hardware keypair to sign authentication attempts in a three-factor, one-step scheme.
 
@@ -412,6 +411,7 @@ Finally, our work leaves room for some clear user experience (UX) improvements. 
 As demonstrated by these preliminary results, custom-fit, in-ear EEG earpieces can provide three factors of security in one highly usable step: thinking one's passthought, using the discreet form factor of an earpiece. Among this initial sample, we are able to achieve 100\% authentication accuracy using a single sensing earpiece, showing potential for integration with technology already used in everyday life (like earphones). By expanding our corpus of EEG readings (in population size, time, and diversity of settings), we hope to better understand the underlying distribution of EEG signals and security properties of passthoughts as well usability issues that may arise in different contexts.
 
 \section{Acknowledgments}
+Witheld for blind review.
 
 %This work was funded by X.
 
@@ -433,8 +433,7 @@ As demonstrated by these preliminary results, custom-fit, in-ear EEG earpieces c
 % in-an-ieee-paper-if-using-bibtex
 %
 % Or, just remove \balance and give up on balancing the last page.
-%
-%\balance
+% \balance
 
 % REFERENCES FORMAT
 % References must be the same font size as other body text.
