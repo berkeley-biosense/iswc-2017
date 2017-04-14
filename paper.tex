@@ -283,18 +283,17 @@ Breathe - open & 0.0002 & 0.0127 & 0 & 0 & 0 & 0 & 0 & 0.0253 & 0 & 0\\
 Face & 0.0002 & 0.0253 & 0.0005 & 0.0253 & 0 & 0.0127 & 0 & 0 & 0 & 0\\
 Listen & 0 & 0 & 0.0005 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\
 Sequence & 0 & 0.0506 & 0.0002 & 0 & 0 & 0 & 0 & 0 & 0.0007 & 0.0127\\
-Song	 & 0.0002 & 0.0380 & 0 & 0 & 0	 & 0 & 0 & 0.0127 & 0.0007 & 0.0127\\
+Song	 & 0.0002 & 0.0380 & 0 & 0 & 0 & 0 & 0 & 0.0127 & 0.0007 & 0.0127\\
 Song - open & 0.0002 & 0.0127 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0.0127\\
 Speech & 0.0002 & 0 & 0.0005 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\
-Sport & 0.0002 & 0 & 0 & 0 & 0 & 0 & 0 & 0  & 0 & 0.0127\\
+Sport & 0.0002 & 0 & 0 & 0 & 0 & 0 & 0 & 0  & 0 & 0.0127\\ \hline
 \textbf{Best Task} & \textbf{0} & \textbf{0} & \textbf{0} & \textbf{0} & \textbf{0} & \textbf{0} & \textbf{0} & \textbf{0} & \textbf{0} & \textbf{0}\\ \hline
 \end{tabularx}
 \caption{FAR and FRR performance of each task for each participant using data from the left ear. P4 and P6 achieve perfect zero FARs and FRRs across all tasks and so are not shown here.}
 \label{tab:farfrrall}
 \end{table*}
 
-All best-performing tasks in our best-case set achieved perfect FAR and FRRs. Interestingly, \textit{breathe} appeared as the best task across all participants, except P1 whose best task was \textit{listen} and P5 who had several other best performing tasks. Given our training strategy, these results indicate that a given person's \textit{breathe} task is distinguishable not only among other tasks, but among \textit{breathe} tasks from other participants.
-This task performed about as well as its open-eyes counterpart (Figure \ref{fig:meanByTask}), as did \textit{song - open} and \textit{sport} (though, interestingly, \textit{song} with eyes closed performed less well).
+All best-performing tasks in our best-case set achieved perfect FAR and FRRs. Each task achieved perfect scores across multiple participants, notably \textit{listen} achieved perfect FAR and FRR for 6 out of 7 participants. Two participants, P4 and P6 achieved 0 FAR and FRR across all tasks. Interestingly, tasks like \textit{listen} and \textit{breathe} performed very well despite lacking a personalized secret, indicating that even when the task may be the same across participants our classifier was still able to distinguish between them.
 
 \begin{figure*}[t]
 \centering
@@ -307,17 +306,17 @@ These results establish good performance in our default training strategy, in wh
 
 \begin{table}[h]
 \begin{center}
-\begin{tabular}{llrrr}
- \textbf{+ve Ex.'s} & \textbf{-ve Ex.'s} & \textbf{Factors} & \textbf{FAR} & \textbf{FRR} \\
+\begin{tabular}{llrr}
+ \textbf{+ Examples} & \textbf{- Examples} & \textbf{FAR} & \textbf{FRR} \\
 \hline
-$P_c, T_c$ & $P_i, T_*$ & I & 0.000074 & 0.004424\\
-$P_c, T_c$ & $P_i, T_c$ & I & 0.000724 & 0.001522\\
-$P_c, T_c$ & $P_c, T_i$ & K & 0.002523 & 0.039702\\
-$P_c, T_c$ & $P_i, T_* + P_c, T_i$ & I \& K & 0.000186 & 0.052565\\
+$P_c, T_c$ & $P_i, T_*$ & 0.000074 & 0.004424\\
+$P_c, T_c$ & $P_i, T_c$ & 0.000724 & 0.001522\\
+$P_c, T_c$ & $P_c, T_i$ & 0.002523 & 0.039702\\
+$P_c, T_c$ & $P_i, T_* + P_c, T_i$ & 0.000186 & 0.052565\\
 \hline
 \end{tabular}
 \end{center}
-\caption{Four analyses training classifiers on different negative examples with resulting mean FAR and FRR across all participants and tasks. $P_c$ indicates correct participant, $P_i$ incorrect participant, $T_c$ correct task, $T_i$ incorrect task, and $T_*$ any task. I indicates inherence factor and K knowledge factor was interrogated.}
+\caption{Four analyses in which classifiers were trained on differing negative examples paired with resulting mean FAR and FRR across all participants and tasks. $P_c$ indicates correct participant, $P_i$ incorrect participant, $T_c$ correct task, $T_i$ incorrect task, and $T_*$ any task.}
 \label{tab:compare}
 \end{table}
 
@@ -387,11 +386,11 @@ However, since this participant's data appeared in the initial pool, the classif
 
 \section{Discussion \& Limitations}
 
-Our findings demonstrate the apparent feasibility of a passthoughts system consisting of a single earpiece with three electrodes and a reference, all on or around the left ear. FARs and FRRs are very low across all participants and tasks, with FARs overall lower than FRRs, a desirable pattern in terms of authenticating access to potentially sensitive information. Participants' best-performing passthoughts typically see no errors in our training. Furthermore, no spoofed attacks were successful in our cursory analysis.
+Our findings demonstrate the apparent feasibility of a passthoughts system consisting of a single earpiece with three electrodes and a reference, all on or around the left ear. FARs and FRRs are very low across all participants and tasks, with FARs overall lower than FRRs, a desirable pattern in terms of authenticating access to potentially sensitive information. Participants' best-performing passthoughts typically see no errors in our training. Passthoughts also appear to be quite memorable given our two week recall follow-up and some were rated highly repeatable and engaging. Furthermore, no spoofed attacks were successful in our cursory analysis.
 
-The \textit{breathe}, \textit{breathe-open}, and \textit{listen} tasks performed exceedingly well among participants, despite not having an explicit secondary knowledge factor as in \textit{sport} or \textit{song}. We were able to achieve these results by generating feature vectors based on only 500 ms (300 voltage readings across the three electrodes), which is somewhat surprising given that tasks like \textit{song} presumably change over longer periods.
+Several tasks performed exceedingly well among participants, even tasks like \textit{listen} and \textit{breathe} which didn't have an explicit secondary knowledge factor like in \textit{sport} or \textit{song}. This suggests a passthoughts system could present users with an array of options for them to choose from, though it remains to be seen how these tasks scale with larger populations. Furthermore, we were able to achieve these results by generating feature vectors based on only 500 ms (300 voltage readings across the three electrodes), which is somewhat surprising given that tasks like \textit{song} presumably change over longer periods.
 
-Our multiple classifier training strategies establish the presence of both knowledge and inherence factors as schemes isolating each achieve low FARs. The inherence factor performs strongest, while the knowledge factor contributes to a sizable increase in FRR. Interestingly, by training classifiers to reject both wrong participants and wrong tasks from the correct participant, thus incorporating both the knowledge and inherence factors, the FRR is highest suggesting multi-factor authentication's added security may come at a small cost to convenience. As preliminary evidence of a possession factor in the current prototypes, we had P1 use their best task (listen) with P6's earpieces but tested on P1's classifier, with a resultant FAR of 0. The custom-fit earpieces could easily include a hardware keypair to sign authentication attempts presenting a more explicit possession factor.
+Our multiple classifier training strategies establish the presence of both knowledge and inherence factors as schemes isolating each achieve low FARs. Interestingly, by training classifiers to reject both wrong participants and wrong tasks from the correct participant, thus incorporating both the knowledge and inherence factors, we see an increase in FRR suggesting multi-factor authentication's added security may come at a small cost to convenience. As preliminary evidence of a possession factor in the current prototypes, we had P1 use their best task (listen) with P6's earpieces but tested on P1's classifier, with a resultant FAR of 0. The custom-fit earpieces could easily include a hardware keypair to sign authentication attempts presenting a more explicit possession factor.
 
 The powerful interactions between inherence and knowledge emerged in our spoofing attacks. Although our target participant documented their chosen passthought, the spoofers found ambiguity in how these passthoughts could be expressed. For the \textit{face} task, the spoofers did not know the precise face the original participant had chosen. For the \textit{song} tasks, though the song was known, the spoofers did not know what part of the song the original participant had imagined, or how it was imagined. This experience sheds light on passthoughts' highly individual nature and suggests there may be intrinsic difficulty in spoofing attempts.
 
@@ -407,7 +406,7 @@ One primary question is how our passthoughts system performance will change with
 
 Another important question surrounds how passthoughts might be cracked. Generally, we do not understand how an individual's passthought is drawn from the distribution of EEG signals an individual produces throughout the day. Given a large enough corpus of EEG data, are some passthoughts as easy to guess as \textit{password1234} is for passwords? Future work should perform statistical analysis on passthoughts, such as clustering (perhaps with t-SNE) to better understand the space of possible passthoughts. This work will allow us simulate cracking attempts, and to develop empirically motivated strategies for prevention, e.g., locking users out after a certain number of attempts. This work could also reveal interesting tradeoffs between the usability or accuracy of passthoughts and their security.
 
-Finally, our work leaves room for some clear user experience (UX) improvements. Future work should try using dry electrodes, commonly found in consumer EEG devices, for comfort and usability. The electrodes could be grounded to the ear, instead of the forehead. Additionally, future work could easily place a speaker inside our current custom-fit earbuds to produce working "hearables" that can be used as ordinary headphones. Future work should also attempt a closed-loop (or online) passthought system, in which users receive immediate feedback on the result of their authentication attempt. A closed-loop BCI system could help us understand how learning effects on the human side might impact authentication performance, as the human and machine co-adapt through authentication attempts.
+Finally, our work leaves room for some clear user experience improvements. Future work should assess dry electrodes, commonly found in consumer EEG devices, for comfort and usability. The electrodes could be grounded to the earlobe, instead of the forehead. Speakers could also be placed inside our current custom-fit earbuds to produce working "hearables" that could be used as ordinary headphones. Future work should also attempt a closed-loop (or online) passthought system, in which users receive immediate feedback on the result of their authentication attempt. A closed-loop BCI system would assist in understanding how human learning effects side might impact authentication performance, as the human and machine co-adapt.
 
 \section{Conclusion}
 
