@@ -1,6 +1,6 @@
-# USENIX '17
+# ISCW '17
 
-usenix 2017 submission
+ISCW 2017 submission
 
 ## compiling paper
 
